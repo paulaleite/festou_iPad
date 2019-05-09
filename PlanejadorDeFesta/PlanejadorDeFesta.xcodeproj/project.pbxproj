@@ -19,6 +19,9 @@
 		0F6F07742284A62B00BAEC3A /* TableViewControllerMeal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6F07732284A62B00BAEC3A /* TableViewControllerMeal.swift */; };
 		0F6F07762284B1F400BAEC3A /* TableViewControllerTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6F07752284B1F400BAEC3A /* TableViewControllerTime.swift */; };
 		0F6F07782284B73700BAEC3A /* TableViewControllerTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6F07772284B73700BAEC3A /* TableViewControllerTitle.swift */; };
+		0F6F077A2284C27A00BAEC3A /* TableViewControllerForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6F07792284C27A00BAEC3A /* TableViewControllerForm.swift */; };
+		0F6F077C2284C93F00BAEC3A /* ViewControllerParty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6F077B2284C93F00BAEC3A /* ViewControllerParty.swift */; };
+		0F6F077E2284CA0300BAEC3A /* TableViewControllerMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6F077D2284CA0300BAEC3A /* TableViewControllerMenu.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +60,9 @@
 		0F6F07732284A62B00BAEC3A /* TableViewControllerMeal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewControllerMeal.swift; sourceTree = "<group>"; };
 		0F6F07752284B1F400BAEC3A /* TableViewControllerTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewControllerTime.swift; sourceTree = "<group>"; };
 		0F6F07772284B73700BAEC3A /* TableViewControllerTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewControllerTitle.swift; sourceTree = "<group>"; };
+		0F6F07792284C27A00BAEC3A /* TableViewControllerForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewControllerForm.swift; sourceTree = "<group>"; };
+		0F6F077B2284C93F00BAEC3A /* ViewControllerParty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerParty.swift; sourceTree = "<group>"; };
+		0F6F077D2284CA0300BAEC3A /* TableViewControllerMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewControllerMenu.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +116,9 @@
 				0F450ABA228349A500FE038F /* AppDelegate.swift */,
 				0F450ABC228349A500FE038F /* ViewController.swift */,
 				0F450ABE228349A500FE038F /* Main.storyboard */,
+				0F6F077D2284CA0300BAEC3A /* TableViewControllerMenu.swift */,
+				0F6F077B2284C93F00BAEC3A /* ViewControllerParty.swift */,
+				0F6F07792284C27A00BAEC3A /* TableViewControllerForm.swift */,
 				0F6F07772284B73700BAEC3A /* TableViewControllerTitle.swift */,
 				0F6F07752284B1F400BAEC3A /* TableViewControllerTime.swift */,
 				0F6F07732284A62B00BAEC3A /* TableViewControllerMeal.swift */,
@@ -274,7 +283,10 @@
 				0F450ABD228349A500FE038F /* ViewController.swift in Sources */,
 				0F450AC3228349A500FE038F /* PlanejadorDeFesta.xcdatamodeld in Sources */,
 				0F6F07762284B1F400BAEC3A /* TableViewControllerTime.swift in Sources */,
+				0F6F077A2284C27A00BAEC3A /* TableViewControllerForm.swift in Sources */,
+				0F6F077E2284CA0300BAEC3A /* TableViewControllerMenu.swift in Sources */,
 				0F450ABB228349A500FE038F /* AppDelegate.swift in Sources */,
+				0F6F077C2284C93F00BAEC3A /* ViewControllerParty.swift in Sources */,
 				0F6F077222849AE800BAEC3A /* TableViewController.swift in Sources */,
 				0F6F07782284B73700BAEC3A /* TableViewControllerTitle.swift in Sources */,
 				0F6F07742284A62B00BAEC3A /* TableViewControllerMeal.swift in Sources */,
