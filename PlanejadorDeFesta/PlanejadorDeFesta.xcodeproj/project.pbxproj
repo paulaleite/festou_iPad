@@ -15,7 +15,7 @@
 		0F450AC8228349A700FE038F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F450AC6228349A700FE038F /* LaunchScreen.storyboard */; };
 		0F450AD3228349A700FE038F /* PlanejadorDeFestaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F450AD2228349A700FE038F /* PlanejadorDeFestaTests.swift */; };
 		0F450ADE228349A700FE038F /* PlanejadorDeFestaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F450ADD228349A700FE038F /* PlanejadorDeFestaUITests.swift */; };
-		0F6F077222849AE800BAEC3A /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6F077122849AE800BAEC3A /* TableViewController.swift */; };
+		0F6F077222849AE800BAEC3A /* TableViewControllerGuests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6F077122849AE800BAEC3A /* TableViewControllerGuests.swift */; };
 		0F6F07742284A62B00BAEC3A /* TableViewControllerMeal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6F07732284A62B00BAEC3A /* TableViewControllerMeal.swift */; };
 		0F6F07762284B1F400BAEC3A /* TableViewControllerTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6F07752284B1F400BAEC3A /* TableViewControllerTime.swift */; };
 		0F6F07782284B73700BAEC3A /* TableViewControllerTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6F07772284B73700BAEC3A /* TableViewControllerTitle.swift */; };
@@ -56,7 +56,7 @@
 		0F450AD9228349A700FE038F /* PlanejadorDeFestaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlanejadorDeFestaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F450ADD228349A700FE038F /* PlanejadorDeFestaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanejadorDeFestaUITests.swift; sourceTree = "<group>"; };
 		0F450ADF228349A700FE038F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0F6F077122849AE800BAEC3A /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		0F6F077122849AE800BAEC3A /* TableViewControllerGuests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewControllerGuests.swift; sourceTree = "<group>"; };
 		0F6F07732284A62B00BAEC3A /* TableViewControllerMeal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewControllerMeal.swift; sourceTree = "<group>"; };
 		0F6F07752284B1F400BAEC3A /* TableViewControllerTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewControllerTime.swift; sourceTree = "<group>"; };
 		0F6F07772284B73700BAEC3A /* TableViewControllerTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewControllerTitle.swift; sourceTree = "<group>"; };
@@ -122,7 +122,7 @@
 				0F6F07772284B73700BAEC3A /* TableViewControllerTitle.swift */,
 				0F6F07752284B1F400BAEC3A /* TableViewControllerTime.swift */,
 				0F6F07732284A62B00BAEC3A /* TableViewControllerMeal.swift */,
-				0F6F077122849AE800BAEC3A /* TableViewController.swift */,
+				0F6F077122849AE800BAEC3A /* TableViewControllerGuests.swift */,
 				0F450AC4228349A700FE038F /* Assets.xcassets */,
 				0F450AC6228349A700FE038F /* LaunchScreen.storyboard */,
 				0F450AC9228349A700FE038F /* Info.plist */,
@@ -287,7 +287,7 @@
 				0F6F077E2284CA0300BAEC3A /* TableViewControllerMenu.swift in Sources */,
 				0F450ABB228349A500FE038F /* AppDelegate.swift in Sources */,
 				0F6F077C2284C93F00BAEC3A /* ViewControllerParty.swift in Sources */,
-				0F6F077222849AE800BAEC3A /* TableViewController.swift in Sources */,
+				0F6F077222849AE800BAEC3A /* TableViewControllerGuests.swift in Sources */,
 				0F6F07782284B73700BAEC3A /* TableViewControllerTitle.swift in Sources */,
 				0F6F07742284A62B00BAEC3A /* TableViewControllerMeal.swift in Sources */,
 			);
