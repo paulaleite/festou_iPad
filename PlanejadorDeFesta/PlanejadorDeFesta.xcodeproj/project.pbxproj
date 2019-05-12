@@ -15,13 +15,16 @@
 		0F450AC8228349A700FE038F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F450AC6228349A700FE038F /* LaunchScreen.storyboard */; };
 		0F450AD3228349A700FE038F /* PlanejadorDeFestaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F450AD2228349A700FE038F /* PlanejadorDeFestaTests.swift */; };
 		0F450ADE228349A700FE038F /* PlanejadorDeFestaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F450ADD228349A700FE038F /* PlanejadorDeFestaUITests.swift */; };
-		0F6F077222849AE800BAEC3A /* TableViewControllerGuests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6F077122849AE800BAEC3A /* TableViewControllerGuests.swift */; };
+		0F6F077222849AE800BAEC3A /* GuestsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6F077122849AE800BAEC3A /* GuestsTableViewController.swift */; };
 		0F6F07742284A62B00BAEC3A /* TableViewControllerMeal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6F07732284A62B00BAEC3A /* TableViewControllerMeal.swift */; };
 		0F6F07762284B1F400BAEC3A /* TableViewControllerTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6F07752284B1F400BAEC3A /* TableViewControllerTime.swift */; };
 		0F6F07782284B73700BAEC3A /* TableViewControllerTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6F07772284B73700BAEC3A /* TableViewControllerTitle.swift */; };
 		0F6F077A2284C27A00BAEC3A /* TableViewControllerForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6F07792284C27A00BAEC3A /* TableViewControllerForm.swift */; };
-		0F6F077C2284C93F00BAEC3A /* ViewControllerParty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6F077B2284C93F00BAEC3A /* ViewControllerParty.swift */; };
-		0F6F077E2284CA0300BAEC3A /* TableViewControllerMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6F077D2284CA0300BAEC3A /* TableViewControllerMenu.swift */; };
+		0F6F077E2284CA0300BAEC3A /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6F077D2284CA0300BAEC3A /* MenuTableViewController.swift */; };
+		E4C24EA92288983B0065C4A4 /* Party+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C24EA52288983B0065C4A4 /* Party+CoreDataClass.swift */; };
+		E4C24EAA2288983B0065C4A4 /* Party+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C24EA62288983B0065C4A4 /* Party+CoreDataProperties.swift */; };
+		E4C24EAB2288983B0065C4A4 /* Tasks+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C24EA72288983B0065C4A4 /* Tasks+CoreDataClass.swift */; };
+		E4C24EAC2288983B0065C4A4 /* Tasks+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C24EA82288983B0065C4A4 /* Tasks+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,13 +59,16 @@
 		0F450AD9228349A700FE038F /* PlanejadorDeFestaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlanejadorDeFestaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F450ADD228349A700FE038F /* PlanejadorDeFestaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanejadorDeFestaUITests.swift; sourceTree = "<group>"; };
 		0F450ADF228349A700FE038F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0F6F077122849AE800BAEC3A /* TableViewControllerGuests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewControllerGuests.swift; sourceTree = "<group>"; };
+		0F6F077122849AE800BAEC3A /* GuestsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestsTableViewController.swift; sourceTree = "<group>"; };
 		0F6F07732284A62B00BAEC3A /* TableViewControllerMeal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewControllerMeal.swift; sourceTree = "<group>"; };
 		0F6F07752284B1F400BAEC3A /* TableViewControllerTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewControllerTime.swift; sourceTree = "<group>"; };
 		0F6F07772284B73700BAEC3A /* TableViewControllerTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewControllerTitle.swift; sourceTree = "<group>"; };
 		0F6F07792284C27A00BAEC3A /* TableViewControllerForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewControllerForm.swift; sourceTree = "<group>"; };
-		0F6F077B2284C93F00BAEC3A /* ViewControllerParty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerParty.swift; sourceTree = "<group>"; };
-		0F6F077D2284CA0300BAEC3A /* TableViewControllerMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewControllerMenu.swift; sourceTree = "<group>"; };
+		0F6F077D2284CA0300BAEC3A /* MenuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewController.swift; sourceTree = "<group>"; };
+		E4C24EA52288983B0065C4A4 /* Party+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Party+CoreDataClass.swift"; sourceTree = "<group>"; };
+		E4C24EA62288983B0065C4A4 /* Party+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Party+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		E4C24EA72288983B0065C4A4 /* Tasks+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Tasks+CoreDataClass.swift"; sourceTree = "<group>"; };
+		E4C24EA82288983B0065C4A4 /* Tasks+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Tasks+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +99,10 @@
 		0F450AAE228349A500FE038F = {
 			isa = PBXGroup;
 			children = (
+				E4C24EA52288983B0065C4A4 /* Party+CoreDataClass.swift */,
+				E4C24EA62288983B0065C4A4 /* Party+CoreDataProperties.swift */,
+				E4C24EA72288983B0065C4A4 /* Tasks+CoreDataClass.swift */,
+				E4C24EA82288983B0065C4A4 /* Tasks+CoreDataProperties.swift */,
 				0F450AB9228349A500FE038F /* PlanejadorDeFesta */,
 				0F450AD1228349A700FE038F /* PlanejadorDeFestaTests */,
 				0F450ADC228349A700FE038F /* PlanejadorDeFestaUITests */,
@@ -116,13 +126,12 @@
 				0F450ABA228349A500FE038F /* AppDelegate.swift */,
 				0F450ABC228349A500FE038F /* ViewController.swift */,
 				0F450ABE228349A500FE038F /* Main.storyboard */,
-				0F6F077D2284CA0300BAEC3A /* TableViewControllerMenu.swift */,
-				0F6F077B2284C93F00BAEC3A /* ViewControllerParty.swift */,
+				0F6F077D2284CA0300BAEC3A /* MenuTableViewController.swift */,
 				0F6F07792284C27A00BAEC3A /* TableViewControllerForm.swift */,
 				0F6F07772284B73700BAEC3A /* TableViewControllerTitle.swift */,
 				0F6F07752284B1F400BAEC3A /* TableViewControllerTime.swift */,
 				0F6F07732284A62B00BAEC3A /* TableViewControllerMeal.swift */,
-				0F6F077122849AE800BAEC3A /* TableViewControllerGuests.swift */,
+				0F6F077122849AE800BAEC3A /* GuestsTableViewController.swift */,
 				0F450AC4228349A700FE038F /* Assets.xcassets */,
 				0F450AC6228349A700FE038F /* LaunchScreen.storyboard */,
 				0F450AC9228349A700FE038F /* Info.plist */,
@@ -284,10 +293,13 @@
 				0F450AC3228349A500FE038F /* PlanejadorDeFesta.xcdatamodeld in Sources */,
 				0F6F07762284B1F400BAEC3A /* TableViewControllerTime.swift in Sources */,
 				0F6F077A2284C27A00BAEC3A /* TableViewControllerForm.swift in Sources */,
-				0F6F077E2284CA0300BAEC3A /* TableViewControllerMenu.swift in Sources */,
+				E4C24EAC2288983B0065C4A4 /* Tasks+CoreDataProperties.swift in Sources */,
+				0F6F077E2284CA0300BAEC3A /* MenuTableViewController.swift in Sources */,
 				0F450ABB228349A500FE038F /* AppDelegate.swift in Sources */,
-				0F6F077C2284C93F00BAEC3A /* ViewControllerParty.swift in Sources */,
-				0F6F077222849AE800BAEC3A /* TableViewControllerGuests.swift in Sources */,
+				E4C24EA92288983B0065C4A4 /* Party+CoreDataClass.swift in Sources */,
+				E4C24EAA2288983B0065C4A4 /* Party+CoreDataProperties.swift in Sources */,
+				0F6F077222849AE800BAEC3A /* GuestsTableViewController.swift in Sources */,
+				E4C24EAB2288983B0065C4A4 /* Tasks+CoreDataClass.swift in Sources */,
 				0F6F07782284B73700BAEC3A /* TableViewControllerTitle.swift in Sources */,
 				0F6F07742284A62B00BAEC3A /* TableViewControllerMeal.swift in Sources */,
 			);
@@ -465,7 +477,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = BSH4XC9RT9;
+				DEVELOPMENT_TEAM = 5HW626WUP4;
 				INFOPLIST_FILE = PlanejadorDeFesta/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -483,7 +495,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = BSH4XC9RT9;
+				DEVELOPMENT_TEAM = 5HW626WUP4;
 				INFOPLIST_FILE = PlanejadorDeFesta/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

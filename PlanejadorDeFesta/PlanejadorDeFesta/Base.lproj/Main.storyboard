@@ -14,47 +14,40 @@
         <scene sceneID="eTm-2V-abP">
             <objects>
                 <tableViewController storyboardIdentifier="partyInitial" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Nch-U0-3p1" customClass="TableViewControllerMenu" customModule="PlanejadorDeFesta" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="reC-f1-knt">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="reC-f1-knt">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <sections>
-                            <tableViewSection id="toO-ZI-qt4">
-                                <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="Fx1-Ae-tLc" detailTextLabel="PBG-b4-HDG" rowHeight="90" style="IBUITableViewCellStyleSubtitle" id="REy-Ab-Kkw">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="90"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="REy-Ab-Kkw" id="LSb-6O-woE">
-                                            <rect key="frame" x="0.0" y="0.0" width="376" height="89.5"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="Fx1-Ae-tLc" detailTextLabel="PBG-b4-HDG" rowHeight="90" style="IBUITableViewCellStyleSubtitle" id="REy-Ab-Kkw">
+                                <rect key="frame" x="0.0" y="28" width="414" height="90"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="REy-Ab-Kkw" id="LSb-6O-woE">
+                                    <rect key="frame" x="0.0" y="0.0" width="376" height="89.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Aniversário da Lia" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Fx1-Ae-tLc">
+                                            <rect key="frame" x="20" y="19.5" width="154" height="24"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Aniversário da Lia" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Fx1-Ae-tLc">
-                                                    <rect key="frame" x="20" y="19.5" width="154" height="24"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="24/05" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="PBG-b4-HDG">
-                                                    <rect key="frame" x="20" y="47" width="46" height="20.5"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="y16-bG-1OW" kind="show" id="eFK-ZU-RaW"/>
-                                        </connections>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
-                        </sections>
-                        <connections>
-                            <outlet property="dataSource" destination="Nch-U0-3p1" id="TaW-Tr-w0w"/>
-                            <outlet property="delegate" destination="Nch-U0-3p1" id="PKA-KP-xLo"/>
-                        </connections>
+                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="24/05" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="PBG-b4-HDG">
+                                            <rect key="frame" x="20" y="47" width="46" height="20.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="y16-bG-1OW" kind="show" id="eFK-ZU-RaW"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <sections/>
                     </tableView>
                     <navigationItem key="navigationItem" title="Festas" id="sn4-9x-OEC">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Njv-tf-p9G">
@@ -63,6 +56,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="reC-f1-knt" id="TBa-Au-6cX"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ezo-Ev-hqx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -195,6 +191,7 @@
                         <barButtonItem key="backBarButtonItem" title="Voltar" id="AE1-dY-9Kz"/>
                         <barButtonItem key="rightBarButtonItem" title="Próximo" id="Rcm-R2-3xG">
                             <connections>
+                                <action selector="nextButton:" destination="ppU-Hm-GqJ" id="ifh-yE-i3H"/>
                                 <segue destination="V7P-YV-tsc" kind="show" id="Qjz-w2-aff"/>
                             </connections>
                         </barButtonItem>
