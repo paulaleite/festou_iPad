@@ -2,4 +2,129 @@
 <Bucket
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PlanejadorDeFesta/TitleTableViewController.swift"
+            timestampString = "579473247.0323319"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "18"
+            endingLineNumber = "18"
+            landmarkName = "TitleTableViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PlanejadorDeFesta.TitleTableViewController.party.getter : Swift.Optional&lt;PlanejadorDeFesta.Party&gt;"
+                  moduleName = "PlanejadorDeFesta"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/liakassardjian/Documents/Academy/PlanejadorDeFesta_MyFirstApp/PlanejadorDeFesta/PlanejadorDeFesta/TitleTableViewController.swift"
+                  timestampString = "579472786.187387"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "19"
+                  endingLineNumber = "19"
+                  offsetFromSymbolStart = "114">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PlanejadorDeFesta.TitleTableViewController.party.setter : Swift.Optional&lt;PlanejadorDeFesta.Party&gt;"
+                  moduleName = "PlanejadorDeFesta"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/liakassardjian/Documents/Academy/PlanejadorDeFesta_MyFirstApp/PlanejadorDeFesta/PlanejadorDeFesta/TitleTableViewController.swift"
+                  timestampString = "579472786.189491"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "19"
+                  endingLineNumber = "19"
+                  offsetFromSymbolStart = "128">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PlanejadorDeFesta.TitleTableViewController.party.modify : Swift.Optional&lt;PlanejadorDeFesta.Party&gt;"
+                  moduleName = "PlanejadorDeFesta"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/liakassardjian/Documents/Academy/PlanejadorDeFesta_MyFirstApp/PlanejadorDeFesta/PlanejadorDeFesta/TitleTableViewController.swift"
+                  timestampString = "579472786.1914279"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "18">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PlanejadorDeFesta.TitleTableViewController.party.modify : Swift.Optional&lt;PlanejadorDeFesta.Party&gt; with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "PlanejadorDeFesta"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/liakassardjian/Documents/Academy/PlanejadorDeFesta_MyFirstApp/PlanejadorDeFesta/PlanejadorDeFesta/TitleTableViewController.swift"
+                  timestampString = "579472786.193339"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "19"
+                  endingLineNumber = "19"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PlanejadorDeFesta.TitleTableViewController.init(style: __C.UITableViewStyle) -&gt; PlanejadorDeFesta.TitleTableViewController"
+                  moduleName = "PlanejadorDeFesta"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/liakassardjian/Documents/Academy/PlanejadorDeFesta_MyFirstApp/PlanejadorDeFesta/PlanejadorDeFesta/TitleTableViewController.swift"
+                  timestampString = "579472786.194955"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "19"
+                  endingLineNumber = "19"
+                  offsetFromSymbolStart = "285">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PlanejadorDeFesta.TitleTableViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; PlanejadorDeFesta.TitleTableViewController"
+                  moduleName = "PlanejadorDeFesta"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/liakassardjian/Documents/Academy/PlanejadorDeFesta_MyFirstApp/PlanejadorDeFesta/PlanejadorDeFesta/TitleTableViewController.swift"
+                  timestampString = "579472786.1965441"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "19"
+                  endingLineNumber = "19"
+                  offsetFromSymbolStart = "412">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PlanejadorDeFesta.TitleTableViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;PlanejadorDeFesta.TitleTableViewController&gt;"
+                  moduleName = "PlanejadorDeFesta"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/liakassardjian/Documents/Academy/PlanejadorDeFesta_MyFirstApp/PlanejadorDeFesta/PlanejadorDeFesta/TitleTableViewController.swift"
+                  timestampString = "579472786.198117"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "19"
+                  endingLineNumber = "19"
+                  offsetFromSymbolStart = "332">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

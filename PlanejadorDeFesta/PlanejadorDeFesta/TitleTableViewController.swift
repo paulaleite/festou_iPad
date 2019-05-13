@@ -42,22 +42,25 @@ class TitleTableViewController: UITableViewController, UITextFieldDelegate {
             partyTitle = partyTitleTextField.text!
         }
         
-        if let _ = partyTVC {
-            if let context = context {
-                if let newPartyTitle = partyTitle {
-                    party!.name = newPartyTitle
-                }
-                partyTVC!.parties.append(party!)
-                //(UIApplication.shared.delegate as! AppDelegate).saveContext()
-                do {
-                    try context.save()
-                } catch {
-                    let nserror = error as NSError
-                    fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+        if partyTitle != nil {
+            if let _ = partyTVC {
+                if let context = context {
+                    if let newPartyTitle = partyTitle {
+                        party!.name = newPartyTitle
+                    }
+                    partyTVC!.parties.append(party!)
+                    //(UIApplication.shared.delegate as! AppDelegate).saveContext()
+                    do {
+                        try context.save()
+                    } catch {
+                        let nserror = error as NSError
+                        fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+                    }
                 }
             }
+            return true
         }
-        return true
+        return false
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
