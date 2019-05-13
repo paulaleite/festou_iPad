@@ -60,9 +60,15 @@ class TimeTableViewController: UITableViewController, UIPickerViewDelegate, UIPi
             if let context = context {
                 //party = partyTVC!.parties[(partyTVC!.parties.count) - 1]
                 if let newNumOfHours = selectedValue {
-                    party?.numOfHours = newNumOfHours
+                    party!.numOfHours = newNumOfHours
                 }
-                (UIApplication.shared.delegate as! AppDelegate).saveContext()
+                //(UIApplication.shared.delegate as! AppDelegate).saveContext()
+                do {
+                    try context.save()
+                } catch {
+                    let nserror = error as NSError
+                    fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+                }
             }
         }
         

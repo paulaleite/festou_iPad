@@ -22,7 +22,11 @@ class GuestsTableViewController: UITableViewController, UITextFieldDelegate {
     
     @IBOutlet weak var amountOfDrunkGuestsTextField: UITextField!
     
-    var selectedRow:Bool = false
+    var selected:Bool = false
+    
+    var selectedRow:Int = 0
+    
+    var selectedSection:Int = 2
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +39,7 @@ class GuestsTableViewController: UITableViewController, UITextFieldDelegate {
         let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         self.view.addGestureRecognizer(tap)
         tap.cancelsTouchesInView = false
+        
         amountOfDrunkGuestsTextField.delegate = self
         amountOfGuestsTextField.delegate = self
         tableView.isUserInteractionEnabled = true
@@ -42,14 +47,16 @@ class GuestsTableViewController: UITableViewController, UITextFieldDelegate {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        if tableView.cellForRow(at: indexPath)?.accessoryType == .checkmark {
-            tableView.cellForRow(at: IndexPath(row: 0, section: 2))?.accessoryType = .none
-            selectedRow = false
-        } else {
-            tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
-            selectedRow = true
+        selectedRow = indexPath.row
+        selectedSection = indexPath.section
+        
+        if selectedRow == 0 && selectedSection == 2 && tableView.cellForRow(at: indexPath)!.accessoryType == .none {
+            tableView.cellForRow(at: IndexPath(row: 0, section: 2))?.accessoryType = .checkmark
+            selected = true
+        } else if selectedRow == 0 && selectedSection == 2 && tableView.cellForRow(at: IndexPath(row: 0, section: 2))?.accessoryType == .checkmark {
+            tableView.cellForRow(at: indexPath)?.accessoryType = .none
+            selected = false
         }
-
     }
     
     @IBAction func next(_ sender: Any) {
@@ -64,7 +71,7 @@ class GuestsTableViewController: UITableViewController, UITextFieldDelegate {
             newNumGuests = num
         }
         
-        if selectedRow {
+        if selected {
             newDoesDrink = true
             if amountOfDrunkGuestsTextField.text != nil,
                 amountOfDrunkGuestsTextField.text!.count > 0,
@@ -79,7 +86,6 @@ class GuestsTableViewController: UITableViewController, UITextFieldDelegate {
                 party!.numOfGuests = Int16(newNumGuests)
                 party!.doesDrink = newDoesDrink
                 party!.numOfDrunkGuests = Int16(newNumDrunkGuests)
-                //partyTVC!.parties.append(party!)
                 do {
                     try context.save()
                 } catch {

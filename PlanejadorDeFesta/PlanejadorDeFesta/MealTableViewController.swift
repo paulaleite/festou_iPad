@@ -50,7 +50,13 @@ class MealTableViewController: UITableViewController {
             if let context = context {
                 //party = partyTVC!.parties.last!
                 party!.doesHaveMeal = newDoesHaveMeal
-                (UIApplication.shared.delegate as! AppDelegate).saveContext()
+                //(UIApplication.shared.delegate as! AppDelegate).saveContext()
+                do {
+                    try context.save()
+                } catch {
+                    let nserror = error as NSError
+                    fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+                }
             }
         }
         

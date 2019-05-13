@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		0F450ABB228349A500FE038F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F450ABA228349A500FE038F /* AppDelegate.swift */; };
-		0F450ABD228349A500FE038F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F450ABC228349A500FE038F /* ViewController.swift */; };
 		0F450AC0228349A500FE038F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F450ABE228349A500FE038F /* Main.storyboard */; };
 		0F450AC3228349A500FE038F /* PlanejadorDeFesta.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0F450AC1228349A500FE038F /* PlanejadorDeFesta.xcdatamodeld */; };
 		0F450AC5228349A700FE038F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F450AC4228349A700FE038F /* Assets.xcassets */; };
@@ -47,7 +46,6 @@
 /* Begin PBXFileReference section */
 		0F450AB7228349A500FE038F /* PlanejadorDeFesta.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlanejadorDeFesta.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F450ABA228349A500FE038F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0F450ABC228349A500FE038F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		0F450ABF228349A500FE038F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0F450AC2228349A500FE038F /* PlanejadorDeFesta.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PlanejadorDeFesta.xcdatamodel; sourceTree = "<group>"; };
 		0F450AC4228349A700FE038F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -124,7 +122,6 @@
 			isa = PBXGroup;
 			children = (
 				0F450ABA228349A500FE038F /* AppDelegate.swift */,
-				0F450ABC228349A500FE038F /* ViewController.swift */,
 				0F450ABE228349A500FE038F /* Main.storyboard */,
 				0F6F077D2284CA0300BAEC3A /* MenuTableViewController.swift */,
 				0F6F07792284C27A00BAEC3A /* TableViewControllerForm.swift */,
@@ -289,7 +286,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0F450ABD228349A500FE038F /* ViewController.swift in Sources */,
 				0F450AC3228349A500FE038F /* PlanejadorDeFesta.xcdatamodeld in Sources */,
 				0F6F07762284B1F400BAEC3A /* TimeTableViewController.swift in Sources */,
 				0F6F077A2284C27A00BAEC3A /* TableViewControllerForm.swift in Sources */,

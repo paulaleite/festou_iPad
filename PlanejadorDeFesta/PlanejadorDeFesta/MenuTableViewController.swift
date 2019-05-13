@@ -47,9 +47,9 @@ class MenuTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
+            context?.delete(parties[indexPath.row])
             parties.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
-            context?.delete(parties[indexPath.row])
             (UIApplication.shared.delegate as! AppDelegate).saveContext()
         }
     }

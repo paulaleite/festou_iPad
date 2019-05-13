@@ -35,7 +35,8 @@ class TitleTableViewController: UITableViewController, UITextFieldDelegate {
         partyTitleTextField.delegate = self
     }
     
-    @IBAction func addButton(_ sender: Any) {
+    
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         if partyTitleTextField.text != nil,
             partyTitleTextField.text!.count > 0 {
             partyTitle = partyTitleTextField.text!
@@ -43,15 +44,20 @@ class TitleTableViewController: UITableViewController, UITextFieldDelegate {
         
         if let _ = partyTVC {
             if let context = context {
-                //party = partyTVC!.parties[(partyTVC!.parties.count) - 1]
                 if let newPartyTitle = partyTitle {
-                    party?.name = newPartyTitle
+                    party!.name = newPartyTitle
                 }
                 partyTVC!.parties.append(party!)
-                (UIApplication.shared.delegate as! AppDelegate).saveContext()
+                //(UIApplication.shared.delegate as! AppDelegate).saveContext()
+                do {
+                    try context.save()
+                } catch {
+                    let nserror = error as NSError
+                    fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+                }
             }
         }
-    
+        return true
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
