@@ -8,10 +8,17 @@
 
 import Foundation
 import UIKit
+import CoreData
 
-class TableViewControllerTime: UITableViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class TimeTableViewController: UITableViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
     @IBOutlet weak var amountOfHoursPicker: UIPickerView!
+    
+    public var party:Party?
+    
+    public var partyTVC:MenuTableViewController?
+    
+    var context:NSManagedObjectContext?
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -38,12 +45,34 @@ class TableViewControllerTime: UITableViewController, UIPickerViewDelegate, UIPi
         
         super.viewDidLoad()
         
+        context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        
         amountOfHoursPickerData = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
         
         self.amountOfHoursPicker.delegate = self
         self.amountOfHoursPicker.dataSource = self
+    }
+    
+    @IBAction func next (_ sender: Any) {
+        let selectedValue = Int16(amountOfHoursPickerData[amountOfHoursPicker.selectedRow(inComponent: 0)])
         
+        if let _ = partyTVC {
+            if let context = context {
+                //party = partyTVC!.parties[(partyTVC!.parties.count) - 1]
+                if let newNumOfHours = selectedValue {
+                    party?.numOfHours = newNumOfHours
+                }
+                (UIApplication.shared.delegate as! AppDelegate).saveContext()
+            }
+        }
         
+        let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "partyName")
+        if let partyTitle = controller as? TitleTableViewController {
+            partyTitle.party = party
+            partyTitle.partyTVC = partyTVC
+        }
+        self.navigationController!.pushViewController(controller, animated: true)
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

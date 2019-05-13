@@ -16,9 +16,9 @@
 		0F450AD3228349A700FE038F /* PlanejadorDeFestaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F450AD2228349A700FE038F /* PlanejadorDeFestaTests.swift */; };
 		0F450ADE228349A700FE038F /* PlanejadorDeFestaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F450ADD228349A700FE038F /* PlanejadorDeFestaUITests.swift */; };
 		0F6F077222849AE800BAEC3A /* GuestsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6F077122849AE800BAEC3A /* GuestsTableViewController.swift */; };
-		0F6F07742284A62B00BAEC3A /* TableViewControllerMeal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6F07732284A62B00BAEC3A /* TableViewControllerMeal.swift */; };
-		0F6F07762284B1F400BAEC3A /* TableViewControllerTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6F07752284B1F400BAEC3A /* TableViewControllerTime.swift */; };
-		0F6F07782284B73700BAEC3A /* TableViewControllerTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6F07772284B73700BAEC3A /* TableViewControllerTitle.swift */; };
+		0F6F07742284A62B00BAEC3A /* MealTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6F07732284A62B00BAEC3A /* MealTableViewController.swift */; };
+		0F6F07762284B1F400BAEC3A /* TimeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6F07752284B1F400BAEC3A /* TimeTableViewController.swift */; };
+		0F6F07782284B73700BAEC3A /* TitleTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6F07772284B73700BAEC3A /* TitleTableViewController.swift */; };
 		0F6F077A2284C27A00BAEC3A /* TableViewControllerForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6F07792284C27A00BAEC3A /* TableViewControllerForm.swift */; };
 		0F6F077E2284CA0300BAEC3A /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6F077D2284CA0300BAEC3A /* MenuTableViewController.swift */; };
 		E4C24EA92288983B0065C4A4 /* Party+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C24EA52288983B0065C4A4 /* Party+CoreDataClass.swift */; };
@@ -60,9 +60,9 @@
 		0F450ADD228349A700FE038F /* PlanejadorDeFestaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanejadorDeFestaUITests.swift; sourceTree = "<group>"; };
 		0F450ADF228349A700FE038F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0F6F077122849AE800BAEC3A /* GuestsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestsTableViewController.swift; sourceTree = "<group>"; };
-		0F6F07732284A62B00BAEC3A /* TableViewControllerMeal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewControllerMeal.swift; sourceTree = "<group>"; };
-		0F6F07752284B1F400BAEC3A /* TableViewControllerTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewControllerTime.swift; sourceTree = "<group>"; };
-		0F6F07772284B73700BAEC3A /* TableViewControllerTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewControllerTitle.swift; sourceTree = "<group>"; };
+		0F6F07732284A62B00BAEC3A /* MealTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealTableViewController.swift; sourceTree = "<group>"; };
+		0F6F07752284B1F400BAEC3A /* TimeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableViewController.swift; sourceTree = "<group>"; };
+		0F6F07772284B73700BAEC3A /* TitleTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleTableViewController.swift; sourceTree = "<group>"; };
 		0F6F07792284C27A00BAEC3A /* TableViewControllerForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewControllerForm.swift; sourceTree = "<group>"; };
 		0F6F077D2284CA0300BAEC3A /* MenuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewController.swift; sourceTree = "<group>"; };
 		E4C24EA52288983B0065C4A4 /* Party+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Party+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -128,9 +128,9 @@
 				0F450ABE228349A500FE038F /* Main.storyboard */,
 				0F6F077D2284CA0300BAEC3A /* MenuTableViewController.swift */,
 				0F6F07792284C27A00BAEC3A /* TableViewControllerForm.swift */,
-				0F6F07772284B73700BAEC3A /* TableViewControllerTitle.swift */,
-				0F6F07752284B1F400BAEC3A /* TableViewControllerTime.swift */,
-				0F6F07732284A62B00BAEC3A /* TableViewControllerMeal.swift */,
+				0F6F07772284B73700BAEC3A /* TitleTableViewController.swift */,
+				0F6F07752284B1F400BAEC3A /* TimeTableViewController.swift */,
+				0F6F07732284A62B00BAEC3A /* MealTableViewController.swift */,
 				0F6F077122849AE800BAEC3A /* GuestsTableViewController.swift */,
 				0F450AC4228349A700FE038F /* Assets.xcassets */,
 				0F450AC6228349A700FE038F /* LaunchScreen.storyboard */,
@@ -291,7 +291,7 @@
 			files = (
 				0F450ABD228349A500FE038F /* ViewController.swift in Sources */,
 				0F450AC3228349A500FE038F /* PlanejadorDeFesta.xcdatamodeld in Sources */,
-				0F6F07762284B1F400BAEC3A /* TableViewControllerTime.swift in Sources */,
+				0F6F07762284B1F400BAEC3A /* TimeTableViewController.swift in Sources */,
 				0F6F077A2284C27A00BAEC3A /* TableViewControllerForm.swift in Sources */,
 				E4C24EAC2288983B0065C4A4 /* Tasks+CoreDataProperties.swift in Sources */,
 				0F6F077E2284CA0300BAEC3A /* MenuTableViewController.swift in Sources */,
@@ -300,8 +300,8 @@
 				E4C24EAA2288983B0065C4A4 /* Party+CoreDataProperties.swift in Sources */,
 				0F6F077222849AE800BAEC3A /* GuestsTableViewController.swift in Sources */,
 				E4C24EAB2288983B0065C4A4 /* Tasks+CoreDataClass.swift in Sources */,
-				0F6F07782284B73700BAEC3A /* TableViewControllerTitle.swift in Sources */,
-				0F6F07742284A62B00BAEC3A /* TableViewControllerMeal.swift in Sources */,
+				0F6F07782284B73700BAEC3A /* TitleTableViewController.swift in Sources */,
+				0F6F07742284A62B00BAEC3A /* MealTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -27,12 +27,14 @@ class GuestsTableViewController: UITableViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        
         self.tableView.tableFooterView = UIView(frame: CGRect.zero)
         self.tableView.delegate = self
         self.tableView.dataSource = self
         let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         self.view.addGestureRecognizer(tap)
-        
+        tap.cancelsTouchesInView = false
         amountOfDrunkGuestsTextField.delegate = self
         amountOfGuestsTextField.delegate = self
         tableView.isUserInteractionEnabled = true
@@ -50,7 +52,8 @@ class GuestsTableViewController: UITableViewController, UITextFieldDelegate {
 
     }
     
-    @IBAction func nextButton(_ sender: Any) {
+    @IBAction func next(_ sender: Any) {
+    
         var newNumGuests:Int = 1
         var newDoesDrink:Bool = false
         var newNumDrunkGuests:Int = 0
@@ -63,34 +66,36 @@ class GuestsTableViewController: UITableViewController, UITextFieldDelegate {
         
         if selectedRow {
             newDoesDrink = true
-            if amountOfDrunkGuestsTextField.text!.count > 0,
+            if amountOfDrunkGuestsTextField.text != nil,
+                amountOfDrunkGuestsTextField.text!.count > 0,
                 let num = Int(amountOfDrunkGuestsTextField.text!) {
                 newNumDrunkGuests = num
             }
         }
         
-        if let _ = party {
-            party!.numOfGuests = Int16(newNumGuests)
-            party!.doesDrink = newDoesDrink
-            party!.numOfDrunkGuests = Int16(newNumDrunkGuests)
-            (UIApplication.shared.delegate as! AppDelegate).saveContext()
-        } else {
-            if let partyTVC = partyTVC {
-                if let context = context {
-                    let newParty = NSEntityDescription.insertNewObject(forEntityName: "Party", into: context) as! Party
-                    party?.numOfGuests = Int16(newNumGuests)
-                    party?.doesDrink = newDoesDrink
-                    party?.numOfDrunkGuests = Int16(newNumDrunkGuests)
-                    partyTVC.parties.append(newParty)
-                    do {
-                        try context.save()
-                    } catch {
-                        let nserror = error as NSError
-                        fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
-                    }
+        if let _ = partyTVC {
+            if let context = context {
+                party = NSEntityDescription.insertNewObject(forEntityName: "Party", into: context) as! Party
+                party!.numOfGuests = Int16(newNumGuests)
+                party!.doesDrink = newDoesDrink
+                party!.numOfDrunkGuests = Int16(newNumDrunkGuests)
+                //partyTVC!.parties.append(party!)
+                do {
+                    try context.save()
+                } catch {
+                    let nserror = error as NSError
+                    fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
                 }
             }
         }
+        
+        let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "partyMeal")
+        if let partyMeal = controller as? MealTableViewController {
+            partyMeal.party = party
+            partyMeal.partyTVC = partyTVC
+        }
+        self.navigationController!.pushViewController(controller, animated: true)
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

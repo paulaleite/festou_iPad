@@ -45,47 +45,45 @@ class MenuTableViewController: UITableViewController {
         return cell
     }
     
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if let editarVC = segue.destination as? EditarAulaTVC {
-//            editarVC.aulaVC = self
-//            if segue.identifier == "editarAula"{
-//                editarVC.aula = aulas[tableView.indexPathForSelectedRow!.row]
-//            }
-//        }
-//    }
-    
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            
             parties.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
             context?.delete(parties[indexPath.row])
             (UIApplication.shared.delegate as! AppDelegate).saveContext()
         }
     }
-    
+
     @IBAction func addParty(_ sender: UIStoryboardSegue){
-        if sender.source is TableViewControllerTitle{
-            if sender.source is TableViewControllerTitle{
-                //parties.append(senderAdd.party)
-                print("ok")
+        if sender.source is TitleTableViewController{
+            if let senderAdd = sender.source as? TitleTableViewController{
+                if let party = senderAdd.party{
+                    parties.append(party)
+                    print("\nOK\n")
+                }
             }
         }
     }
-    
+
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return false
     }
     
-//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        if indexPath.section == 0 {
-//            if indexPath.row == 0 {
-//                let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
-//                let controller = storyboard.instantiateViewController(withIdentifier: "partyMainTasks")
-//                self.navigationController!.pushViewController(controller, animated: true)
-//            }
-//        }
-//    }
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 0 {
+            if indexPath.row == 0 {
+                let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+                let controller = storyboard.instantiateViewController(withIdentifier: "partyMainTasks")
+                self.navigationController!.pushViewController(controller, animated: true)
+            }
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let partyGuest = segue.destination as? GuestsTableViewController {
+            partyGuest.partyTVC = self
+        }
+    }
     
 }

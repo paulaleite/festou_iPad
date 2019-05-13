@@ -13,13 +13,13 @@
         <!--Festas-->
         <scene sceneID="eTm-2V-abP">
             <objects>
-                <tableViewController storyboardIdentifier="partyInitial" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Nch-U0-3p1" customClass="TableViewControllerMenu" customModule="PlanejadorDeFesta" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="partyInitial" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Nch-U0-3p1" customClass="MenuTableViewController" customModule="PlanejadorDeFesta" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="reC-f1-knt">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="Fx1-Ae-tLc" detailTextLabel="PBG-b4-HDG" rowHeight="90" style="IBUITableViewCellStyleSubtitle" id="REy-Ab-Kkw">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="aCell" textLabel="Fx1-Ae-tLc" detailTextLabel="PBG-b4-HDG" rowHeight="90" style="IBUITableViewCellStyleSubtitle" id="REy-Ab-Kkw">
                                 <rect key="frame" x="0.0" y="28" width="414" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="REy-Ab-Kkw" id="LSb-6O-woE">
@@ -52,7 +52,7 @@
                     <navigationItem key="navigationItem" title="Festas" id="sn4-9x-OEC">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Njv-tf-p9G">
                             <connections>
-                                <segue destination="ppU-Hm-GqJ" kind="show" id="mYc-ss-IB1"/>
+                                <segue destination="ppU-Hm-GqJ" kind="show" identifier="criarFesta" id="mYc-ss-IB1"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -67,7 +67,7 @@
         <!--Nova Festa-->
         <scene sceneID="BGB-Br-lYB">
             <objects>
-                <tableViewController id="ppU-Hm-GqJ" customClass="TableViewControllerGuests" customModule="PlanejadorDeFesta" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="ppU-Hm-GqJ" customClass="GuestsTableViewController" customModule="PlanejadorDeFesta" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="XUs-dV-HeU">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -191,8 +191,7 @@
                         <barButtonItem key="backBarButtonItem" title="Voltar" id="AE1-dY-9Kz"/>
                         <barButtonItem key="rightBarButtonItem" title="Próximo" id="Rcm-R2-3xG">
                             <connections>
-                                <action selector="nextButton:" destination="ppU-Hm-GqJ" id="ifh-yE-i3H"/>
-                                <segue destination="V7P-YV-tsc" kind="show" id="Qjz-w2-aff"/>
+                                <action selector="next:" destination="ppU-Hm-GqJ" id="ytA-lT-eiF"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -445,7 +444,7 @@
         <!--Nova Festa-->
         <scene sceneID="YKl-bp-lfB">
             <objects>
-                <tableViewController id="V7P-YV-tsc" customClass="TableViewControllerMeal" customModule="PlanejadorDeFesta" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="partyMeal" useStoryboardIdentifierAsRestorationIdentifier="YES" id="V7P-YV-tsc" customClass="MealTableViewController" customModule="PlanejadorDeFesta" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="static" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="txg-ro-BWq">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -535,7 +534,7 @@
                         <barButtonItem key="backBarButtonItem" title="Voltar" id="iOc-pt-gxu"/>
                         <barButtonItem key="rightBarButtonItem" title="Próximo" id="AuQ-wF-OK5">
                             <connections>
-                                <segue destination="nyO-vf-oKt" kind="show" id="Jp2-Qe-gst"/>
+                                <action selector="next:" destination="V7P-YV-tsc" id="RgE-8c-keB"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -547,7 +546,7 @@
         <!--Nova Festa-->
         <scene sceneID="0zU-Mf-0R0">
             <objects>
-                <tableViewController id="nyO-vf-oKt" customClass="TableViewControllerTime" customModule="PlanejadorDeFesta" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="partyTime" useStoryboardIdentifierAsRestorationIdentifier="YES" id="nyO-vf-oKt" customClass="TimeTableViewController" customModule="PlanejadorDeFesta" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="static" style="plain" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="dZL-oL-dcS">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -616,7 +615,7 @@
                         <barButtonItem key="backBarButtonItem" title="Voltar" id="mb6-49-1Ts"/>
                         <barButtonItem key="rightBarButtonItem" title="Próximo" id="OaB-Hr-5Ps">
                             <connections>
-                                <segue destination="5E0-NQ-NhH" kind="show" id="jsc-3m-jaM"/>
+                                <action selector="next:" destination="nyO-vf-oKt" id="lrL-W3-iBB"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -631,7 +630,7 @@
         <!--Nova Festa-->
         <scene sceneID="Uwx-X8-dqa">
             <objects>
-                <tableViewController id="5E0-NQ-NhH" customClass="TableViewControllerTitle" customModule="PlanejadorDeFesta" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="partyName" useStoryboardIdentifierAsRestorationIdentifier="YES" id="5E0-NQ-NhH" customClass="TitleTableViewController" customModule="PlanejadorDeFesta" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="static" style="plain" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="r7Z-S0-oQz">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -702,6 +701,7 @@
                     <navigationItem key="navigationItem" title="Nova Festa" id="zAe-ui-cSx">
                         <barButtonItem key="rightBarButtonItem" title="Adicionar" id="DYS-9o-Jym">
                             <connections>
+                                <action selector="addButton:" destination="5E0-NQ-NhH" id="sHJ-5d-O8x"/>
                                 <segue destination="dRm-is-okU" kind="unwind" unwindAction="addParty:" id="g0i-42-YgQ"/>
                             </connections>
                         </barButtonItem>
