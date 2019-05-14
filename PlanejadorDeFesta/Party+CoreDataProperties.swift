@@ -24,12 +24,30 @@ extension Party {
     @NSManaged public var numOfGuests: Int16
     @NSManaged public var numOfHours: Int16
     @NSManaged public var id: Int32
-    @NSManaged public var has: NSSet?
+    @NSManaged public var has: NSOrderedSet?
 
 }
 
 // MARK: Generated accessors for has
 extension Party {
+
+    @objc(insertObject:inHasAtIndex:)
+    @NSManaged public func insertIntoHas(_ value: Tasks, at idx: Int)
+
+    @objc(removeObjectFromHasAtIndex:)
+    @NSManaged public func removeFromHas(at idx: Int)
+
+    @objc(insertHas:atIndexes:)
+    @NSManaged public func insertIntoHas(_ values: [Tasks], at indexes: NSIndexSet)
+
+    @objc(removeHasAtIndexes:)
+    @NSManaged public func removeFromHas(at indexes: NSIndexSet)
+
+    @objc(replaceObjectInHasAtIndex:withObject:)
+    @NSManaged public func replaceHas(at idx: Int, with value: Tasks)
+
+    @objc(replaceHasAtIndexes:withHas:)
+    @NSManaged public func replaceHas(at indexes: NSIndexSet, with values: [Tasks])
 
     @objc(addHasObject:)
     @NSManaged public func addToHas(_ value: Tasks)
@@ -38,9 +56,9 @@ extension Party {
     @NSManaged public func removeFromHas(_ value: Tasks)
 
     @objc(addHas:)
-    @NSManaged public func addToHas(_ values: NSSet)
+    @NSManaged public func addToHas(_ values: NSOrderedSet)
 
     @objc(removeHas:)
-    @NSManaged public func removeFromHas(_ values: NSSet)
+    @NSManaged public func removeFromHas(_ values: NSOrderedSet)
 
 }

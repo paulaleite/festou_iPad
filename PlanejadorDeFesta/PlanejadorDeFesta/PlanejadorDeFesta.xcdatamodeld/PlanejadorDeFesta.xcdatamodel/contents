@@ -8,7 +8,7 @@
         <attribute name="numOfDrunkGuests" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="numOfGuests" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="numOfHours" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <relationship name="has" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Tasks" syncable="YES"/>
+        <relationship name="has" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Tasks" syncable="YES"/>
     </entity>
     <entity name="Tasks" representedClassName="Tasks" syncable="YES">
         <attribute name="checkConclusion" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>

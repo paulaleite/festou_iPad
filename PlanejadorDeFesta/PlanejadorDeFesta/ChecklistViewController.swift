@@ -15,7 +15,7 @@ class ChecklistViewController: UIViewController, UITableViewDataSource, UITableV
     
     public var party:Party!
     
-    public var tasks:[Tasks]!
+    public var tasks:[Tasks]! = []
     
     @IBOutlet weak var checklistTV: UITableView!
     
@@ -44,6 +44,10 @@ class ChecklistViewController: UIViewController, UITableViewDataSource, UITableV
             for p in parties{
                 if p.id == party.id {
                     party = p
+                    for i in 0..<(p.has!.count) {
+                        print(p.has![i])
+                        tasks.append(p.has![i] as! Tasks)
+                    }
                 }
             }
         } catch {
@@ -67,8 +71,8 @@ class ChecklistViewController: UIViewController, UITableViewDataSource, UITableV
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let _ = party.has{
-            return party.has!.count
+        if let _ = tasks {
+            return tasks.count
         }
         return 0
     }
