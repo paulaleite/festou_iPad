@@ -37,7 +37,25 @@ class PartyTableViewController: UITableViewController {
         return 1
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // seguir para a lista de tarefas correspondente
+        if let tasks = segue.destination as? ChecklistViewController {
+            var name:String?
+            var title:String?
+            if segue.identifier == "food"{
+                name = "Plate"
+                title = "Comida"
+            } else if segue.identifier == "drinks" {
+                name = "Drink"
+                title = "Bebida"
+            } else if segue.identifier == "utensils" {
+                name = "Utensils"
+                title = "Utensils"
+            }
+            if let n = name, let t = title {
+                tasks.imageName = n
+                tasks.navigationItem.title = t
+            }
+            tasks.party = party
+        }
     }
 
 }

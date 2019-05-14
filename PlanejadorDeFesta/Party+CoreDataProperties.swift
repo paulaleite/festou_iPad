@@ -2,7 +2,7 @@
 //  Party+CoreDataProperties.swift
 //  PlanejadorDeFesta
 //
-//  Created by Lia Kassardjian on 12/05/19.
+//  Created by Lia Kassardjian on 14/05/19.
 //  Copyright © 2019 Juliana Vigato Pavan. All rights reserved.
 //
 //
@@ -23,6 +23,24 @@ extension Party {
     @NSManaged public var numOfDrunkGuests: Int16
     @NSManaged public var numOfGuests: Int16
     @NSManaged public var numOfHours: Int16
-    @NSManaged public var has: Tasks?
+    @NSManaged public var id: Int32
+    @NSManaged public var has: NSSet?
+
+}
+
+// MARK: Generated accessors for has
+extension Party {
+
+    @objc(addHasObject:)
+    @NSManaged public func addToHas(_ value: Tasks)
+
+    @objc(removeHasObject:)
+    @NSManaged public func removeFromHas(_ value: Tasks)
+
+    @objc(addHas:)
+    @NSManaged public func addToHas(_ values: NSSet)
+
+    @objc(removeHas:)
+    @NSManaged public func removeFromHas(_ values: NSSet)
 
 }

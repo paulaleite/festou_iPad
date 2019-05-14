@@ -20,6 +20,8 @@ class TitleTableViewController: UITableViewController, UITextFieldDelegate {
     
     public var partyTVC:MenuTableViewController?
     
+    public var task:Tasks?
+    
     var context:NSManagedObjectContext?
     
     override func viewDidLoad() {
@@ -35,6 +37,22 @@ class TitleTableViewController: UITableViewController, UITextFieldDelegate {
         partyTitleTextField.delegate = self
     }
     
+    func createTasks() {
+        let names = [["Fazer busca de preços","Providenciar comida","Estocar comida","Verificar comida"],["Comprar bebidas"],["Comprar garfos"]]
+        for i in 0..<(names.count) { // laco das secoes
+            for s in names[i] { // lacos das tarefas
+                if let context = context{
+                    task = NSEntityDescription.insertNewObject(forEntityName: "Tasks", into: context) as! Tasks
+                    task?.name = s
+                    task?.typeOfSection = Int16(i+1)
+                    task?.checkConclusion = false
+                    if let t = task {
+                        party?.addToHas(t)
+                    }
+                }
+            }
+        }
+    }
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         if partyTitleTextField.text != nil,
@@ -49,6 +67,9 @@ class TitleTableViewController: UITableViewController, UITextFieldDelegate {
                         party!.name = newPartyTitle
                     }
                     partyTVC!.parties.append(party!)
+                    if let id = partyTVC?.parties.count {
+                        party!.id = Int32(id)
+                    }
                     //(UIApplication.shared.delegate as! AppDelegate).saveContext()
                     do {
                         try context.save()
@@ -58,6 +79,7 @@ class TitleTableViewController: UITableViewController, UITextFieldDelegate {
                     }
                 }
             }
+            createTasks()
             return true
         }
         return false
