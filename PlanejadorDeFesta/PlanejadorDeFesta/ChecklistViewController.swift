@@ -13,6 +13,8 @@ class ChecklistViewController: UIViewController, UITableViewDataSource, UITableV
 
     public var imageName:String!
     
+    public var section:Int!
+    
     public var party:Party!
     
     public var tasks:[Tasks]! = []
@@ -45,8 +47,10 @@ class ChecklistViewController: UIViewController, UITableViewDataSource, UITableV
                 if p.id == party.id {
                     party = p
                     for i in 0..<(p.has!.count) {
-                        print(p.has![i])
-                        tasks.append(p.has![i] as! Tasks)
+                        let t = p.has![i] as! Tasks
+                        if t.typeOfSection == Int16(section) {
+                            tasks.append(t)
+                        }
                     }
                 }
             }
@@ -64,9 +68,11 @@ class ChecklistViewController: UIViewController, UITableViewDataSource, UITableV
         if !tasks[selectedRow].checkConclusion {
             tableView.cellForRow(at: indexPath)?.tintColor = UIColor.green
             tasks[selectedRow].checkConclusion = true
+            (UIApplication.shared.delegate as! AppDelegate).saveContext()
         } else if tasks[selectedRow].checkConclusion {
             tableView.cellForRow(at: indexPath)?.tintColor = UIColor.lightGray
             tasks[selectedRow].checkConclusion = false
+            (UIApplication.shared.delegate as! AppDelegate).saveContext()
         }
     }
     
@@ -79,6 +85,11 @@ class ChecklistViewController: UIViewController, UITableViewDataSource, UITableV
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "taskCell") as! UITableViewCell
+        if (tasks[indexPath.row].checkConclusion) {
+            cell.tintColor = UIColor.green
+        } else {
+            cell.tintColor = UIColor.lightGray
+        }
         cell.textLabel?.text = tasks[indexPath.row].name
         return cell
     }

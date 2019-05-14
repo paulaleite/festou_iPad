@@ -44,6 +44,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Festas" id="sn4-9x-OEC">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Njv-tf-p9G">
+                            <color key="tintColor" red="0.39989358190000002" green="0.17320671679999999" blue="0.25046315790000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <segue destination="ppU-Hm-GqJ" kind="show" identifier="criarFesta" id="mYc-ss-IB1"/>
                             </connections>
@@ -86,7 +87,7 @@
                                                     <color key="textColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HoY-VS-Pff">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person" translatesAutoresizingMaskIntoConstraints="NO" id="HoY-VS-Pff">
                                                     <rect key="frame" x="87" y="181" width="240" height="128"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="240" id="DfR-N1-6ag"/>
@@ -146,6 +147,7 @@
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </tableViewCellContentView>
+                                        <color key="tintColor" red="0.41495817899999998" green="0.20657056569999999" blue="0.2784359455" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="9mM-DG-Qk5">
                                         <rect key="frame" x="0.0" y="553" width="414" height="44"/>
@@ -183,6 +185,7 @@
                     <navigationItem key="navigationItem" title="Nova Festa" id="9bk-Rq-o04">
                         <barButtonItem key="backBarButtonItem" title="Voltar" id="AE1-dY-9Kz"/>
                         <barButtonItem key="rightBarButtonItem" title="Próximo" id="Rcm-R2-3xG">
+                            <color key="tintColor" red="0.41495817899999998" green="0.20657056569999999" blue="0.2784359455" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <connections>
                                 <action selector="next:" destination="ppU-Hm-GqJ" id="ytA-lT-eiF"/>
                             </connections>
@@ -462,7 +465,7 @@
                                                     <color key="textColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="C9u-tR-ENt">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Food" translatesAutoresizingMaskIntoConstraints="NO" id="C9u-tR-ENt">
                                                     <rect key="frame" x="87" y="225" width="240" height="128"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="240" id="1M0-nD-BNH"/>
@@ -514,6 +517,7 @@
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </tableViewCellContentView>
+                                        <color key="tintColor" red="0.41495817899999998" green="0.20657056569999999" blue="0.2784359455" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -564,7 +568,7 @@
                                                     <color key="textColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ouf-AH-fjd">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Clock" translatesAutoresizingMaskIntoConstraints="NO" id="ouf-AH-fjd">
                                                     <rect key="frame" x="87" y="225" width="240" height="128"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="240" id="6sx-Y5-v5A"/>
@@ -648,7 +652,7 @@
                                                     <color key="textColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yx9-Fa-NBf">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Hats" translatesAutoresizingMaskIntoConstraints="NO" id="yx9-Fa-NBf">
                                                     <rect key="frame" x="87" y="181" width="240" height="128"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="128" id="JPy-IE-6SI"/>
@@ -693,6 +697,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Nova Festa" id="zAe-ui-cSx">
                         <barButtonItem key="rightBarButtonItem" title="Adicionar" id="DYS-9o-Jym">
+                            <color key="tintColor" red="0.41495817899999998" green="0.20657056569999999" blue="0.2784359455" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <connections>
                                 <segue destination="dRm-is-okU" kind="unwind" unwindAction="addParty:" id="g0i-42-YgQ"/>
                             </connections>
@@ -872,11 +877,16 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Clock" width="240" height="128"/>
         <image name="Drink" width="414" height="201"/>
+        <image name="Food" width="240" height="128"/>
+        <image name="Hats" width="240" height="128"/>
         <image name="Plate" width="414" height="201"/>
         <image name="Utensils" width="414" height="201"/>
+        <image name="person" width="240" height="128"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="aSr-c6-ygD"/>
     </inferredMetricsTieBreakers>
+    <color key="tintColor" red="0.39989358190000002" green="0.17320671679999999" blue="0.25046315790000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

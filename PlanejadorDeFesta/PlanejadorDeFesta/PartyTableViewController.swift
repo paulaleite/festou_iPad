@@ -40,19 +40,24 @@ class PartyTableViewController: UITableViewController {
         if let tasks = segue.destination as? ChecklistViewController {
             var name:String?
             var title:String?
+            var section:Int?
             if segue.identifier == "food"{
                 name = "Plate"
                 title = "Comida"
+                section = 1
             } else if segue.identifier == "drinks" {
                 name = "Drink"
                 title = "Bebida"
+                section = 2
             } else if segue.identifier == "utensils" {
                 name = "Utensils"
                 title = "Utensils"
+                section = 3
             }
-            if let n = name, let t = title {
+            if let n = name, let t = title, let s = section {
                 tasks.imageName = n
                 tasks.navigationItem.title = t
+                tasks.section = s
             }
             tasks.party = party
         }
