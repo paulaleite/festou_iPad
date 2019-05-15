@@ -48,7 +48,7 @@ class TitleTableViewController: UITableViewController, UITextFieldDelegate {
             // Insere comida
             if let meal = party?.doesHaveMeal {
                 if meal { // se haverá refeição
-                    tasks[0].append("Providenciar \(guests * 5) salgadinhos")
+                    tasks[0].append("Providenciar \(guests * 2 * hours) salgadinhos")
                     
                     let carne = guests * 150
                     if carne > 1000 {
@@ -64,7 +64,7 @@ class TitleTableViewController: UITableViewController, UITextFieldDelegate {
                         tasks[0].append("Providenciar \(acomp) g de acompanhamento")
                     }
                 } else {
-                    tasks[0].append("Providenciar \(guests * 10) salgadinhos")
+                    tasks[0].append("Providenciar \(guests * 4 * hours) salgadinhos")
                 }
             }
             tasks[0].append("Providenciar \(guests * 5) docinhos")

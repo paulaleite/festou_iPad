@@ -50,7 +50,7 @@ class PartyTableViewController: UITableViewController {
                 section = 2
             } else if segue.identifier == "utensils" {
                 name = "Utensils"
-                title = "Utensils"
+                title = "Utensílios"
                 section = 3
             }
             if let n = name, let t = title, let s = section {

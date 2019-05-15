@@ -27,6 +27,8 @@ class MealTableViewController: UITableViewController {
         
         context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         
+        party?.doesHaveMeal = false
+        
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -34,23 +36,17 @@ class MealTableViewController: UITableViewController {
         if selectedRow == 1{
             tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
             tableView.cellForRow(at: IndexPath(row: 2, section: 0))?.accessoryType = .none
+            party?.doesHaveMeal = true
         } else if selectedRow == 2{
             tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
-            tableView.cellForRow(at: IndexPath(row: 1, section: 0))?.accessoryType = .none 
+            tableView.cellForRow(at: IndexPath(row: 1, section: 0))?.accessoryType = .none
+            party?.doesHaveMeal = false
         }
     }
     
     @IBAction func next (_ sender: Any) {
-        var newDoesHaveMeal:Bool = false
-        if selectedRow == 1 {
-            newDoesHaveMeal = true
-        }
-        
         if let _ = partyTVC {
             if let context = context {
-                //party = partyTVC!.parties.last!
-                party!.doesHaveMeal = newDoesHaveMeal
-                //(UIApplication.shared.delegate as! AppDelegate).saveContext()
                 do {
                     try context.save()
                 } catch {

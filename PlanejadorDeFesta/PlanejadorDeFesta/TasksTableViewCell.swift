@@ -28,9 +28,9 @@ class TasksTableViewCell: UITableViewCell {
             gl.endPoint = CGPoint(x: 1, y: 1)
             containerView.subviews[0].layer.insertSublayer(gl, at: 0)
 
-            containerView.layer.shadowOpacity = 10
-            containerView.layer.shadowRadius = 3
-            containerView.layer.shadowColor = UIColor.black.cgColor
+            containerView.layer.shadowOpacity = 6
+            containerView.layer.shadowRadius = 4
+            containerView.layer.shadowColor = UIColor.lightGray.cgColor
             containerView.layer.shadowOffset = CGSize(width: 3, height: 3)
         }
     }
