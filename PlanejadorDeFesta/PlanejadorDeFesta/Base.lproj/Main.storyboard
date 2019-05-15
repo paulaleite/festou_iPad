@@ -735,10 +735,10 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aoU-OE-BSb">
                                                     <rect key="frame" x="45" y="41" width="293" height="170"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Comida" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J8R-mZ-HyF">
-                                                            <rect key="frame" x="50" y="59" width="158" height="52"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Comidas" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J8R-mZ-HyF">
+                                                            <rect key="frame" x="50" y="59" width="204" height="52"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" constant="158" id="rCi-Oh-7Yd"/>
+                                                                <constraint firstAttribute="width" constant="204" id="rCi-Oh-7Yd"/>
                                                                 <constraint firstAttribute="height" constant="52" id="xhl-LY-80a"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="45"/>
@@ -930,10 +930,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Clock" width="240" height="128"/>
-        <image name="Food" width="240" height="128"/>
-        <image name="Hats" width="240" height="128"/>
-        <image name="person" width="240" height="128"/>
+        <image name="Clock" width="1920" height="1024"/>
+        <image name="Food" width="1920" height="1024"/>
+        <image name="Hats" width="1920" height="1024"/>
+        <image name="person" width="1920" height="1024"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="aSr-c6-ygD"/>

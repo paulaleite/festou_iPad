@@ -68,10 +68,12 @@ class ChecklistViewController: UIViewController, UITableViewDataSource, UITableV
         
         if !tasks[selectedRow].checkConclusion {
             tableView.cellForRow(at: indexPath)?.tintColor = UIColor.green
+            tableView.cellForRow(at: indexPath)?.textLabel?.textColor = UIColor.lightGray
             tasks[selectedRow].checkConclusion = true
             (UIApplication.shared.delegate as! AppDelegate).saveContext()
         } else if tasks[selectedRow].checkConclusion {
             tableView.cellForRow(at: indexPath)?.tintColor = UIColor.lightGray
+            tableView.cellForRow(at: indexPath)?.textLabel?.textColor = UIColor.black
             tasks[selectedRow].checkConclusion = false
             (UIApplication.shared.delegate as! AppDelegate).saveContext()
         }
@@ -88,8 +90,10 @@ class ChecklistViewController: UIViewController, UITableViewDataSource, UITableV
         let cell = tableView.dequeueReusableCell(withIdentifier: "taskCell") as! UITableViewCell
         if (tasks[indexPath.row].checkConclusion) {
             cell.tintColor = UIColor.green
+            cell.textLabel?.textColor = UIColor.lightGray
         } else {
             cell.tintColor = UIColor.lightGray
+            cell.textLabel?.textColor = UIColor.black
         }
         cell.textLabel?.text = tasks[indexPath.row].name
         return cell
