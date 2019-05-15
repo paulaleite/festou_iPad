@@ -27,6 +27,8 @@ class ChecklistViewController: UIViewController, UITableViewDataSource, UITableV
     
     var selectedRow:Int = 0
     
+    var attributeString:NSMutableAttributedString?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -36,6 +38,7 @@ class ChecklistViewController: UIViewController, UITableViewDataSource, UITableV
         
         checklistTV.dataSource = self
         checklistTV.delegate = self
+        checklistTV.rowHeight = 65
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -67,14 +70,19 @@ class ChecklistViewController: UIViewController, UITableViewDataSource, UITableV
         selectedRow = indexPath.row
         
         if !tasks[selectedRow].checkConclusion {
-            tableView.cellForRow(at: indexPath)?.tintColor = UIColor.green
-            tableView.cellForRow(at: indexPath)?.textLabel?.textColor = UIColor.lightGray
+            tableView.cellForRow(at: indexPath)?.tintColor = UIColor(red: 123/255, green: 43/255, blue: 71/255, alpha: 1)
             tasks[selectedRow].checkConclusion = true
+            tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
+            attributeString = NSMutableAttributedString(string: tasks[indexPath.row].name!)
+            attributeString!.addAttribute(NSAttributedString.Key.strikethroughStyle, value: 2, range: NSMakeRange(0, attributeString!.length))
+            tableView.cellForRow(at: indexPath)?.textLabel?.attributedText = attributeString!
             (UIApplication.shared.delegate as! AppDelegate).saveContext()
         } else if tasks[selectedRow].checkConclusion {
-            tableView.cellForRow(at: indexPath)?.tintColor = UIColor.lightGray
-            tableView.cellForRow(at: indexPath)?.textLabel?.textColor = UIColor.black
+            tableView.cellForRow(at: indexPath)?.accessoryType = .none
             tasks[selectedRow].checkConclusion = false
+            attributeString = NSMutableAttributedString(string: tasks[indexPath.row].name!)
+            attributeString!.addAttribute(NSAttributedString.Key.strikethroughStyle, value: 2, range: NSMakeRange(0, 0))
+            tableView.cellForRow(at: indexPath)?.textLabel?.attributedText = attributeString
             (UIApplication.shared.delegate as! AppDelegate).saveContext()
         }
     }
@@ -89,11 +97,12 @@ class ChecklistViewController: UIViewController, UITableViewDataSource, UITableV
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "taskCell") as! UITableViewCell
         if (tasks[indexPath.row].checkConclusion) {
-            cell.tintColor = UIColor.green
-            cell.textLabel?.textColor = UIColor.lightGray
+            attributeString = NSMutableAttributedString(string: tasks[indexPath.row].name!)
+            attributeString!.addAttribute(NSAttributedString.Key.strikethroughStyle, value: 2, range: NSMakeRange(0, attributeString!.length))
+            cell.textLabel?.attributedText = attributeString!
+            cell.accessoryType = .checkmark
         } else {
-            cell.tintColor = UIColor.lightGray
-            cell.textLabel?.textColor = UIColor.black
+            cell.accessoryType = .none
         }
         cell.textLabel?.text = tasks[indexPath.row].name
         return cell
