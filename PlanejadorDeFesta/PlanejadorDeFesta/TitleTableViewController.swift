@@ -100,7 +100,8 @@ class TitleTableViewController: UITableViewController, UITextFieldDelegate {
             
             // Insere utensílios
             tasks[2].append("Providenciar \(guests) jogos de talheres")
-            tasks[2].append("Providenciar \(guests) pratos")
+            tasks[2].append("Providenciar \(guests) pratos de comida")
+            tasks[2].append("Providenciar \(guests) pratos de sobremesa")
             tasks[2].append("Providenciar \(guests) copos")
         }
         
