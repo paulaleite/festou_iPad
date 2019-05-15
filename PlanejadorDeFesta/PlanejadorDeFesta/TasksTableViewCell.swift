@@ -16,8 +16,8 @@ class TasksTableViewCell: UITableViewCell {
             
             var gl:CAGradientLayer!
             
-            let colorTop = UIColor(red: 226/255, green: 133/255, blue: 92/255, alpha: 1.0).cgColor // laranja
-            let colorBottom = UIColor(red: 145/255, green: 47/255, blue: 83/255, alpha: 1.0).cgColor // vinho
+            let colorTop = UIColor(red: 255/255, green: 132/255, blue: 78/255, alpha: 1.0).cgColor // laranja
+            let colorBottom = UIColor(red: 123/255, green: 43/255, blue: 71/255, alpha: 1.0).cgColor // vinho
             
             gl = CAGradientLayer()
             gl.colors = [colorTop, colorBottom]
