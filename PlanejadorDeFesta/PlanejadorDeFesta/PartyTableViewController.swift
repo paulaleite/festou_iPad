@@ -27,15 +27,14 @@ class PartyTableViewController: UITableViewController {
         }
     }
 
-    // MARK: - Table view data source
-
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 3
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return 3
     }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let tasks = segue.destination as? ChecklistViewController {
             var name:String?
