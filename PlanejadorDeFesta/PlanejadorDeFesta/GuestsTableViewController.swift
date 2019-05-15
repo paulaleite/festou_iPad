@@ -22,6 +22,8 @@ class GuestsTableViewController: UITableViewController, UITextFieldDelegate {
     
     @IBOutlet weak var amountOfDrunkGuestsTextField: UITextField!
     
+    @IBOutlet weak var drunkGuestsTableViewCell: UITableViewCell!
+    
     var selected:Bool = true
     
     var selectedRow:Int = 0
@@ -43,9 +45,6 @@ class GuestsTableViewController: UITableViewController, UITextFieldDelegate {
         amountOfDrunkGuestsTextField.delegate = self
         amountOfGuestsTextField.delegate = self
         tableView.isUserInteractionEnabled = true
-        
-//        self.navigationItem.rightBarButtonItem?.isEnabled = false
-        
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -56,9 +55,11 @@ class GuestsTableViewController: UITableViewController, UITextFieldDelegate {
         if selectedRow == 0 && selectedSection == 2 && tableView.cellForRow(at: indexPath)!.accessoryType == .none {
             tableView.cellForRow(at: IndexPath(row: 0, section: 2))?.accessoryType = .checkmark
             selected = true
+            drunkGuestsTableViewCell.isHidden.toggle()
         } else if selectedRow == 0 && selectedSection == 2 && tableView.cellForRow(at: IndexPath(row: 0, section: 2))?.accessoryType == .checkmark {
             tableView.cellForRow(at: indexPath)?.accessoryType = .none
             selected = false
+            drunkGuestsTableViewCell.isHidden.toggle()
         }
     }
     

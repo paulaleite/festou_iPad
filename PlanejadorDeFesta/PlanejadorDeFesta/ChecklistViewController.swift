@@ -17,7 +17,7 @@ class ChecklistViewController: UIViewController, UITableViewDataSource, UITableV
     
     public var party:Party!
     
-    public var tasks:[Tasks]! = []
+    public var tasks:[Tasks]!
     
     @IBOutlet weak var checklistTV: UITableView!
     
@@ -46,6 +46,7 @@ class ChecklistViewController: UIViewController, UITableViewDataSource, UITableV
             for p in parties{
                 if p.id == party.id {
                     party = p
+                    tasks = []
                     for i in 0..<(p.has!.count) {
                         let t = p.has![i] as! Tasks
                         if t.typeOfSection == Int16(section) {

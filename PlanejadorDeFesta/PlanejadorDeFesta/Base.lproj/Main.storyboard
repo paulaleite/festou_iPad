@@ -149,7 +149,7 @@
                                         </tableViewCellContentView>
                                         <color key="tintColor" red="0.41495817899999998" green="0.20657056569999999" blue="0.2784359455" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="9mM-DG-Qk5">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="44" id="9mM-DG-Qk5">
                                         <rect key="frame" x="0.0" y="553" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9mM-DG-Qk5" id="Cgg-FI-3UG">
@@ -194,6 +194,7 @@
                     <connections>
                         <outlet property="amountOfDrunkGuestsTextField" destination="YJX-XP-L0V" id="UwN-M3-Fpc"/>
                         <outlet property="amountOfGuestsTextField" destination="9dz-uq-Chj" id="gBC-1b-DFw"/>
+                        <outlet property="drunkGuestsTableViewCell" destination="9mM-DG-Qk5" id="FCu-SM-F4l"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CrQ-t2-3Yw" userLabel="First Responder" sceneMemberID="firstResponder"/>
