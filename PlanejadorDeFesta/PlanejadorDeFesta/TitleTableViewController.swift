@@ -37,8 +37,78 @@ class TitleTableViewController: UITableViewController, UITextFieldDelegate {
         partyTitleTextField.delegate = self
     }
     
-    func createTasks() {
-        let names = [["Fazer busca de preços","Providenciar comida","Estocar comida","Verificar comida"],["Comprar bebidas"],["Comprar garfos"]]
+    
+    func createTasks() -> [[String]]{
+        var tasks:[[String]] = [[],[],[]]
+        if let _ = party {
+            
+            let hours = Int(party!.numOfHours)
+            let guests = Int(party!.numOfGuests)
+            
+            // Insere comida
+            if let meal = party?.doesHaveMeal {
+                if meal { // se haverá refeição
+                    tasks[0].append("Providenciar \(guests * 5) salgadinhos")
+                    
+                    let carne = guests * 150
+                    if carne > 1000 {
+                        tasks[0].append("Providenciar \(Double(carne)/1000) kg de carne")
+                    } else {
+                        tasks[0].append("Providenciar \(carne) g de carne")
+                    }
+                    
+                    let acomp = guests * 50
+                    if acomp > 1000 {
+                        tasks[0].append("Providenciar \(Double(acomp)/1000) kg de acompanhamento")
+                    } else {
+                        tasks[0].append("Providenciar \(acomp) g de acompanhamento")
+                    }
+                } else {
+                    tasks[0].append("Providenciar \(guests * 10) salgadinhos")
+                }
+            }
+            tasks[0].append("Providenciar \(guests * 5) docinhos")
+            tasks[0].append("Providenciar \(guests) porções de sobremesa")
+            
+            // Insere bebidas
+            if let drinks = party?.doesDrink {
+                var litros:Int
+                if drinks { // se haverá bebida alcoólica
+                    litros = Int(party!.numOfDrunkGuests) * 300 * hours
+                    if litros > 1000 {
+                        tasks[1].append("Providenciar \(Double(litros)/1000) L de bebida alcoólica")
+                    } else {
+                        tasks[1].append("Providenciar \(litros) mL de bebida alcoólica")
+                    }
+                    
+                    litros = (guests - Int(party!.numOfDrunkGuests)) * 300 * hours
+                    if litros > 1000 {
+                        tasks[1].append("Providenciar \(Double(litros)/1000) L de bebida não-alcoólica")
+                    } else {
+                        tasks[1].append("Providenciar \(litros) mL de bebida não-alcoólica")
+                    }
+                    
+                } else {
+                    litros = guests * 300 * hours
+                    if litros > 1000 {
+                        tasks[1].append("Providenciar \(Double(litros)/1000) L de bebida não-alcoólica")
+                    } else {
+                        tasks[1].append("Providenciar \(litros) mL de bebida não-alcoólica")
+                    }
+                }
+            }
+            
+            // Insere utensílios
+            tasks[2].append("Providenciar \(guests) jogos de talheres")
+            tasks[2].append("Providenciar \(guests) pratos")
+            tasks[2].append("Providenciar \(guests) copos")
+        }
+        
+        return tasks
+    }
+    
+    func addTasks() {
+        let names = createTasks()
         for i in 0..<(names.count) { // laco das secoes
             for s in names[i] { // lacos das tarefas
                 if let context = context{
@@ -79,7 +149,7 @@ class TitleTableViewController: UITableViewController, UITextFieldDelegate {
                     }
                 }
             }
-            createTasks()
+            addTasks()
             return true
         }
         return false
