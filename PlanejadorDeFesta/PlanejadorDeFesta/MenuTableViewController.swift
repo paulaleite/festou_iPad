@@ -22,6 +22,7 @@ class MenuTableViewController: UITableViewController {
         tableView.dataSource = self
         tableView.delegate = self
         navigationItem.title = "Festas"
+        tableView.rowHeight = 178
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -39,9 +40,9 @@ class MenuTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "aCell") as! UITableViewCell
-        cell.textLabel?.text = parties[indexPath.row].name
-        cell.detailTextLabel?.text = "\(parties[indexPath.row].numOfGuests) convidados"
+        let cell = tableView.dequeueReusableCell(withIdentifier: "aCell") as! PartyMenuTableViewCell
+        cell.title.text = parties[indexPath.row].name
+        cell.subtitle.text = "\(parties[indexPath.row].numOfGuests) convidados"
         return cell
     }
     

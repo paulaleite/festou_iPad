@@ -22,6 +22,7 @@
 		E45C6CC2228B273500DA5E6E /* PartyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45C6CC1228B273500DA5E6E /* PartyTableViewController.swift */; };
 		E45C6CC4228B34AF00DA5E6E /* ChecklistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45C6CC3228B34AF00DA5E6E /* ChecklistViewController.swift */; };
 		E4AC2BD0228B9A570099F0F8 /* TasksTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AC2BCF228B9A570099F0F8 /* TasksTableViewCell.swift */; };
+		E4AC2BD2228C908B0099F0F8 /* PartyMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AC2BD1228C908B0099F0F8 /* PartyMenuTableViewCell.swift */; };
 		E4C24EA92288983B0065C4A4 /* Party+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C24EA52288983B0065C4A4 /* Party+CoreDataClass.swift */; };
 		E4C24EAA2288983B0065C4A4 /* Party+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C24EA62288983B0065C4A4 /* Party+CoreDataProperties.swift */; };
 		E4C24EAB2288983B0065C4A4 /* Tasks+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C24EA72288983B0065C4A4 /* Tasks+CoreDataClass.swift */; };
@@ -67,6 +68,7 @@
 		E45C6CC1228B273500DA5E6E /* PartyTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartyTableViewController.swift; sourceTree = "<group>"; };
 		E45C6CC3228B34AF00DA5E6E /* ChecklistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistViewController.swift; sourceTree = "<group>"; };
 		E4AC2BCF228B9A570099F0F8 /* TasksTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksTableViewCell.swift; sourceTree = "<group>"; };
+		E4AC2BD1228C908B0099F0F8 /* PartyMenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartyMenuTableViewCell.swift; sourceTree = "<group>"; };
 		E4C24EA52288983B0065C4A4 /* Party+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Party+CoreDataClass.swift"; sourceTree = "<group>"; };
 		E4C24EA62288983B0065C4A4 /* Party+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Party+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		E4C24EA72288983B0065C4A4 /* Tasks+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Tasks+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 				0F450ABA228349A500FE038F /* AppDelegate.swift */,
 				0F450ABE228349A500FE038F /* Main.storyboard */,
 				0F6F077D2284CA0300BAEC3A /* MenuTableViewController.swift */,
+				E4AC2BD1228C908B0099F0F8 /* PartyMenuTableViewCell.swift */,
 				E45C6CC1228B273500DA5E6E /* PartyTableViewController.swift */,
 				E4AC2BCF228B9A570099F0F8 /* TasksTableViewCell.swift */,
 				E45C6CC3228B34AF00DA5E6E /* ChecklistViewController.swift */,
@@ -303,6 +306,7 @@
 				E4C24EAA2288983B0065C4A4 /* Party+CoreDataProperties.swift in Sources */,
 				0F6F077222849AE800BAEC3A /* GuestsTableViewController.swift in Sources */,
 				E4C24EAB2288983B0065C4A4 /* Tasks+CoreDataClass.swift in Sources */,
+				E4AC2BD2228C908B0099F0F8 /* PartyMenuTableViewCell.swift in Sources */,
 				0F6F07782284B73700BAEC3A /* TitleTableViewController.swift in Sources */,
 				0F6F07742284A62B00BAEC3A /* MealTableViewController.swift in Sources */,
 				E45C6CC4228B34AF00DA5E6E /* ChecklistViewController.swift in Sources */,
