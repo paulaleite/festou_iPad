@@ -16,12 +16,12 @@ class TasksTableViewCell: UITableViewCell {
             
             var gl:CAGradientLayer!
             
-            let colorTop = UIColor(red: 231.0/255.0, green: 158.0/255.0, blue: 126.0/255.0, alpha: 1.0).cgColor // laranja
-            let colorBottom = UIColor(red: 237.0/255.0, green: 145.0/255.0, blue: 177.0/255.0, alpha: 1.0).cgColor // rosa
+            let colorTop = UIColor(red: 226/255, green: 133/255, blue: 92/255, alpha: 1.0).cgColor // laranja
+            let colorBottom = UIColor(red: 145/255, green: 47/255, blue: 83/255, alpha: 1.0).cgColor // vinho
             
             gl = CAGradientLayer()
             gl.colors = [colorTop, colorBottom]
-            gl.locations = [0.0, 1.0]
+            gl.locations = [0.2, 0.90]
             gl.frame = containerView.subviews[0].bounds
             gl.cornerRadius = 10
             gl.startPoint = CGPoint(x: 0, y: 0)
