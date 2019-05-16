@@ -32,16 +32,21 @@ class PartyTableViewController: UITableViewController {
             navigationItem.title = party.name
             let numOfTasks = party.has?.count
             var percentage:[Int] = [0,0,0]
-
+            var sectionTasks:Int
+            
             for i in 0...2 {
+                sectionTasks = 0
                 if let _ = numOfTasks {
                     for j in 0 ... numOfTasks!-1 {
                         let t = party.has![j] as! Tasks
-                        if (Int(t.typeOfSection) == i && t.checkConclusion) {
-                            percentage[i] += 1
+                        if (Int(t.typeOfSection) == i+1)  {
+                            if (t.checkConclusion) {
+                                percentage[i] += 1
+                            }
+                            sectionTasks += 1
                         }
                     }
-                    percentage[i] = percentage[i] * 100 / numOfTasks!
+                    percentage[i] = percentage[i] * 100 / sectionTasks
                 }
             }
             foodCell.donePercentage.text = "\(percentage[0])% concluído"
@@ -50,7 +55,35 @@ class PartyTableViewController: UITableViewController {
         }
     }
     
-    override func numberOfSections(in tableView: UITableView) -> Int {
+    override func viewWillAppear(_ animated: Bool) {
+        if let party = party {
+            let numOfTasks = party.has?.count
+            var percentage:[Int] = [0,0,0]
+            var sectionTasks:Int
+            
+            for i in 0...2 {
+                sectionTasks = 0
+                if let _ = numOfTasks {
+                    for j in 0 ... numOfTasks!-1 {
+                        let t = party.has![j] as! Tasks
+                        if (Int(t.typeOfSection) == i+1)  {
+                            if (t.checkConclusion) {
+                                percentage[i] += 1
+                            }
+                            sectionTasks += 1
+                        }
+                    }
+                    percentage[i] = percentage[i] * 100 / sectionTasks
+                }
+            }
+            foodCell.donePercentage.text = "\(percentage[0])% concluído"
+            drinksCell.donePercentage.text = "\(percentage[1])% concluído"
+            utensilsCell.donePercentage.text = "\(percentage[2])% concluído"
+        }
+    }
+        
+    
+     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
 

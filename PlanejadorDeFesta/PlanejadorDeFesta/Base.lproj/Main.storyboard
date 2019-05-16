@@ -771,9 +771,12 @@
                                                         <constraint firstAttribute="width" constant="350" id="ktN-Fe-OAd"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="25% concluído" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nag-6L-o72" userLabel="donePercentage">
-                                                    <rect key="frame" x="48" y="138" width="123" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100% concluído" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nag-6L-o72" userLabel="donePercentage">
+                                                    <rect key="frame" x="46" y="117" width="125" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="125" id="F1z-Od-Av8"/>
+                                                        <constraint firstAttribute="height" constant="21" id="Re0-AV-DQy"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                                     <color key="textColor" red="1" green="0.92549019610000005" blue="0.89411764709999997" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -781,11 +784,15 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="Ogw-jE-zps" firstAttribute="trailingMargin" secondItem="62D-WU-FaB" secondAttribute="trailing" id="1zf-WM-Lvn"/>
+                                                <constraint firstItem="Nag-6L-o72" firstAttribute="leading" secondItem="29K-Uu-cTg" secondAttribute="leadingMargin" constant="26" id="2aA-AD-B4i"/>
                                                 <constraint firstItem="Ogw-jE-zps" firstAttribute="bottomMargin" secondItem="62D-WU-FaB" secondAttribute="bottom" id="5eI-Ej-qez"/>
                                                 <constraint firstItem="Ogw-jE-zps" firstAttribute="top" secondItem="29K-Uu-cTg" secondAttribute="topMargin" constant="12" id="EoN-Ow-6hf"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="Ogw-jE-zps" secondAttribute="trailing" constant="12" id="FmO-za-gAP"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="Ogw-jE-zps" secondAttribute="bottom" constant="11" id="VmA-e2-U2J"/>
                                                 <constraint firstItem="62D-WU-FaB" firstAttribute="top" secondItem="Ogw-jE-zps" secondAttribute="topMargin" id="WCD-Yi-4kH"/>
+                                                <constraint firstItem="Nag-6L-o72" firstAttribute="top" secondItem="29K-Uu-cTg" secondAttribute="topMargin" constant="106" id="aRo-4m-W4c"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="Nag-6L-o72" secondAttribute="bottom" constant="91" id="aTl-Cn-zjJ"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Nag-6L-o72" secondAttribute="trailing" constant="223" id="cLQ-vi-zM9"/>
                                                 <constraint firstItem="62D-WU-FaB" firstAttribute="leading" secondItem="Ogw-jE-zps" secondAttribute="leadingMargin" id="mNf-Vp-c8C"/>
                                                 <constraint firstItem="Ogw-jE-zps" firstAttribute="leading" secondItem="29K-Uu-cTg" secondAttribute="leadingMargin" constant="12" id="wmu-eX-ziE"/>
                                             </constraints>
@@ -810,9 +817,12 @@
                                                         <constraint firstAttribute="height" constant="195" id="wNV-SE-vBO"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="25% concluído" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="giS-Vx-Q8e" userLabel="donePercentage">
-                                                    <rect key="frame" x="62" y="141" width="123" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100% concluído" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="giS-Vx-Q8e" userLabel="donePercentage">
+                                                    <rect key="frame" x="43" y="120" width="125" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="125" id="Jst-ag-FZh"/>
+                                                        <constraint firstAttribute="height" constant="20" id="Qyq-HG-fqC"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                                     <color key="textColor" red="1" green="0.92549019610000005" blue="0.89411764709999997" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -820,8 +830,12 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailingMargin" secondItem="jqe-nd-krO" secondAttribute="trailing" constant="12" id="Dbl-zu-MMZ"/>
+                                                <constraint firstItem="giS-Vx-Q8e" firstAttribute="leading" secondItem="6QI-M6-jBP" secondAttribute="leadingMargin" constant="23" id="GFO-2R-3Pg"/>
+                                                <constraint firstItem="giS-Vx-Q8e" firstAttribute="top" secondItem="6QI-M6-jBP" secondAttribute="topMargin" constant="109" id="JBZ-n0-Cpx"/>
                                                 <constraint firstItem="jqe-nd-krO" firstAttribute="leading" secondItem="6QI-M6-jBP" secondAttribute="leadingMargin" constant="12" id="JhL-Up-nQC"/>
                                                 <constraint firstItem="jqe-nd-krO" firstAttribute="top" secondItem="6QI-M6-jBP" secondAttribute="topMargin" constant="11" id="KjB-Me-Idz"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="giS-Vx-Q8e" secondAttribute="trailing" constant="226" id="h1q-hq-qRb"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="giS-Vx-Q8e" secondAttribute="bottom" constant="89" id="hY9-7T-Db8"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="jqe-nd-krO" secondAttribute="bottom" constant="12" id="tMe-Zl-7xT"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -845,19 +859,26 @@
                                                         <constraint firstAttribute="height" constant="195" id="EVH-8U-SEI"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="25% concluído" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LEv-Rv-zf0" userLabel="donePercentage">
-                                                    <rect key="frame" x="44" y="140" width="123" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100% concluído" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LEv-Rv-zf0" userLabel="donePercentage">
+                                                    <rect key="frame" x="46" y="116" width="125" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="125" id="qd8-ga-w9d"/>
+                                                        <constraint firstAttribute="height" constant="21" id="yzt-di-ktF"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                                     <color key="textColor" red="1" green="0.92549019610000005" blue="0.89411764709999997" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="LEv-Rv-zf0" firstAttribute="leading" secondItem="khn-5b-SMK" secondAttribute="leadingMargin" constant="26" id="G9X-ei-zjZ"/>
                                                 <constraint firstItem="hc0-BU-U5E" firstAttribute="leading" secondItem="khn-5b-SMK" secondAttribute="leadingMargin" constant="12" id="RAZ-je-qin"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="hc0-BU-U5E" secondAttribute="trailing" constant="12" id="SWx-vN-eyP"/>
                                                 <constraint firstItem="hc0-BU-U5E" firstAttribute="top" secondItem="khn-5b-SMK" secondAttribute="topMargin" constant="11" id="gUC-gI-4zj"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="LEv-Rv-zf0" secondAttribute="trailing" constant="223" id="r93-6O-A9w"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="hc0-BU-U5E" secondAttribute="bottom" constant="12" id="txP-om-YU4"/>
+                                                <constraint firstItem="LEv-Rv-zf0" firstAttribute="top" secondItem="khn-5b-SMK" secondAttribute="topMargin" constant="105" id="uXR-pC-l00"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="LEv-Rv-zf0" secondAttribute="bottom" constant="92" id="uqH-Qm-Vl4"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
