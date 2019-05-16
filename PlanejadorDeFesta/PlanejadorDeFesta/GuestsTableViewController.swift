@@ -89,9 +89,9 @@ class GuestsTableViewController: UITableViewController, UITextFieldDelegate {
             if let _ = partyTVC {
                 if let context = context {
                     party = NSEntityDescription.insertNewObject(forEntityName: "Party", into: context) as! Party
-                    party!.numOfGuests = Int16(newNumGuests)
+                    party!.numOfGuests = Int32(newNumGuests)
                     party!.doesDrink = newDoesDrink
-                    party!.numOfDrunkGuests = Int16(newNumDrunkGuests)
+                    party!.numOfDrunkGuests = Int32(newNumDrunkGuests)
                     do {
                         try context.save()
                     } catch {
@@ -112,6 +112,8 @@ class GuestsTableViewController: UITableViewController, UITextFieldDelegate {
         }
         
     }
+    
+    //context?.delete(party!)
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()

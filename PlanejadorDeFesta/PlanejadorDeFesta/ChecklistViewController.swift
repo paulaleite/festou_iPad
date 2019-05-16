@@ -70,19 +70,25 @@ class ChecklistViewController: UIViewController, UITableViewDataSource, UITableV
         selectedRow = indexPath.row
         
         if !tasks[selectedRow].checkConclusion {
-            tableView.cellForRow(at: indexPath)?.tintColor = UIColor(red: 123/255, green: 43/255, blue: 71/255, alpha: 1)
             tasks[selectedRow].checkConclusion = true
-            tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
+            let cell = tableView.cellForRow(at: indexPath) as! TaskTableViewCell
+            cell.taskImage.image = UIImage(named: "Check")
+            
             attributeString = NSMutableAttributedString(string: tasks[indexPath.row].name!)
             attributeString!.addAttribute(NSAttributedString.Key.strikethroughStyle, value: 2, range: NSMakeRange(0, attributeString!.length))
-            tableView.cellForRow(at: indexPath)?.textLabel?.attributedText = attributeString!
+            cell.taskLabel?.attributedText = attributeString!
+            
             (UIApplication.shared.delegate as! AppDelegate).saveContext()
+            
         } else if tasks[selectedRow].checkConclusion {
-            tableView.cellForRow(at: indexPath)?.accessoryType = .none
             tasks[selectedRow].checkConclusion = false
+            let cell = tableView.cellForRow(at: indexPath) as! TaskTableViewCell
+            cell.taskImage.image = UIImage(named: "Uncheck")
+            
             attributeString = NSMutableAttributedString(string: tasks[indexPath.row].name!)
             attributeString!.addAttribute(NSAttributedString.Key.strikethroughStyle, value: 2, range: NSMakeRange(0, 0))
-            tableView.cellForRow(at: indexPath)?.textLabel?.attributedText = attributeString
+            cell.taskLabel?.attributedText = attributeString
+            
             (UIApplication.shared.delegate as! AppDelegate).saveContext()
         }
     }
@@ -95,16 +101,17 @@ class ChecklistViewController: UIViewController, UITableViewDataSource, UITableV
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "taskCell") as! UITableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "taskCell") as! TaskTableViewCell
         if (tasks[indexPath.row].checkConclusion) {
             attributeString = NSMutableAttributedString(string: tasks[indexPath.row].name!)
             attributeString!.addAttribute(NSAttributedString.Key.strikethroughStyle, value: 2, range: NSMakeRange(0, attributeString!.length))
-            cell.textLabel?.attributedText = attributeString!
-            cell.accessoryType = .checkmark
+            cell.taskLabel?.attributedText = attributeString!
+            
+            cell.taskImage.image = UIImage(named: "Check")
         } else {
-            cell.accessoryType = .none
+            cell.taskImage.image = UIImage(named: "Uncheck")
         }
-        cell.textLabel?.text = tasks[indexPath.row].name
+        cell.taskLabel?.text = tasks[indexPath.row].name
         return cell
     }
     

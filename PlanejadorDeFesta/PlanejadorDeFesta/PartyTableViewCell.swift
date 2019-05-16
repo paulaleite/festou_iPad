@@ -8,7 +8,10 @@
 
 import UIKit
 
-class TasksTableViewCell: UITableViewCell {
+class PartyTableViewCell: UITableViewCell {
+    
+    @IBOutlet weak var donePercentage: UILabel!
+    // implementar mostra das procentagem
     
     @IBOutlet weak var containerView: UIView! {
         didSet {

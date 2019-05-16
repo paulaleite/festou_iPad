@@ -138,9 +138,7 @@ class TitleTableViewController: UITableViewController, UITextFieldDelegate {
                         party!.name = newPartyTitle
                     }
                     partyTVC!.parties.append(party!)
-                    if let id = partyTVC?.parties.count {
-                        party!.id = Int32(id)
-                    }
+                    party?.id = UUID().uuidString
                     //(UIApplication.shared.delegate as! AppDelegate).saveContext()
                     do {
                         try context.save()

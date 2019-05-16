@@ -54,7 +54,7 @@ class TimeTableViewController: UITableViewController, UIPickerViewDelegate, UIPi
     }
     
     @IBAction func next (_ sender: Any) {
-        let selectedValue = Int16(amountOfHoursPickerData[amountOfHoursPicker.selectedRow(inComponent: 0)])
+        let selectedValue = Int32(amountOfHoursPickerData[amountOfHoursPicker.selectedRow(inComponent: 0)])
         
         if let _ = partyTVC {
             if let context = context {

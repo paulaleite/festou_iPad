@@ -753,7 +753,7 @@
                         <sections>
                             <tableViewSection id="9wr-9T-DG5">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="240" id="kAF-0a-DBC" customClass="TasksTableViewCell" customModule="PlanejadorDeFesta" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="240" id="kAF-0a-DBC" customClass="PartyTableViewCell" customModule="PlanejadorDeFesta" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="240"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kAF-0a-DBC" id="29K-Uu-cTg">
@@ -771,6 +771,13 @@
                                                         <constraint firstAttribute="width" constant="350" id="ktN-Fe-OAd"/>
                                                     </constraints>
                                                 </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="25% concluído" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nag-6L-o72" userLabel="donePercentage">
+                                                    <rect key="frame" x="48" y="138" width="123" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                                    <color key="textColor" red="1" green="0.92549019610000005" blue="0.89411764709999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="Ogw-jE-zps" firstAttribute="trailingMargin" secondItem="62D-WU-FaB" secondAttribute="trailing" id="1zf-WM-Lvn"/>
@@ -785,10 +792,11 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="containerView" destination="29K-Uu-cTg" id="yU1-d1-piQ"/>
+                                            <outlet property="donePercentage" destination="Nag-6L-o72" id="ugD-in-0h5"/>
                                             <segue destination="Ktb-Sf-gAX" kind="show" identifier="food" id="ZFN-ac-dpb"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="240" id="bCG-gw-5xQ" customClass="TasksTableViewCell" customModule="PlanejadorDeFesta" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="240" id="bCG-gw-5xQ" customClass="PartyTableViewCell" customModule="PlanejadorDeFesta" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="240" width="414" height="240"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bCG-gw-5xQ" id="6QI-M6-jBP">
@@ -802,6 +810,13 @@
                                                         <constraint firstAttribute="height" constant="195" id="wNV-SE-vBO"/>
                                                     </constraints>
                                                 </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="25% concluído" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="giS-Vx-Q8e" userLabel="donePercentage">
+                                                    <rect key="frame" x="62" y="141" width="123" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                                    <color key="textColor" red="1" green="0.92549019610000005" blue="0.89411764709999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailingMargin" secondItem="jqe-nd-krO" secondAttribute="trailing" constant="12" id="Dbl-zu-MMZ"/>
@@ -812,10 +827,11 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="containerView" destination="6QI-M6-jBP" id="luO-JI-odB"/>
+                                            <outlet property="donePercentage" destination="giS-Vx-Q8e" id="F9R-Ae-8GL"/>
                                             <segue destination="Ktb-Sf-gAX" kind="show" identifier="drinks" id="aSr-c6-ygD"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="240" id="6Pn-ui-BYB" customClass="TasksTableViewCell" customModule="PlanejadorDeFesta" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="240" id="6Pn-ui-BYB" customClass="PartyTableViewCell" customModule="PlanejadorDeFesta" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="480" width="414" height="240"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6Pn-ui-BYB" id="khn-5b-SMK">
@@ -829,6 +845,13 @@
                                                         <constraint firstAttribute="height" constant="195" id="EVH-8U-SEI"/>
                                                     </constraints>
                                                 </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="25% concluído" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LEv-Rv-zf0" userLabel="donePercentage">
+                                                    <rect key="frame" x="44" y="140" width="123" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                                    <color key="textColor" red="1" green="0.92549019610000005" blue="0.89411764709999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="hc0-BU-U5E" firstAttribute="leading" secondItem="khn-5b-SMK" secondAttribute="leadingMargin" constant="12" id="RAZ-je-qin"/>
@@ -839,6 +862,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="containerView" destination="khn-5b-SMK" id="3I3-Li-5kP"/>
+                                            <outlet property="donePercentage" destination="LEv-Rv-zf0" id="0WO-Bc-oXR"/>
                                             <segue destination="Ktb-Sf-gAX" kind="show" identifier="utensils" id="MF1-2W-4vx"/>
                                         </connections>
                                     </tableViewCell>
@@ -850,6 +874,11 @@
                             <outlet property="delegate" destination="2qd-ry-YlA" id="uOv-LL-UF7"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="drinksCell" destination="bCG-gw-5xQ" id="3Fg-9q-Hys"/>
+                        <outlet property="foodCell" destination="kAF-0a-DBC" id="NGi-pt-yCk"/>
+                        <outlet property="utensilsCell" destination="6Pn-ui-BYB" id="lAZ-S2-1JA"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wzj-kY-qCO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -867,22 +896,47 @@
                                 <rect key="frame" x="0.0" y="293" width="414" height="569"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" accessoryType="checkmark" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="taskCell" textLabel="byQ-uv-3o6" rowHeight="65" style="IBUITableViewCellStyleDefault" id="WU4-V8-Nr1">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="taskCell" rowHeight="65" id="WU4-V8-Nr1" customClass="TaskTableViewCell" customModule="PlanejadorDeFesta" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="65"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="WU4-V8-Nr1" id="UV1-BR-a6x">
-                                            <rect key="frame" x="0.0" y="0.0" width="370" height="64.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="64.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="byQ-uv-3o6">
-                                                    <rect key="frame" x="20" y="0.0" width="350" height="64.5"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0NH-Em-bfs">
+                                                    <rect key="frame" x="20" y="17" width="30" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="30" id="9jh-WA-Uix"/>
+                                                        <constraint firstAttribute="width" constant="30" id="k5h-RW-OmW"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Adj-at-EiV">
+                                                    <rect key="frame" x="58" y="22" width="356" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="356" id="9pw-Ae-U6A"/>
+                                                        <constraint firstAttribute="height" constant="21" id="HQ8-NA-JOc"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Adj-at-EiV" firstAttribute="top" secondItem="UV1-BR-a6x" secondAttribute="topMargin" constant="11" id="3Du-lB-Djj"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="Adj-at-EiV" secondAttribute="bottom" constant="11" id="Bi6-1h-6we"/>
+                                                <constraint firstItem="Adj-at-EiV" firstAttribute="leading" secondItem="0NH-Em-bfs" secondAttribute="trailing" constant="8" id="DU0-H8-GhP"/>
+                                                <constraint firstItem="0NH-Em-bfs" firstAttribute="top" secondItem="UV1-BR-a6x" secondAttribute="topMargin" constant="6" id="V6N-BD-92G"/>
+                                                <constraint firstItem="Adj-at-EiV" firstAttribute="top" secondItem="UV1-BR-a6x" secondAttribute="topMargin" constant="11" id="h1C-oR-awe"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="Adj-at-EiV" secondAttribute="bottom" constant="11" id="hup-Ln-Ek8"/>
+                                                <constraint firstItem="0NH-Em-bfs" firstAttribute="leading" secondItem="UV1-BR-a6x" secondAttribute="leadingMargin" id="pZU-ck-I7N"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="0NH-Em-bfs" secondAttribute="bottom" constant="7" id="qW5-R0-lx3"/>
+                                                <constraint firstAttribute="trailing" secondItem="Adj-at-EiV" secondAttribute="trailing" id="sqe-yG-PeG"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="taskImage" destination="0NH-Em-bfs" id="COU-tw-Xnu"/>
+                                            <outlet property="taskLabel" destination="Adj-at-EiV" id="stw-ma-L6y"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -926,7 +980,7 @@
         <image name="person" width="1920" height="1024"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="aSr-c6-ygD"/>
+        <segue reference="MF1-2W-4vx"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.4473993182182312" green="0.19240140914916992" blue="0.27775543928146362" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

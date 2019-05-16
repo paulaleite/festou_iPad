@@ -17,6 +17,12 @@ class PartyTableViewController: UITableViewController {
     
     var context:NSManagedObjectContext?
     
+    @IBOutlet weak var foodCell: PartyTableViewCell!
+    
+    @IBOutlet weak var drinksCell: PartyTableViewCell!
+    
+    @IBOutlet weak var utensilsCell: PartyTableViewCell!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -24,9 +30,26 @@ class PartyTableViewController: UITableViewController {
         
         if let party = party {
             navigationItem.title = party.name
+            let numOfTasks = party.has?.count
+            var percentage:[Int] = [0,0,0]
+
+            for i in 0...2 {
+                if let _ = numOfTasks {
+                    for j in 0 ... numOfTasks!-1 {
+                        let t = party.has![j] as! Tasks
+                        if (Int(t.typeOfSection) == i && t.checkConclusion) {
+                            percentage[i] += 1
+                        }
+                    }
+                    percentage[i] = percentage[i] * 100 / numOfTasks!
+                }
+            }
+            foodCell.donePercentage.text = "\(percentage[0])% concluído"
+            drinksCell.donePercentage.text = "\(percentage[1])% concluído"
+            utensilsCell.donePercentage.text = "\(percentage[2])% concluído"
         }
     }
-
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }

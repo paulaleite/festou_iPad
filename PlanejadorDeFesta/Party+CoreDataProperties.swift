@@ -2,8 +2,8 @@
 //  Party+CoreDataProperties.swift
 //  PlanejadorDeFesta
 //
-//  Created by Lia Kassardjian on 14/05/19.
-//  Copyright © 2019 Juliana Vigato Pavan. All rights reserved.
+//  Created by Lia Kassardjian on 16/05/19.
+//  Copyright © 2019 Lia Kassardjian. All rights reserved.
 //
 //
 
@@ -19,11 +19,11 @@ extension Party {
 
     @NSManaged public var doesDrink: Bool
     @NSManaged public var doesHaveMeal: Bool
+    @NSManaged public var id: String?
     @NSManaged public var name: String?
-    @NSManaged public var numOfDrunkGuests: Int16
-    @NSManaged public var numOfGuests: Int16
-    @NSManaged public var numOfHours: Int16
-    @NSManaged public var id: Int32
+    @NSManaged public var numOfDrunkGuests: Int32
+    @NSManaged public var numOfGuests: Int32
+    @NSManaged public var numOfHours: Int32
     @NSManaged public var has: NSOrderedSet?
 
 }
