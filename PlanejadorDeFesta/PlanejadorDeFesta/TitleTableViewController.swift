@@ -33,10 +33,6 @@ class TitleTableViewController: UITableViewController, UITextFieldDelegate {
         
         context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         
-        if let _ = context {
-            newParty = NSEntityDescription.insertNewObject(forEntityName: "Party", into: context!) as! Party            
-        }
-        
         tableView.tableFooterView = UIView(frame: CGRect.zero)
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
@@ -143,6 +139,7 @@ class TitleTableViewController: UITableViewController, UITextFieldDelegate {
         if partyTitle != nil {
             if let _ = partyTVC {
                 if let context = context {
+                    newParty = NSEntityDescription.insertNewObject(forEntityName: "Party", into: context) as! Party
                     if let newPartyTitle = partyTitle {
                         newParty?.numOfGuests = Int32(party!.numOfGuests)
                         newParty?.doesDrink = party!.doesDrink

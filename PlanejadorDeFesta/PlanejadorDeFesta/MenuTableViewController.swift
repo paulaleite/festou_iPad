@@ -96,6 +96,9 @@ class MenuTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let partyGuest = segue.destination as? GuestsTableViewController {
             partyGuest.partyTVC = self
+            if let _ = context{
+                partyGuest.party = Party(context: context!)
+            }
         }
         if let partyTVC = segue.destination as? PartyTableViewController {
             partyTVC.party = parties[tableView.indexPathForSelectedRow!.row]

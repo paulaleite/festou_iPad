@@ -56,18 +56,6 @@ class TimeTableViewController: UITableViewController, UIPickerViewDelegate, UIPi
     @IBAction func next (_ sender: Any) {
         let selectedValue = Int32(amountOfHoursPickerData[amountOfHoursPicker.selectedRow(inComponent: 0)])
         
-//        if let _ = partyTVC {
-//            if let context = context {
-//                }
-//                //(UIApplication.shared.delegate as! AppDelegate).saveContext()
-//                do {
-//                    try context.save()
-//                } catch {
-//                    let nserror = error as NSError
-//                    fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
-//                }
-//            }
-//        }
         if let newNumOfHours = selectedValue {
             party!.numOfHours = newNumOfHours
         }

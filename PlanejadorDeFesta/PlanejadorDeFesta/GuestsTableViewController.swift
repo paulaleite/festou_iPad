@@ -92,7 +92,7 @@ class GuestsTableViewController: UITableViewController, UITextFieldDelegate {
             (newDoesDrink && newNumDrunkGuests != 0) || !newDoesDrink {
             if let _ = partyTVC {
                 if let context = context {
-                    party = Party(context: context)
+                    
                     party?.numOfGuests = Int32(newNumGuests)
                     party?.doesDrink = newDoesDrink
                     party?.numOfDrunkGuests = Int32(newNumDrunkGuests)
