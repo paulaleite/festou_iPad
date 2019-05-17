@@ -18,6 +18,8 @@ class MealTableViewController: UITableViewController {
     
     public var partyTVC:MenuTableViewController?
     
+    public var guestsTVC:GuestsTableViewController?
+    
     var context:NSManagedObjectContext?
     
     override func viewDidLoad() {
@@ -29,6 +31,11 @@ class MealTableViewController: UITableViewController {
         
         party?.doesHaveMeal = false
         
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        guestsTVC?.goingForwards = false
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

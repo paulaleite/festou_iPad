@@ -30,6 +30,8 @@ class GuestsTableViewController: UITableViewController, UITextFieldDelegate {
     
     var selectedSection:Int = 2
     
+    var goingForwards:Bool = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -65,6 +67,8 @@ class GuestsTableViewController: UITableViewController, UITextFieldDelegate {
     
     @IBAction func next(_ sender: Any) {
     
+        goingForwards = true
+        
         var newNumGuests:Int = 0
         var newDoesDrink:Bool = false
         var newNumDrunkGuests:Int = 0
@@ -101,13 +105,19 @@ class GuestsTableViewController: UITableViewController, UITextFieldDelegate {
             if let partyMeal = controller as? MealTableViewController {
                 partyMeal.party = party
                 partyMeal.partyTVC = partyTVC
+                partyMeal.guestsTVC = self
             }
             self.navigationController!.pushViewController(controller, animated: true)
         }
         
     }
     
-    //context?.delete(party!)
+    override func viewWillDisappear(_ animated: Bool) {
+        if !goingForwards {
+            context?.delete(party!)
+            
+        }
+    }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
