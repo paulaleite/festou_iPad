@@ -12,6 +12,8 @@ import CoreData
 
 class TitleTableViewController: UITableViewController, UITextFieldDelegate {
     
+    let colors:[[Int16]] = [[123, 43, 71], [255,134,78], [242,114,135], [3,56,65]]
+    
     @IBOutlet weak var partyTitleTextField: UITextField!
     
     var partyTitle: String!
@@ -24,10 +26,16 @@ class TitleTableViewController: UITableViewController, UITextFieldDelegate {
     
     var context:NSManagedObjectContext?
     
+    var newParty:Party?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        
+        if let _ = context {
+            newParty = NSEntityDescription.insertNewObject(forEntityName: "Party", into: context!) as! Party            
+        }
         
         tableView.tableFooterView = UIView(frame: CGRect.zero)
         
@@ -40,13 +48,13 @@ class TitleTableViewController: UITableViewController, UITextFieldDelegate {
     
     func createTasks() -> [[String]]{
         var tasks:[[String]] = [[],[],[]]
-        if let _ = party {
+        if let _ = newParty {
             
-            let hours = Int(party!.numOfHours)
-            let guests = Int(party!.numOfGuests)
+            let hours = Int(newParty!.numOfHours)
+            let guests = Int(newParty!.numOfGuests)
             
             // Insere comida
-            if let meal = party?.doesHaveMeal {
+            if let meal = newParty?.doesHaveMeal {
                 if meal { // se haverá refeição
                     tasks[0].append("Providenciar \(guests * 2 * hours) salgadinhos")
                     
@@ -71,26 +79,26 @@ class TitleTableViewController: UITableViewController, UITextFieldDelegate {
             tasks[0].append("Providenciar \(guests) porções de sobremesa")
             
             // Insere bebidas
-            if let drinks = party?.doesDrink {
+            if let drinks = newParty?.doesDrink {
                 var litros:Int
                 if drinks { // se haverá bebida alcoólica
-                    litros = Int(party!.numOfDrunkGuests) * 300 * hours
-                    if litros > 1000 {
+                    litros = Int(newParty!.numOfDrunkGuests) * 150 * hours
+                    if litros >= 1000 {
                         tasks[1].append("Providenciar \(Double(litros)/1000) L de bebida alcoólica")
                     } else {
                         tasks[1].append("Providenciar \(litros) mL de bebida alcoólica")
                     }
                     
-                    litros = (guests - Int(party!.numOfDrunkGuests)) * 300 * hours
-                    if litros > 1000 {
+                    litros = ((guests - Int(newParty!.numOfDrunkGuests)) * 100 + Int((Double(newParty!.numOfDrunkGuests)/2) * 100)) * hours
+                    if litros >= 1000 {
                         tasks[1].append("Providenciar \(Double(litros)/1000) L de bebida não-alcoólica")
                     } else {
                         tasks[1].append("Providenciar \(litros) mL de bebida não-alcoólica")
                     }
                     
                 } else {
-                    litros = guests * 300 * hours
-                    if litros > 1000 {
+                    litros = guests * 100 * hours
+                    if litros >= 1000 {
                         tasks[1].append("Providenciar \(Double(litros)/1000) L de bebida não-alcoólica")
                     } else {
                         tasks[1].append("Providenciar \(litros) mL de bebida não-alcoólica")
@@ -118,11 +126,12 @@ class TitleTableViewController: UITableViewController, UITextFieldDelegate {
                     task?.typeOfSection = Int16(i+1)
                     task?.checkConclusion = false
                     if let t = task {
-                        party?.addToHas(t)
+                        newParty?.addToHas(t)
                     }
                 }
             }
         }
+        (UIApplication.shared.delegate as! AppDelegate).saveContext()
     }
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
@@ -135,11 +144,21 @@ class TitleTableViewController: UITableViewController, UITextFieldDelegate {
             if let _ = partyTVC {
                 if let context = context {
                     if let newPartyTitle = partyTitle {
-                        party!.name = newPartyTitle
+                        newParty?.numOfGuests = Int32(party!.numOfGuests)
+                        newParty?.doesDrink = party!.doesDrink
+                        newParty?.numOfDrunkGuests = Int32(party!.numOfDrunkGuests)
+                        newParty?.doesHaveMeal = party!.doesHaveMeal
+                        newParty?.numOfHours = party!.numOfHours
+                        newParty?.name = newPartyTitle
+                        let i = Int.random(in: 0 ... 3)
+                        newParty?.red = colors[i][0]
+                        newParty?.green = colors[i][1]
+                        newParty?.blue = colors[i][2]
+                        
+                        context.delete(party!)
                     }
-                    partyTVC!.parties.append(party!)
-                    party?.id = UUID().uuidString
-                    //(UIApplication.shared.delegate as! AppDelegate).saveContext()
+                    partyTVC!.parties.append(newParty!)
+                    newParty?.id = UUID().uuidString
                     do {
                         try context.save()
                     } catch {

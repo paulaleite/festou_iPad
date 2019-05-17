@@ -14,6 +14,8 @@ class MenuTableViewController: UITableViewController {
     
     var parties:[Party] =  []
     
+    var noPartyImage:UIImageView = UIImageView(image: UIImage(named: "NoParty"))
+    
     var context:NSManagedObjectContext?
     
     override func viewDidLoad() {
@@ -32,6 +34,12 @@ class MenuTableViewController: UITableViewController {
             print("Erro ao carregar festa")
             return
         }
+        if parties.count == 0 {
+            noPartyImage.frame = CGRect(x: 0, y: 0, width: 390, height: 300)
+            self.view.addSubview(noPartyImage)
+            noPartyImage.center.x = self.view.center.x
+            noPartyImage.center.y = self.view.center.y - 80
+        }
         tableView.reloadData()
     }
     
@@ -43,6 +51,14 @@ class MenuTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "aCell") as! PartyMenuTableViewCell
         cell.title.text = parties[indexPath.row].name
         cell.subtitle.text = "\(parties[indexPath.row].numOfGuests) convidados"
+        let pRed = Double(parties[indexPath.row].red)
+        let pGreen = Double(parties[indexPath.row].green)
+        let pBlue = Double(parties[indexPath.row].blue)
+        cell.containerView.backgroundColor = UIColor(red: CGFloat(pRed/255),
+                                                     green: CGFloat(pGreen/255),
+                                                     blue: CGFloat(pBlue/255),
+                                                     alpha: 1)
+
         return cell
     }
     
@@ -51,6 +67,12 @@ class MenuTableViewController: UITableViewController {
             context?.delete(parties[indexPath.row])
             parties.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
+            if parties.count == 0 {
+                noPartyImage.frame = CGRect(x: 0, y: 0, width: 390, height: 300)
+                self.view.addSubview(noPartyImage)
+                noPartyImage.center.x = self.view.center.x
+                noPartyImage.center.y = self.view.center.y - 80
+            }
             (UIApplication.shared.delegate as! AppDelegate).saveContext()
         }
     }
@@ -58,9 +80,9 @@ class MenuTableViewController: UITableViewController {
     @IBAction func addParty(_ sender: UIStoryboardSegue){
         if sender.source is TitleTableViewController{
             if let senderAdd = sender.source as? TitleTableViewController{
-                if let party = senderAdd.party{
+                if let party = senderAdd.newParty{
                     parties.append(party)
-                    print("\nOK\n")
+                    noPartyImage.removeFromSuperview()
                 }
             }
         }

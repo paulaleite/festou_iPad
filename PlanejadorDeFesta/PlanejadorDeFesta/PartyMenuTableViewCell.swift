@@ -9,7 +9,7 @@
 import UIKit
 
 class PartyMenuTableViewCell: UITableViewCell {
-
+    
     @IBOutlet weak var title: UILabel! {
         didSet {
             title.textColor = UIColor(red: 255/255, green: 235/255, blue: 227/255, alpha: 1)
@@ -29,7 +29,6 @@ class PartyMenuTableViewCell: UITableViewCell {
             containerView.layer.shadowRadius = 4
             containerView.layer.shadowColor = UIColor.lightGray.cgColor
             containerView.layer.shadowOffset = CGSize(width: 3, height: 3)
-            containerView.backgroundColor = UIColor(red: 123/255, green: 43/255, blue: 71/255, alpha: 1)
             
         }
     }
@@ -37,7 +36,6 @@ class PartyMenuTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

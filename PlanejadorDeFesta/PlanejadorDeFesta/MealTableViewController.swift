@@ -45,16 +45,16 @@ class MealTableViewController: UITableViewController {
     }
     
     @IBAction func next (_ sender: Any) {
-        if let _ = partyTVC {
-            if let context = context {
-                do {
-                    try context.save()
-                } catch {
-                    let nserror = error as NSError
-                    fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
-                }
-            }
-        }
+//        if let _ = partyTVC {
+//            if let context = context {
+//                do {
+//                    try context.save()
+//                } catch {
+//                    let nserror = error as NSError
+//                    fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+//                }
+//            }
+//        }
         
         let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier: "partyTime")

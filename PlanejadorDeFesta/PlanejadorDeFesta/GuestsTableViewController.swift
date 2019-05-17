@@ -88,16 +88,10 @@ class GuestsTableViewController: UITableViewController, UITextFieldDelegate {
             (newDoesDrink && newNumDrunkGuests != 0) || !newDoesDrink {
             if let _ = partyTVC {
                 if let context = context {
-                    party = NSEntityDescription.insertNewObject(forEntityName: "Party", into: context) as! Party
-                    party!.numOfGuests = Int32(newNumGuests)
-                    party!.doesDrink = newDoesDrink
-                    party!.numOfDrunkGuests = Int32(newNumDrunkGuests)
-                    do {
-                        try context.save()
-                    } catch {
-                        let nserror = error as NSError
-                        fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
-                    }
+                    party = Party(context: context)
+                    party?.numOfGuests = Int32(newNumGuests)
+                    party?.doesDrink = newDoesDrink
+                    party?.numOfDrunkGuests = Int32(newNumDrunkGuests)
                 }
             }
             

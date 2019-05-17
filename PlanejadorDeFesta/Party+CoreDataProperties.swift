@@ -24,6 +24,9 @@ extension Party {
     @NSManaged public var numOfDrunkGuests: Int32
     @NSManaged public var numOfGuests: Int32
     @NSManaged public var numOfHours: Int32
+    @NSManaged public var red: Int16
+    @NSManaged public var green: Int16
+    @NSManaged public var blue: Int16
     @NSManaged public var has: NSOrderedSet?
 
 }
