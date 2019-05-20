@@ -32,6 +32,12 @@ class GuestsTableViewController: UITableViewController, UITextFieldDelegate {
     
     var goingForwards:Bool = false
     
+    var wrongAmountGuestsLabel:UILabel?
+    
+    var wrongAmountDrunkGuestsLabel:UILabel?
+    
+    @IBOutlet weak var nextButton: UIBarButtonItem!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -47,6 +53,11 @@ class GuestsTableViewController: UITableViewController, UITextFieldDelegate {
         amountOfDrunkGuestsTextField.delegate = self
         amountOfGuestsTextField.delegate = self
         tableView.isUserInteractionEnabled = true
+        
+        wrongAmountGuestsLabel = setWrongLabel()
+        wrongAmountDrunkGuestsLabel = setWrongLabel()
+        
+        nextButton.isEnabled = false
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -58,10 +69,16 @@ class GuestsTableViewController: UITableViewController, UITextFieldDelegate {
             tableView.cellForRow(at: IndexPath(row: 0, section: 2))?.accessoryType = .checkmark
             selected = true
             drunkGuestsTableViewCell.isHidden.toggle()
+            if wrongAmountDrunkGuestsLabel?.superview == self.view {
+                wrongAmountDrunkGuestsLabel?.isHidden.toggle()
+            }
         } else if selectedRow == 0 && selectedSection == 2 && tableView.cellForRow(at: IndexPath(row: 0, section: 2))?.accessoryType == .checkmark {
             tableView.cellForRow(at: indexPath)?.accessoryType = .none
             selected = false
             drunkGuestsTableViewCell.isHidden.toggle()
+            if wrongAmountDrunkGuestsLabel?.superview == self.view {
+                wrongAmountDrunkGuestsLabel?.isHidden.toggle()
+            }
         }
     }
     
@@ -88,8 +105,8 @@ class GuestsTableViewController: UITableViewController, UITextFieldDelegate {
             }
         }
         
-        if newNumGuests != 0,
-            (newDoesDrink && newNumDrunkGuests != 0) || !newDoesDrink {
+        if newNumGuests > 0, newNumGuests < 1000000,
+            (newDoesDrink && newNumDrunkGuests > 0 && newNumDrunkGuests <= newNumGuests) || !newDoesDrink {
             if let _ = partyTVC {
                 if let context = context {
                     
@@ -128,4 +145,108 @@ class GuestsTableViewController: UITableViewController, UITextFieldDelegate {
         self.view.endEditing(true)
     }
     
+    @IBAction func guestsTextFieldDidChange(_ sender: Any) {
+        if let textField = amountOfGuestsTextField {
+            if let text = textField.text, let num = Int64(text) {
+                if num < 1 {
+                    addWrongLabel(label: wrongAmountGuestsLabel!, text: "O número de convidados deve ser maior ou igual a 1")
+                    if wrongAmountDrunkGuestsLabel?.superview == self.view {
+                        wrongAmountDrunkGuestsLabel?.isHidden = true
+                    }
+                    nextButton.isEnabled = false
+                } else if num > 1000000 || textField.text!.count > 7 {
+                    addWrongLabel(label: wrongAmountGuestsLabel!, text: "O número de convidados deve ser menor que 1000000")
+                    if wrongAmountDrunkGuestsLabel?.superview == self.view {
+                        wrongAmountDrunkGuestsLabel?.isHidden = true
+                    }
+                    nextButton.isEnabled = false
+                } else if let text = amountOfDrunkGuestsTextField.text, let numOfDrunkGuests = Int64(text), num < numOfDrunkGuests{
+                    addWrongLabel(label: wrongAmountGuestsLabel!, text: "O número de convidados que bebem não pode ser maior que o número de convidados")
+                    if wrongAmountDrunkGuestsLabel?.superview == self.view {
+                        wrongAmountDrunkGuestsLabel?.isHidden = true
+                    }
+                    nextButton.isEnabled = false
+                } else {
+                    wrongAmountGuestsLabel!.removeFromSuperview()
+                    if let hidden = wrongAmountDrunkGuestsLabel?.isHidden {
+                        if hidden {
+                            wrongAmountDrunkGuestsLabel?.isHidden = false
+                        } else {
+                            nextButton.isEnabled = true
+                        }
+                    }
+                }
+            } else {
+                addWrongLabel(label: wrongAmountGuestsLabel!, text: "Número inválido")
+                if wrongAmountDrunkGuestsLabel?.superview == self.view {
+                    wrongAmountDrunkGuestsLabel?.isHidden = true
+                }
+                nextButton.isEnabled = false
+            }
+        }
+    }
+
+    @IBAction func drunkGuestsTextFieldDidChange(_ sender: Any) {
+        if let textField = amountOfDrunkGuestsTextField {
+            if let text = textField.text, let num = Int64(text) {
+                if num < 1 && selected {
+                    addWrongLabel(label: wrongAmountDrunkGuestsLabel!, text: "O número de convidados que bebem deve ser maior ou igual a 1")
+                    if wrongAmountGuestsLabel?.superview == self.view {
+                        wrongAmountGuestsLabel?.isHidden = true
+                    }
+                    nextButton.isEnabled = false
+                } else if let text = amountOfGuestsTextField.text, let numOfGuests = Int64(text), num > numOfGuests || textField.text!.count > 7 {
+                    addWrongLabel(label: wrongAmountDrunkGuestsLabel!, text: "O número de convidados que bebem não pode ser maior que o número de convidados")
+                    if wrongAmountGuestsLabel?.superview == self.view {
+                        wrongAmountGuestsLabel?.isHidden = true
+                    }
+                    nextButton.isEnabled = false
+                } else {
+                    wrongAmountDrunkGuestsLabel!.removeFromSuperview()
+                    if let hidden = wrongAmountGuestsLabel?.isHidden {
+                        if hidden {
+                            wrongAmountGuestsLabel?.isHidden = false
+                        }
+                        else {
+                            nextButton.isEnabled = true
+                        }
+                    }
+                }
+            } else {
+                addWrongLabel(label: wrongAmountDrunkGuestsLabel!, text: "Número inválido")
+                if wrongAmountGuestsLabel?.superview == self.view {
+                    wrongAmountGuestsLabel?.isHidden = true
+                }
+                nextButton.isEnabled = false
+            }
+        }
+    }
+    
+    
+//    @objc func textFieldDidBeginEditing(_ textField: UITextField) {
+//    }
+    
+//    @objc func textFieldDidEndEditing(_ textField: UITextField) {
+//    }
+    
+    func setWrongLabel() -> UILabel {
+        let label = UILabel(frame: CGRect(x: 0, y: 0, width: 300, height: 100))
+        label.textAlignment = NSTextAlignment.center
+        label.numberOfLines = 0
+        label.textColor = UIColor.red
+        label.layer.borderWidth = 2
+        label.layer.borderColor = UIColor.red.cgColor
+        label.layer.cornerRadius = 10
+        
+        return label
+    }
+    
+    func addWrongLabel(label: UILabel, text: String) {
+        self.view.addSubview(label)
+        label.center.x = self.view.center.x
+        label.center.y = self.view.center.y - 380
+        label.text = text
+    }
 }
+
+

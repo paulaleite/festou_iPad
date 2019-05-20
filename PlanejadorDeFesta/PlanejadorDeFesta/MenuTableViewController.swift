@@ -50,7 +50,12 @@ class MenuTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "aCell") as! PartyMenuTableViewCell
         cell.title.text = parties[indexPath.row].name
-        cell.subtitle.text = "\(parties[indexPath.row].numOfGuests) convidados"
+        let numOfGuests = parties[indexPath.row].numOfGuests
+        if numOfGuests > 1 {
+            cell.subtitle.text = "\(numOfGuests) convidados"
+        } else {
+            cell.subtitle.text = "\(numOfGuests) convidado"
+        }
         let pRed = Double(parties[indexPath.row].red)
         let pGreen = Double(parties[indexPath.row].green)
         let pBlue = Double(parties[indexPath.row].blue)

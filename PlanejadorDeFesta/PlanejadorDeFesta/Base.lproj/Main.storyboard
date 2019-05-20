@@ -24,7 +24,7 @@
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="aCell" rowHeight="178" id="REy-Ab-Kkw" customClass="PartyMenuTableViewCell" customModule="PlanejadorDeFesta" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="aCell" rowHeight="178" id="REy-Ab-Kkw" customClass="PartyMenuTableViewCell" customModule="PlanejadorDeFesta" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="38" width="414" height="178"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="REy-Ab-Kkw" id="LSb-6O-woE">
@@ -41,12 +41,11 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X6b-EP-HtQ">
-                                                    <rect key="frame" x="36" y="47" width="293" height="41"/>
+                                                    <rect key="frame" x="36" y="47" width="265" height="41"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="293" id="8cR-wI-8g0"/>
                                                         <constraint firstAttribute="height" constant="41" id="EAs-rb-tIT"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="35"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="30"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -54,10 +53,10 @@
                                             <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstItem="iN6-jc-DRz" firstAttribute="top" secondItem="X6b-EP-HtQ" secondAttribute="bottom" id="52G-P5-vJq"/>
+                                                <constraint firstAttribute="trailing" secondItem="X6b-EP-HtQ" secondAttribute="trailing" constant="36" id="BYs-j1-UsE"/>
                                                 <constraint firstItem="iN6-jc-DRz" firstAttribute="top" secondItem="X6b-EP-HtQ" secondAttribute="bottom" id="RNg-bC-1wD"/>
                                                 <constraint firstItem="iN6-jc-DRz" firstAttribute="leading" secondItem="uaD-XZ-bQf" secondAttribute="leading" constant="36" id="Vfh-Ww-ofW"/>
                                                 <constraint firstItem="X6b-EP-HtQ" firstAttribute="leading" secondItem="uaD-XZ-bQf" secondAttribute="leading" constant="36" id="YgR-FG-GhO"/>
-                                                <constraint firstAttribute="trailing" secondItem="X6b-EP-HtQ" secondAttribute="trailing" constant="8" id="a82-ot-jAl"/>
                                                 <constraint firstAttribute="bottom" secondItem="iN6-jc-DRz" secondAttribute="bottom" constant="38" id="eOQ-ch-8bv"/>
                                                 <constraint firstItem="X6b-EP-HtQ" firstAttribute="top" secondItem="uaD-XZ-bQf" secondAttribute="top" constant="47" id="wgl-Pn-i3W"/>
                                             </constraints>
@@ -163,6 +162,9 @@
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                    <connections>
+                                                        <action selector="guestsTextFieldDidChange:" destination="ppU-Hm-GqJ" eventType="editingDidEnd" id="W74-bX-aAI"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -211,6 +213,9 @@
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                    <connections>
+                                                        <action selector="drunkGuestsTextFieldDidChange:" destination="ppU-Hm-GqJ" eventType="editingDidEnd" id="fwF-0W-hex"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -237,6 +242,7 @@
                         <outlet property="amountOfDrunkGuestsTextField" destination="YJX-XP-L0V" id="UwN-M3-Fpc"/>
                         <outlet property="amountOfGuestsTextField" destination="9dz-uq-Chj" id="gBC-1b-DFw"/>
                         <outlet property="drunkGuestsTableViewCell" destination="9mM-DG-Qk5" id="FCu-SM-F4l"/>
+                        <outlet property="nextButton" destination="Rcm-R2-3xG" id="6VI-vF-uu2"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CrQ-t2-3Yw" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -748,6 +754,7 @@
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
+                        <outlet property="addButton" destination="DYS-9o-Jym" id="foW-I3-Tbh"/>
                         <outlet property="partyTitleTextField" destination="C3m-Tm-RCI" id="gxZ-WH-6x3"/>
                     </connections>
                 </tableViewController>

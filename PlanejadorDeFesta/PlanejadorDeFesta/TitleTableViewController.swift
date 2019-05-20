@@ -12,7 +12,7 @@ import CoreData
 
 class TitleTableViewController: UITableViewController, UITextFieldDelegate {
     
-    let colors:[[Int16]] = [[123, 43, 71], [255,134,78], [242,114,135], [3,56,65]]
+    let colors:[[Int16]] = [[104, 56, 92], [255,31,85], [157, 133, 244], [0, 183, 157], [47, 148, 180], [255,134,78], [242,114,135]]
     
     @IBOutlet weak var partyTitleTextField: UITextField!
     
@@ -28,6 +28,10 @@ class TitleTableViewController: UITableViewController, UITextFieldDelegate {
     
     var newParty:Party?
     
+    var wrongTitleLabel:UILabel?
+    
+    @IBOutlet weak var addButton: UIBarButtonItem!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -39,6 +43,16 @@ class TitleTableViewController: UITableViewController, UITextFieldDelegate {
         self.view.addGestureRecognizer(tap)
         
         partyTitleTextField.delegate = self
+        
+        wrongTitleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 150, height: 50))
+        wrongTitleLabel!.textAlignment = NSTextAlignment.center
+        wrongTitleLabel!.numberOfLines = 0
+        wrongTitleLabel!.textColor = UIColor.red
+        wrongTitleLabel!.layer.borderWidth = 2
+        wrongTitleLabel!.layer.borderColor = UIColor.red.cgColor
+        wrongTitleLabel!.layer.cornerRadius = 10
+        
+        addButton.isEnabled = false
     }
     
     
@@ -72,7 +86,11 @@ class TitleTableViewController: UITableViewController, UITextFieldDelegate {
                 }
             }
             tasks[0].append("Providenciar \(guests * 5) docinhos")
-            tasks[0].append("Providenciar \(guests) porções de sobremesa")
+            if guests > 1 {
+                tasks[0].append("Providenciar \(guests) porções de sobremesa")
+            } else {
+                tasks[0].append("Providenciar \(guests) porção de sobremesa")
+            }
             
             // Insere bebidas
             if let drinks = newParty?.doesDrink {
@@ -103,10 +121,17 @@ class TitleTableViewController: UITableViewController, UITextFieldDelegate {
             }
             
             // Insere utensílios
-            tasks[2].append("Providenciar \(guests) jogos de talheres")
-            tasks[2].append("Providenciar \(guests) pratos de comida")
-            tasks[2].append("Providenciar \(guests) pratos de sobremesa")
-            tasks[2].append("Providenciar \(guests) copos")
+            if guests > 1 {
+                tasks[2].append("Providenciar \(guests) jogos de talheres")
+                tasks[2].append("Providenciar \(guests) pratos de comida")
+                tasks[2].append("Providenciar \(guests) pratos de sobremesa")
+                tasks[2].append("Providenciar \(guests) copos")
+            } else {
+                tasks[2].append("Providenciar \(guests) jogo de talheres")
+                tasks[2].append("Providenciar \(guests) prato de comida")
+                tasks[2].append("Providenciar \(guests) prato de sobremesa")
+                tasks[2].append("Providenciar \(guests) copo")
+            }
         }
         
         return tasks
@@ -147,7 +172,7 @@ class TitleTableViewController: UITableViewController, UITextFieldDelegate {
                         newParty?.doesHaveMeal = party!.doesHaveMeal
                         newParty?.numOfHours = party!.numOfHours
                         newParty?.name = newPartyTitle
-                        let i = Int.random(in: 0 ... 3)
+                        let i = Int.random(in: 0 ... colors.count-1)
                         newParty?.red = colors[i][0]
                         newParty?.green = colors[i][1]
                         newParty?.blue = colors[i][2]
@@ -175,8 +200,27 @@ class TitleTableViewController: UITableViewController, UITextFieldDelegate {
         return false
     }
     
+    @objc func textFieldDidEndEditing(_ textField: UITextField) {
+        if let text = textField.text {
+            if text.hasPrefix(" ") {
+                addWrongLabel(label: wrongTitleLabel!, text: "Nome inválido")
+                addButton.isEnabled = false
+            } else {
+                wrongTitleLabel!.removeFromSuperview()
+                addButton.isEnabled = true
+            }
+        }
+    }
+    
     @objc func dismissKeyboard() {
         self.view.endEditing(true)
+    }
+    
+    func addWrongLabel(label: UILabel, text: String) {
+        self.view.addSubview(label)
+        label.center.x = self.view.center.x
+        label.center.y = self.view.center.y - 380
+        label.text = text
     }
     
 }
