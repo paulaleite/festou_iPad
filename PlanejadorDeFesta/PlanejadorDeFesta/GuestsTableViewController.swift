@@ -51,7 +51,9 @@ class GuestsTableViewController: UITableViewController, UITextFieldDelegate {
         tap.cancelsTouchesInView = false
         
         amountOfDrunkGuestsTextField.delegate = self
+        amountOfDrunkGuestsTextField.addTarget(self, action: #selector(drunkGuestsTextFieldDidChange(_:)), for: .editingChanged)
         amountOfGuestsTextField.delegate = self
+        amountOfGuestsTextField.addTarget(self, action: #selector(guestsTextFieldDidChange(_:)), for: .editingChanged)
         tableView.isUserInteractionEnabled = true
         
         wrongAmountGuestsLabel = setWrongLabel()
@@ -149,24 +151,24 @@ class GuestsTableViewController: UITableViewController, UITextFieldDelegate {
         if let textField = amountOfGuestsTextField {
             if let text = textField.text, let num = Int64(text) {
                 if num < 1 {
-                    addWrongLabel(label: wrongAmountGuestsLabel!, text: "O número de convidados deve ser maior ou igual a 1")
+                    addWrongLabel(label: wrongAmountGuestsLabel!, text: "O número de convidados deve ser maior ou igual a 1", width: 250, height: 80)
                     if wrongAmountDrunkGuestsLabel?.superview == self.view {
                         wrongAmountDrunkGuestsLabel?.isHidden = true
                     }
                     nextButton.isEnabled = false
                 } else if num > 1000000 || textField.text!.count > 7 {
-                    addWrongLabel(label: wrongAmountGuestsLabel!, text: "O número de convidados deve ser menor que 1000000")
+                    addWrongLabel(label: wrongAmountGuestsLabel!, text: "O número de convidados deve ser menor que 1000000", width: 250, height: 80)
                     if wrongAmountDrunkGuestsLabel?.superview == self.view {
                         wrongAmountDrunkGuestsLabel?.isHidden = true
                     }
                     nextButton.isEnabled = false
-                } else if let text = amountOfDrunkGuestsTextField.text, let numOfDrunkGuests = Int64(text), num < numOfDrunkGuests{
-                    addWrongLabel(label: wrongAmountGuestsLabel!, text: "O número de convidados que bebem não pode ser maior que o número de convidados")
-                    if wrongAmountDrunkGuestsLabel?.superview == self.view {
-                        wrongAmountDrunkGuestsLabel?.isHidden = true
-                    }
-                    nextButton.isEnabled = false
-                } else {
+                } else if let text = amountOfDrunkGuestsTextField.text, let numOfDrunkGuests = Int64(text), num < numOfDrunkGuests {
+                        addWrongLabel(label: wrongAmountGuestsLabel!, text: "O número de convidados que bebem não pode ser maior que o número de convidados", width: 250, height: 100)
+                        if wrongAmountDrunkGuestsLabel?.superview == self.view {
+                            wrongAmountDrunkGuestsLabel?.isHidden = true
+                        }
+                        nextButton.isEnabled = false
+                } else{
                     wrongAmountGuestsLabel!.removeFromSuperview()
                     if let hidden = wrongAmountDrunkGuestsLabel?.isHidden {
                         if hidden {
@@ -177,7 +179,7 @@ class GuestsTableViewController: UITableViewController, UITextFieldDelegate {
                     }
                 }
             } else {
-                addWrongLabel(label: wrongAmountGuestsLabel!, text: "Número inválido")
+                addWrongLabel(label: wrongAmountGuestsLabel!, text: "Número inválido", width: 100, height: 50)
                 if wrongAmountDrunkGuestsLabel?.superview == self.view {
                     wrongAmountDrunkGuestsLabel?.isHidden = true
                 }
@@ -190,13 +192,13 @@ class GuestsTableViewController: UITableViewController, UITextFieldDelegate {
         if let textField = amountOfDrunkGuestsTextField {
             if let text = textField.text, let num = Int64(text) {
                 if num < 1 && selected {
-                    addWrongLabel(label: wrongAmountDrunkGuestsLabel!, text: "O número de convidados que bebem deve ser maior ou igual a 1")
+                    addWrongLabel(label: wrongAmountDrunkGuestsLabel!, text: "O número de convidados que bebem deve ser maior ou igual a 1", width: 250, height: 80)
                     if wrongAmountGuestsLabel?.superview == self.view {
                         wrongAmountGuestsLabel?.isHidden = true
                     }
                     nextButton.isEnabled = false
                 } else if let text = amountOfGuestsTextField.text, let numOfGuests = Int64(text), num > numOfGuests || textField.text!.count > 7 {
-                    addWrongLabel(label: wrongAmountDrunkGuestsLabel!, text: "O número de convidados que bebem não pode ser maior que o número de convidados")
+                    addWrongLabel(label: wrongAmountDrunkGuestsLabel!, text: "O número de convidados que bebem não pode ser maior que o número de convidados", width: 250, height: 100)
                     if wrongAmountGuestsLabel?.superview == self.view {
                         wrongAmountGuestsLabel?.isHidden = true
                     }
@@ -213,7 +215,7 @@ class GuestsTableViewController: UITableViewController, UITextFieldDelegate {
                     }
                 }
             } else {
-                addWrongLabel(label: wrongAmountDrunkGuestsLabel!, text: "Número inválido")
+                addWrongLabel(label: wrongAmountDrunkGuestsLabel!, text: "Número inválido", width: 100, height: 50)
                 if wrongAmountGuestsLabel?.superview == self.view {
                     wrongAmountGuestsLabel?.isHidden = true
                 }
@@ -221,13 +223,6 @@ class GuestsTableViewController: UITableViewController, UITextFieldDelegate {
             }
         }
     }
-    
-    
-//    @objc func textFieldDidBeginEditing(_ textField: UITextField) {
-//    }
-    
-//    @objc func textFieldDidEndEditing(_ textField: UITextField) {
-//    }
     
     func setWrongLabel() -> UILabel {
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: 300, height: 100))
@@ -237,11 +232,15 @@ class GuestsTableViewController: UITableViewController, UITextFieldDelegate {
         label.layer.borderWidth = 2
         label.layer.borderColor = UIColor.red.cgColor
         label.layer.cornerRadius = 10
-        
+        //label.sizeToFit()
         return label
     }
     
-    func addWrongLabel(label: UILabel, text: String) {
+    func addWrongLabel(label: UILabel, text: String, width: Int, height: Int) {
+        var newFrame = label.frame
+        newFrame.size.width = CGFloat(width)
+        newFrame.size.height = CGFloat(height)
+        label.frame = newFrame
         self.view.addSubview(label)
         label.center.x = self.view.center.x
         label.center.y = self.view.center.y - 380

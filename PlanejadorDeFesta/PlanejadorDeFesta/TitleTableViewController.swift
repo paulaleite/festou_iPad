@@ -43,6 +43,7 @@ class TitleTableViewController: UITableViewController, UITextFieldDelegate {
         self.view.addGestureRecognizer(tap)
         
         partyTitleTextField.delegate = self
+        partyTitleTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
         
         wrongTitleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 150, height: 50))
         wrongTitleLabel!.textAlignment = NSTextAlignment.center
@@ -200,18 +201,21 @@ class TitleTableViewController: UITableViewController, UITextFieldDelegate {
         return false
     }
     
-    @objc func textFieldDidEndEditing(_ textField: UITextField) {
-        if let text = textField.text {
-            if text.hasPrefix(" ") {
-                addWrongLabel(label: wrongTitleLabel!, text: "Nome inválido")
-                addButton.isEnabled = false
-            } else {
-                wrongTitleLabel!.removeFromSuperview()
-                addButton.isEnabled = true
+    
+    @IBAction func textFieldDidChange(_ sender: Any) {
+        if let textField = partyTitleTextField {
+            if let text = textField.text {
+                if text.hasPrefix(" ") {
+                    addWrongLabel(label: wrongTitleLabel!, text: "Nome inválido")
+                    addButton.isEnabled = false
+                } else {
+                    wrongTitleLabel!.removeFromSuperview()
+                    addButton.isEnabled = true
+                }
             }
         }
     }
-    
+
     @objc func dismissKeyboard() {
         self.view.endEditing(true)
     }
