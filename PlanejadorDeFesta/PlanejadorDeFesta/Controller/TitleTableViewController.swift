@@ -177,7 +177,7 @@ class TitleTableViewController: UITableViewController, UITextFieldDelegate {
                         newParty?.doesHaveMeal = party!.doesHaveMeal
                         newParty?.numOfHours = party!.numOfHours
                         newParty?.name = newPartyTitle
-                        let i = colors.count-1 //Int.random(in: 0 ... colors.count-1)
+                        let i = Int.random(in: 0 ... colors.count-1)
                         newParty?.red = colors[i][0]
                         newParty?.green = colors[i][1]
                         newParty?.blue = colors[i][2]
@@ -209,7 +209,7 @@ class TitleTableViewController: UITableViewController, UITextFieldDelegate {
     @IBAction func textFieldDidChange(_ sender: Any) {
         if let textField = partyTitleTextField {
             if let text = textField.text {
-                if text.hasPrefix(" ") {
+                if text.hasPrefix(" ") || text.count == 0 {
                     addWrongLabel(label: wrongTitleLabel!, text: "Nome inválido")
                     addButton.isEnabled = false
                 } else {
