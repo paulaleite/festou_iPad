@@ -38,6 +38,8 @@ class GuestsTableViewController: UITableViewController, UITextFieldDelegate {
     
     @IBOutlet weak var nextButton: UIBarButtonItem!
     
+    let red = UIColor(red: 214/255, green: 59/255, blue: 87/255, alpha: 1)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -73,6 +75,7 @@ class GuestsTableViewController: UITableViewController, UITextFieldDelegate {
             drunkGuestsTableViewCell.isHidden.toggle()
             if wrongAmountDrunkGuestsLabel?.superview == self.view {
                 wrongAmountDrunkGuestsLabel?.isHidden.toggle()
+                nextButton.isEnabled.toggle()
             }
         } else if selectedRow == 0 && selectedSection == 2 && tableView.cellForRow(at: IndexPath(row: 0, section: 2))?.accessoryType == .checkmark {
             tableView.cellForRow(at: indexPath)?.accessoryType = .none
@@ -80,6 +83,7 @@ class GuestsTableViewController: UITableViewController, UITextFieldDelegate {
             drunkGuestsTableViewCell.isHidden.toggle()
             if wrongAmountDrunkGuestsLabel?.superview == self.view {
                 wrongAmountDrunkGuestsLabel?.isHidden.toggle()
+                nextButton.isEnabled.toggle()
             }
         }
     }
@@ -228,11 +232,10 @@ class GuestsTableViewController: UITableViewController, UITextFieldDelegate {
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: 300, height: 100))
         label.textAlignment = NSTextAlignment.center
         label.numberOfLines = 0
-        label.textColor = UIColor.red
+        label.textColor = red
         label.layer.borderWidth = 2
-        label.layer.borderColor = UIColor.red.cgColor
+        label.layer.borderColor = red.cgColor
         label.layer.cornerRadius = 10
-        //label.sizeToFit()
         return label
     }
     

@@ -61,20 +61,20 @@
 		0F450AD9228349A700FE038F /* PlanejadorDeFestaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlanejadorDeFestaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F450ADD228349A700FE038F /* PlanejadorDeFestaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanejadorDeFestaUITests.swift; sourceTree = "<group>"; };
 		0F450ADF228349A700FE038F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0F6F077122849AE800BAEC3A /* GuestsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestsTableViewController.swift; sourceTree = "<group>"; };
-		0F6F07732284A62B00BAEC3A /* MealTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealTableViewController.swift; sourceTree = "<group>"; };
-		0F6F07752284B1F400BAEC3A /* TimeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableViewController.swift; sourceTree = "<group>"; };
+		0F6F077122849AE800BAEC3A /* GuestsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GuestsTableViewController.swift; path = ../GuestsTableViewController.swift; sourceTree = "<group>"; };
+		0F6F07732284A62B00BAEC3A /* MealTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MealTableViewController.swift; path = ../MealTableViewController.swift; sourceTree = "<group>"; };
+		0F6F07752284B1F400BAEC3A /* TimeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TimeTableViewController.swift; path = ../TimeTableViewController.swift; sourceTree = "<group>"; };
 		0F6F07772284B73700BAEC3A /* TitleTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleTableViewController.swift; sourceTree = "<group>"; };
-		0F6F077D2284CA0300BAEC3A /* MenuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewController.swift; sourceTree = "<group>"; };
+		0F6F077D2284CA0300BAEC3A /* MenuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MenuTableViewController.swift; path = ../MenuTableViewController.swift; sourceTree = "<group>"; };
 		E45C6CC1228B273500DA5E6E /* PartyTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartyTableViewController.swift; sourceTree = "<group>"; };
-		E45C6CC3228B34AF00DA5E6E /* ChecklistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistViewController.swift; sourceTree = "<group>"; };
+		E45C6CC3228B34AF00DA5E6E /* ChecklistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ChecklistViewController.swift; path = ../ChecklistViewController.swift; sourceTree = "<group>"; };
 		E4AC2BCF228B9A570099F0F8 /* PartyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartyTableViewCell.swift; sourceTree = "<group>"; };
 		E4AC2BD1228C908B0099F0F8 /* PartyMenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartyMenuTableViewCell.swift; sourceTree = "<group>"; };
 		E4C24EA52288983B0065C4A4 /* Party+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Party+CoreDataClass.swift"; sourceTree = "<group>"; };
 		E4C24EA62288983B0065C4A4 /* Party+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Party+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		E4C24EA72288983B0065C4A4 /* Tasks+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Tasks+CoreDataClass.swift"; sourceTree = "<group>"; };
+		E4C24EA72288983B0065C4A4 /* Tasks+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Tasks+CoreDataClass.swift"; path = "../../Tasks+CoreDataClass.swift"; sourceTree = "<group>"; };
 		E4C24EA82288983B0065C4A4 /* Tasks+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Tasks+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		E4FF8F14228DC98F00841E89 /* TaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTableViewCell.swift; sourceTree = "<group>"; };
+		E4FF8F14228DC98F00841E89 /* TaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TaskTableViewCell.swift; path = ../TaskTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,10 +105,6 @@
 		0F450AAE228349A500FE038F = {
 			isa = PBXGroup;
 			children = (
-				E4C24EA52288983B0065C4A4 /* Party+CoreDataClass.swift */,
-				E4C24EA62288983B0065C4A4 /* Party+CoreDataProperties.swift */,
-				E4C24EA72288983B0065C4A4 /* Tasks+CoreDataClass.swift */,
-				E4C24EA82288983B0065C4A4 /* Tasks+CoreDataProperties.swift */,
 				0F450AB9228349A500FE038F /* PlanejadorDeFesta */,
 				0F450AD1228349A700FE038F /* PlanejadorDeFestaTests */,
 				0F450ADC228349A700FE038F /* PlanejadorDeFestaUITests */,
@@ -129,18 +125,11 @@
 		0F450AB9228349A500FE038F /* PlanejadorDeFesta */ = {
 			isa = PBXGroup;
 			children = (
+				E485C9862295AFD100AAD3CD /* Model */,
+				E485C9872295AFDF00AAD3CD /* View */,
+				E485C9882295AFEF00AAD3CD /* Controller */,
 				0F450ABA228349A500FE038F /* AppDelegate.swift */,
 				0F450ABE228349A500FE038F /* Main.storyboard */,
-				0F6F077D2284CA0300BAEC3A /* MenuTableViewController.swift */,
-				E4AC2BD1228C908B0099F0F8 /* PartyMenuTableViewCell.swift */,
-				E45C6CC1228B273500DA5E6E /* PartyTableViewController.swift */,
-				E4AC2BCF228B9A570099F0F8 /* PartyTableViewCell.swift */,
-				E45C6CC3228B34AF00DA5E6E /* ChecklistViewController.swift */,
-				E4FF8F14228DC98F00841E89 /* TaskTableViewCell.swift */,
-				0F6F07772284B73700BAEC3A /* TitleTableViewController.swift */,
-				0F6F07752284B1F400BAEC3A /* TimeTableViewController.swift */,
-				0F6F07732284A62B00BAEC3A /* MealTableViewController.swift */,
-				0F6F077122849AE800BAEC3A /* GuestsTableViewController.swift */,
 				0F450AC4228349A700FE038F /* Assets.xcassets */,
 				0F450AC6228349A700FE038F /* LaunchScreen.storyboard */,
 				0F450AC9228349A700FE038F /* Info.plist */,
@@ -165,6 +154,41 @@
 				0F450ADF228349A700FE038F /* Info.plist */,
 			);
 			path = PlanejadorDeFestaUITests;
+			sourceTree = "<group>";
+		};
+		E485C9862295AFD100AAD3CD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E4C24EA52288983B0065C4A4 /* Party+CoreDataClass.swift */,
+				E4C24EA62288983B0065C4A4 /* Party+CoreDataProperties.swift */,
+				E4C24EA72288983B0065C4A4 /* Tasks+CoreDataClass.swift */,
+				E4C24EA82288983B0065C4A4 /* Tasks+CoreDataProperties.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E485C9872295AFDF00AAD3CD /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E4AC2BD1228C908B0099F0F8 /* PartyMenuTableViewCell.swift */,
+				E4AC2BCF228B9A570099F0F8 /* PartyTableViewCell.swift */,
+				E4FF8F14228DC98F00841E89 /* TaskTableViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E485C9882295AFEF00AAD3CD /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				0F6F077D2284CA0300BAEC3A /* MenuTableViewController.swift */,
+				E45C6CC1228B273500DA5E6E /* PartyTableViewController.swift */,
+				E45C6CC3228B34AF00DA5E6E /* ChecklistViewController.swift */,
+				0F6F07772284B73700BAEC3A /* TitleTableViewController.swift */,
+				0F6F07752284B1F400BAEC3A /* TimeTableViewController.swift */,
+				0F6F07732284A62B00BAEC3A /* MealTableViewController.swift */,
+				0F6F077122849AE800BAEC3A /* GuestsTableViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

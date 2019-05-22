@@ -12,7 +12,10 @@ import CoreData
 
 class TitleTableViewController: UITableViewController, UITextFieldDelegate {
     
-    let colors:[[Int16]] = [[104, 56, 92], [255,31,85], [157, 133, 244], [0, 183, 157], [47, 148, 180], [255,134,78], [242,114,135]]
+    let colors:[[Int16]] = [[158, 133, 244],    // roxo
+                            [0, 183, 157],      // verde-agua
+                            [255,134,78],       // laranja
+                            [242,114,135]]      // rosa
     
     @IBOutlet weak var partyTitleTextField: UITextField!
     
@@ -45,12 +48,13 @@ class TitleTableViewController: UITableViewController, UITextFieldDelegate {
         partyTitleTextField.delegate = self
         partyTitleTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
         
+        let red = UIColor(red: 214/255, green: 59/255, blue: 87/255, alpha: 1)
         wrongTitleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 150, height: 50))
         wrongTitleLabel!.textAlignment = NSTextAlignment.center
         wrongTitleLabel!.numberOfLines = 0
-        wrongTitleLabel!.textColor = UIColor.red
+        wrongTitleLabel!.textColor = red
         wrongTitleLabel!.layer.borderWidth = 2
-        wrongTitleLabel!.layer.borderColor = UIColor.red.cgColor
+        wrongTitleLabel!.layer.borderColor = red.cgColor
         wrongTitleLabel!.layer.cornerRadius = 10
         
         addButton.isEnabled = false
@@ -173,7 +177,7 @@ class TitleTableViewController: UITableViewController, UITextFieldDelegate {
                         newParty?.doesHaveMeal = party!.doesHaveMeal
                         newParty?.numOfHours = party!.numOfHours
                         newParty?.name = newPartyTitle
-                        let i = Int.random(in: 0 ... colors.count-1)
+                        let i = colors.count-1 //Int.random(in: 0 ... colors.count-1)
                         newParty?.red = colors[i][0]
                         newParty?.green = colors[i][1]
                         newParty?.blue = colors[i][2]

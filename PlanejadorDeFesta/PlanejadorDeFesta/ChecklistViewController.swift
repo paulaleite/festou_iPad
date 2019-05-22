@@ -83,7 +83,7 @@ class ChecklistViewController: UIViewController, UITableViewDataSource, UITableV
         } else if tasks[selectedRow].checkConclusion {
             tasks[selectedRow].checkConclusion = false
             let cell = tableView.cellForRow(at: indexPath) as! TaskTableViewCell
-            cell.taskImage.image = UIImage(named: "Uncheck")
+            cell.taskImage.image = nil 
             
             attributeString = NSMutableAttributedString(string: tasks[indexPath.row].name!)
             attributeString!.addAttribute(NSAttributedString.Key.strikethroughStyle, value: 2, range: NSMakeRange(0, 0))

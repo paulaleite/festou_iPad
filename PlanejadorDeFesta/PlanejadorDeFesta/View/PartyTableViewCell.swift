@@ -15,6 +15,7 @@ class PartyTableViewCell: UITableViewCell {
     
     @IBOutlet weak var containerView: UIView! {
         didSet {
+            containerView.layer.cornerRadius = 10
             containerView.layer.shadowOpacity = 6
             containerView.layer.shadowRadius = 4
             containerView.layer.shadowColor = UIColor.lightGray.cgColor
