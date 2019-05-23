@@ -1038,6 +1038,14 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="64.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D5K-OT-jel">
+                                                    <rect key="frame" x="20" y="20" width="30" height="30"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="30" id="U30-9p-yJH"/>
+                                                        <constraint firstAttribute="width" constant="30" id="t4f-5p-T3w"/>
+                                                    </constraints>
+                                                </view>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0NH-Em-bfs">
                                                     <rect key="frame" x="20" y="17" width="30" height="30"/>
                                                     <constraints>
@@ -1055,28 +1063,25 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3cv-qm-iTh">
-                                                    <rect key="frame" x="20" y="20" width="30" height="30"/>
-                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="Adj-at-EiV" firstAttribute="top" secondItem="UV1-BR-a6x" secondAttribute="topMargin" constant="11" id="3Du-lB-Djj"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="Adj-at-EiV" secondAttribute="bottom" constant="11" id="Bi6-1h-6we"/>
                                                 <constraint firstItem="Adj-at-EiV" firstAttribute="leading" secondItem="0NH-Em-bfs" secondAttribute="trailing" constant="8" id="DU0-H8-GhP"/>
+                                                <constraint firstItem="D5K-OT-jel" firstAttribute="top" secondItem="UV1-BR-a6x" secondAttribute="topMargin" constant="9" id="Hhw-Ik-GjH"/>
                                                 <constraint firstItem="0NH-Em-bfs" firstAttribute="top" secondItem="UV1-BR-a6x" secondAttribute="topMargin" constant="6" id="V6N-BD-92G"/>
-                                                <constraint firstItem="3cv-qm-iTh" firstAttribute="top" secondItem="UV1-BR-a6x" secondAttribute="topMargin" constant="9" id="bgr-16-rJ5"/>
                                                 <constraint firstItem="Adj-at-EiV" firstAttribute="top" secondItem="UV1-BR-a6x" secondAttribute="topMargin" constant="11" id="h1C-oR-awe"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="Adj-at-EiV" secondAttribute="bottom" constant="11" id="hup-Ln-Ek8"/>
                                                 <constraint firstItem="0NH-Em-bfs" firstAttribute="leading" secondItem="UV1-BR-a6x" secondAttribute="leadingMargin" id="pZU-ck-I7N"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="0NH-Em-bfs" secondAttribute="bottom" constant="7" id="qW5-R0-lx3"/>
                                                 <constraint firstAttribute="trailing" secondItem="Adj-at-EiV" secondAttribute="trailing" id="sqe-yG-PeG"/>
-                                                <constraint firstItem="3cv-qm-iTh" firstAttribute="leading" secondItem="UV1-BR-a6x" secondAttribute="leadingMargin" id="uxG-44-fap"/>
+                                                <constraint firstItem="D5K-OT-jel" firstAttribute="leading" secondItem="UV1-BR-a6x" secondAttribute="leadingMargin" id="vBr-RW-usq"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="taskButton" destination="3cv-qm-iTh" id="0QW-MX-mHj"/>
                                             <outlet property="taskImage" destination="0NH-Em-bfs" id="COU-tw-Xnu"/>
                                             <outlet property="taskLabel" destination="Adj-at-EiV" id="stw-ma-L6y"/>
+                                            <outlet property="taskView" destination="D5K-OT-jel" id="oqu-Sd-Qm6"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

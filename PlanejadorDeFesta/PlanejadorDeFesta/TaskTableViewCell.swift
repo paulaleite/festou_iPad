@@ -14,11 +14,11 @@ class TaskTableViewCell: UITableViewCell {
     
     @IBOutlet weak var taskImage: UIImageView!
     
-    @IBOutlet weak var taskButton: UIButton! {
+    @IBOutlet weak var taskView: UIView! {
         didSet {
-            taskButton.layer.borderWidth = 2
-            taskButton.layer.borderColor = UIColor(red: 47/255, green: 148/255, blue: 179/255, alpha: 1).cgColor
-            taskButton.layer.cornerRadius = 0.5 * taskButton.frame.width
+            taskView.layer.borderWidth = 2
+            taskView.layer.borderColor = UIColor(red: 47/255, green: 148/255, blue: 179/255, alpha: 1).cgColor
+            taskView.layer.cornerRadius = 0.5 * taskView.frame.width
         }
     }
     

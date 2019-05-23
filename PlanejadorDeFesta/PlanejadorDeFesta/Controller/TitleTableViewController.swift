@@ -56,6 +56,9 @@ class TitleTableViewController: UITableViewController, UITextFieldDelegate {
         wrongTitleLabel!.layer.borderWidth = 2
         wrongTitleLabel!.layer.borderColor = red.cgColor
         wrongTitleLabel!.layer.cornerRadius = 10
+        wrongTitleLabel!.translatesAutoresizingMaskIntoConstraints = false
+        wrongTitleLabel!.widthAnchor.constraint(greaterThanOrEqualToConstant: 150).isActive = true
+        wrongTitleLabel!.heightAnchor.constraint(greaterThanOrEqualToConstant: 50).isActive = true
         
         addButton.isEnabled = false
     }
@@ -226,8 +229,10 @@ class TitleTableViewController: UITableViewController, UITextFieldDelegate {
     
     func addWrongLabel(label: UILabel, text: String) {
         self.view.addSubview(label)
-        label.center.x = self.view.center.x
-        label.center.y = self.view.center.y - 380
+        label.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 50).isActive = true
+        label.centerXAnchor.constraint(equalTo: self.view.centerXAnchor, constant: 0).isActive = true
+        label.leadingAnchor.constraint(lessThanOrEqualTo: self.view.leadingAnchor, constant: 20)
+        label.trailingAnchor.constraint(lessThanOrEqualTo: self.view.trailingAnchor, constant: 20)
         label.text = text
     }
     
