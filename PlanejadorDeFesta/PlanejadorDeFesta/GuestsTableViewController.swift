@@ -32,9 +32,11 @@ class GuestsTableViewController: UITableViewController, UITextFieldDelegate {
     
     var goingForwards:Bool = false
     
-    var wrongAmountGuestsLabel:UILabel?
+    var wrongValuesLabel:UILabel?
     
-    var wrongAmountDrunkGuestsLabel:UILabel?
+//    var wrongAmountGuestsLabel:UILabel?
+//
+//    var wrongAmountDrunkGuestsLabel:UILabel?
     
     @IBOutlet weak var nextButton: UIBarButtonItem!
     
@@ -53,13 +55,12 @@ class GuestsTableViewController: UITableViewController, UITextFieldDelegate {
         tap.cancelsTouchesInView = false
         
         amountOfDrunkGuestsTextField.delegate = self
-        amountOfDrunkGuestsTextField.addTarget(self, action: #selector(drunkGuestsTextFieldDidChange(_:)), for: .editingChanged)
+        amountOfDrunkGuestsTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
         amountOfGuestsTextField.delegate = self
-        amountOfGuestsTextField.addTarget(self, action: #selector(guestsTextFieldDidChange(_:)), for: .editingChanged)
+        amountOfGuestsTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
         tableView.isUserInteractionEnabled = true
         
-        wrongAmountGuestsLabel = setWrongLabel()
-        wrongAmountDrunkGuestsLabel = setWrongLabel()
+        wrongValuesLabel = setWrongLabel()
         
         nextButton.isEnabled = false
     }
@@ -69,22 +70,48 @@ class GuestsTableViewController: UITableViewController, UITextFieldDelegate {
         selectedRow = indexPath.row
         selectedSection = indexPath.section
         
+        // Alcoholic drinks checked
         if selectedRow == 0 && selectedSection == 2 && tableView.cellForRow(at: indexPath)!.accessoryType == .none {
             tableView.cellForRow(at: IndexPath(row: 0, section: 2))?.accessoryType = .checkmark
             selected = true
             drunkGuestsTableViewCell.isHidden.toggle()
-            if wrongAmountDrunkGuestsLabel?.superview == self.view {
-                wrongAmountDrunkGuestsLabel?.isHidden = false
-                nextButton.isEnabled.toggle()
+            
+            var numberOfGuests:Int?
+            var numberOfDrunkGuests:Int?
+            if let textField = amountOfGuestsTextField {
+                if let text = textField.text, let num = Int(text) {
+                    numberOfGuests = num
+                }
             }
-        } else if selectedRow == 0 && selectedSection == 2 && tableView.cellForRow(at: IndexPath(row: 0, section: 2))?.accessoryType == .checkmark {
+            
+            if let textField = amountOfDrunkGuestsTextField {
+                if let text = textField.text, let num = Int(text) {
+                    numberOfDrunkGuests = num
+                } else {
+                    let text = "Número de convidados que bebem é inválido"
+                    if let label = wrongValuesLabel {
+                        addWrongLabel(label: label, text: text, width: 250, height: 80, tag: 1)
+                    }
+                }
+            }
+            
+            if let num1 = numberOfGuests, let num2 = numberOfDrunkGuests {
+                checkInputValues(numOfGuests: num1, numOfDrunkGuests: num2)
+            }
+            
+        }
+        // Alcoholic drinks unchecked
+        else if selectedRow == 0 && selectedSection == 2 && tableView.cellForRow(at: IndexPath(row: 0, section: 2))?.accessoryType == .checkmark {
             tableView.cellForRow(at: indexPath)?.accessoryType = .none
             selected = false
             drunkGuestsTableViewCell.isHidden.toggle()
-            if wrongAmountDrunkGuestsLabel?.superview == self.view {
-                wrongAmountDrunkGuestsLabel?.isHidden = true
-                nextButton.isEnabled.toggle()
+            
+            if let textField = amountOfGuestsTextField {
+                if let text = textField.text, let num = Int(text) {
+                    checkInputValues(numOfGuests: num, numOfDrunkGuests: 0)
+                }
             }
+            
         }
     }
     
@@ -151,117 +178,79 @@ class GuestsTableViewController: UITableViewController, UITextFieldDelegate {
         self.view.endEditing(true)
     }
     
-    @IBAction func guestsTextFieldDidChange(_ sender: Any) {
+    
+    
+    @IBAction func textFieldDidChange(_ sender: Any) {
+        var numberOfGuests:Int?
+        var numberOfDrunkGuests:Int?
+        
         if let textField = amountOfGuestsTextField {
-            if let text = textField.text, let num = Int64(text) {
-                if num < 1 {
-                    addWrongLabel(label: wrongAmountGuestsLabel!, text: " O número de convidados deve ser \n maior ou igual a 1", width: CGFloat(250), height: 80, tag: 1)
-                    if wrongAmountDrunkGuestsLabel?.superview == self.view {
-                        wrongAmountDrunkGuestsLabel?.isHidden = true
-                    }
-                    nextButton.isEnabled = false
-                } else if num > 1000000 || textField.text!.count > 7 {
-                    addWrongLabel(label: wrongAmountGuestsLabel!, text: " O número de convidados deve ser \n menor que 1000000", width: 250, height: 80, tag: 2)
-                    if wrongAmountDrunkGuestsLabel?.superview == self.view {
-                        wrongAmountDrunkGuestsLabel?.isHidden = true
-                    }
-                    nextButton.isEnabled = false
-                } else if let text = amountOfDrunkGuestsTextField.text, let numOfDrunkGuests = Int64(text), selected {
-                    if num < numOfDrunkGuests {
-                        addWrongLabel(label: wrongAmountGuestsLabel!, text: " O número de convidados que \n bebem não pode ser maior que \n o número de convidados", width: 250, height: 100, tag: 3)
-                            if wrongAmountDrunkGuestsLabel?.superview == self.view {
-                                wrongAmountDrunkGuestsLabel?.isHidden = true
-                            }
-                            nextButton.isEnabled = false
-                    } else if wrongAmountDrunkGuestsLabel?.tag == 6 {
-                        wrongAmountGuestsLabel!.removeFromSuperview()
-                        wrongAmountDrunkGuestsLabel!.removeFromSuperview()
-                        nextButton.isEnabled = true
-                    }
-                } else {
-                    wrongAmountGuestsLabel!.removeFromSuperview()
-                    if let hidden = wrongAmountDrunkGuestsLabel?.isHidden {
-                        if hidden {
-                            wrongAmountDrunkGuestsLabel?.isHidden = false
-                        } else {
-                            nextButton.isEnabled = true
-                        }
-                    }
-                }
+            if let text = textField.text, let num = Int(text) {
+                numberOfGuests = num
             } else {
-                addWrongLabel(label: wrongAmountGuestsLabel!, text: "Número inválido", width: 100, height: 50, tag: 4)
-                if wrongAmountDrunkGuestsLabel?.superview == self.view {
-                    wrongAmountDrunkGuestsLabel?.isHidden = true
+                let text = "Número inválido"
+                if let label = wrongValuesLabel {
+                    addWrongLabel(label: label, text: text, width: 250, height: 80, tag: 1)
                 }
                 nextButton.isEnabled = false
             }
         }
-    }
-
-    @IBAction func drunkGuestsTextFieldDidChange(_ sender: Any) {
+        
         if let textField = amountOfDrunkGuestsTextField {
-            if let text = textField.text, let num = Int64(text) {
-                if num < 1 && selected {
-                    addWrongLabel(label: wrongAmountDrunkGuestsLabel!, text: " O número de convidados que \n bebem deve ser maior ou igual a 1 ", width: 270, height: 80, tag: 5)
-                    if wrongAmountGuestsLabel?.superview == self.view {
-                        wrongAmountGuestsLabel?.isHidden = true
+            if let text = textField.text, let num = Int(text) {
+                numberOfDrunkGuests = num
+            } else {
+                if selected {
+                    let text = "Número de convidados que bebem é inválido"
+                    if let label = wrongValuesLabel {
+                        addWrongLabel(label: label, text: text, width: 250, height: 80, tag: 1)
                     }
                     nextButton.isEnabled = false
-                } else if let text = amountOfGuestsTextField.text {
-                    if text.count != 0 {
-                        if let numOfGuests = Int64(text), num > numOfGuests || textField.text!.count > 7 {
-                            addWrongLabel(label: wrongAmountDrunkGuestsLabel!, text: " O número de convidados que \n bebem não pode ser maior que \n o número de convidados", width: 250, height: 100, tag: 6)
-                            if wrongAmountGuestsLabel?.superview == self.view {
-                                wrongAmountGuestsLabel?.isHidden = true
-                            }
-                            nextButton.isEnabled = false
-                        } else {
-                            wrongAmountDrunkGuestsLabel!.removeFromSuperview()
-                            if let hidden = wrongAmountGuestsLabel?.isHidden {
-                                if hidden {
-                                    wrongAmountGuestsLabel?.isHidden = false
-                                }
-                                else {
-                                    nextButton.isEnabled = true
-                                }
-                            }
-                        }
-                    } else {
-                        addWrongLabel(label: wrongAmountDrunkGuestsLabel!, text: " O número de convidados que \n bebem não pode ser maior que \n o número de convidados", width: 250, height: 100, tag: 6)
-                        if wrongAmountGuestsLabel?.superview == self.view {
-                            wrongAmountGuestsLabel?.isHidden = true
-                        }
-                        nextButton.isEnabled = false
-                    }
                 } else {
-                    wrongAmountDrunkGuestsLabel!.removeFromSuperview()
-                    if let hidden = wrongAmountGuestsLabel?.isHidden {
-                        if hidden {
-                            wrongAmountGuestsLabel?.isHidden = false
-                        }
-                        else {
-                            nextButton.isEnabled = true
-                        }
-                    }
+                    numberOfDrunkGuests = 0
                 }
-            } else {
-                addWrongLabel(label: wrongAmountDrunkGuestsLabel!, text: "Número inválido", width: 100, height: 50, tag: 7)
-                if wrongAmountGuestsLabel?.superview == self.view {
-                    wrongAmountGuestsLabel?.isHidden = true
-                }
-                nextButton.isEnabled = false
             }
+        }
+        
+        if let num1 = numberOfGuests, let num2 = numberOfDrunkGuests {
+            checkInputValues(numOfGuests: num1, numOfDrunkGuests: num2)
+        }
+    }
+    
+    
+    func checkInputValues(numOfGuests: Int, numOfDrunkGuests: Int) {
+        var text:String
+        if (numOfGuests <= 0 || numOfDrunkGuests < 0) {
+            text = "Os números devem maiores que 0"
+            if let label = wrongValuesLabel {
+                addWrongLabel(label: label, text: text, width: 250, height: 80, tag: 1)
+            }
+            nextButton.isEnabled = false
+        } else if (numOfGuests >= 1000000 || numOfDrunkGuests >= 1000000) {
+            text = "Os números devem ser menores que 1000000"
+            if let label = wrongValuesLabel {
+                addWrongLabel(label: label, text: text, width: 250, height: 80, tag: 1)
+            }
+            nextButton.isEnabled = false
+        } else if (numOfGuests < numOfDrunkGuests) {
+            text = "O número de consumidores de bebida alcoólica não pode ser maior que o número de convidados"
+            if let label = wrongValuesLabel {
+                addWrongLabel(label: label, text: text, width: 270, height: 120, tag: 2)
+            }
+            nextButton.isEnabled = false
+        } else {
+            if let label = wrongValuesLabel {
+                label.removeFromSuperview()
+            }
+            nextButton.isEnabled = true
         }
     }
     
     func setWrongLabel() -> UILabel {
-        let label = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
+        let label = UILabel(frame: CGRect(x: 0, y: 0, width: 150, height: 50))
         label.textAlignment = NSTextAlignment.center
         label.numberOfLines = 0
         label.textColor = red
-        label.layer.borderWidth = 2
-        label.layer.borderColor = red.cgColor
-        label.layer.cornerRadius = 10
         label.isHidden = true
         label.tag = 0
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -274,10 +263,11 @@ class GuestsTableViewController: UITableViewController, UITextFieldDelegate {
         label.text = text
         label.tag = tag
         self.view.addSubview(label)
-        label.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 50).isActive = true
+        label.sizeToFit()
+        label.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 20).isActive = true
         label.centerXAnchor.constraint(equalTo: self.view.centerXAnchor, constant: 0).isActive = true
-        label.leadingAnchor.constraint(lessThanOrEqualTo: self.view.leadingAnchor, constant: 20)
-        label.trailingAnchor.constraint(lessThanOrEqualTo: self.view.trailingAnchor, constant: 20)
+        label.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 20).isActive = true
+        label.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: 20).isActive = true
         label.isHidden = false
     }
 }

@@ -162,7 +162,7 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                     <connections>
-                                                        <action selector="guestsTextFieldDidChange:" destination="ppU-Hm-GqJ" eventType="editingDidEnd" id="W74-bX-aAI"/>
+                                                        <action selector="textFieldDidChange:" destination="ppU-Hm-GqJ" eventType="editingDidEnd" id="PA9-G6-O6M"/>
                                                     </connections>
                                                 </textField>
                                             </subviews>
@@ -220,7 +220,7 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                     <connections>
-                                                        <action selector="drunkGuestsTextFieldDidChange:" destination="ppU-Hm-GqJ" eventType="editingDidEnd" id="fwF-0W-hex"/>
+                                                        <action selector="textFieldDidChange:" destination="ppU-Hm-GqJ" eventType="editingDidEnd" id="7qM-al-qVg"/>
                                                     </connections>
                                                 </textField>
                                             </subviews>

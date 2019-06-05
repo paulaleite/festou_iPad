@@ -53,9 +53,6 @@ class TitleTableViewController: UITableViewController, UITextFieldDelegate {
         wrongTitleLabel!.textAlignment = NSTextAlignment.center
         wrongTitleLabel!.numberOfLines = 0
         wrongTitleLabel!.textColor = red
-        wrongTitleLabel!.layer.borderWidth = 2
-        wrongTitleLabel!.layer.borderColor = red.cgColor
-        wrongTitleLabel!.layer.cornerRadius = 10
         wrongTitleLabel!.translatesAutoresizingMaskIntoConstraints = false
         wrongTitleLabel!.widthAnchor.constraint(greaterThanOrEqualToConstant: 150).isActive = true
         wrongTitleLabel!.heightAnchor.constraint(greaterThanOrEqualToConstant: 50).isActive = true
@@ -229,10 +226,12 @@ class TitleTableViewController: UITableViewController, UITextFieldDelegate {
     
     func addWrongLabel(label: UILabel, text: String) {
         self.view.addSubview(label)
-        label.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 50).isActive = true
+        label.sizeToFit()
+        label.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 20).isActive = true
         label.centerXAnchor.constraint(equalTo: self.view.centerXAnchor, constant: 0).isActive = true
-        label.leadingAnchor.constraint(lessThanOrEqualTo: self.view.leadingAnchor, constant: 20)
-        label.trailingAnchor.constraint(lessThanOrEqualTo: self.view.trailingAnchor, constant: 20)
+        label.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 20).isActive = true
+        label.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: 20).isActive = true
+        label.isHidden = false
         label.text = text
     }
     
