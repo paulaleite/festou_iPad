@@ -24,6 +24,7 @@ class MenuTableViewController: UITableViewController {
         tableView.dataSource = self
         tableView.delegate = self
         navigationItem.title = "Festas"
+        navigationItem.leftBarButtonItem = editButtonItem
         tableView.rowHeight = 178
     }
     
@@ -43,10 +44,12 @@ class MenuTableViewController: UITableViewController {
         tableView.reloadData()
     }
     
+    // Number of rows
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return parties.count
     }
     
+    // Load cells
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "aCell") as! PartyMenuTableViewCell
         cell.title.text = parties[indexPath.row].name
@@ -67,21 +70,38 @@ class MenuTableViewController: UITableViewController {
         return cell
     }
     
+    // Allows deleting
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             context?.delete(parties[indexPath.row])
             parties.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
+            
+            // Adding "noPartyImage" in case there are no more parties
             if parties.count == 0 {
                 noPartyImage.frame = CGRect(x: 0, y: 0, width: 390, height: 300)
                 self.view.addSubview(noPartyImage)
                 noPartyImage.center.x = self.view.center.x
                 noPartyImage.center.y = self.view.center.y - 80
             }
+            
             (UIApplication.shared.delegate as! AppDelegate).saveContext()
         }
     }
+    
+    override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        if tableView.isEditing {
+            return .delete
+        }
+        return .none
+    }
 
+    // Allows editing row
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    // Method that allows the Exit action
     @IBAction func addParty(_ sender: UIStoryboardSegue){
         if sender.source is TitleTableViewController{
             if let senderAdd = sender.source as? TitleTableViewController{
@@ -92,12 +112,8 @@ class MenuTableViewController: UITableViewController {
             }
         }
     }
-
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return false
-    }
     
+    // Prepare for segue from table view cells
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let partyGuest = segue.destination as? GuestsTableViewController {
             partyGuest.partyTVC = self
