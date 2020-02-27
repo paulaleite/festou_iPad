@@ -19,6 +19,9 @@
 		0F6F07762284B1F400BAEC3A /* TimeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6F07752284B1F400BAEC3A /* TimeTableViewController.swift */; };
 		0F6F07782284B73700BAEC3A /* TitleTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6F07772284B73700BAEC3A /* TitleTableViewController.swift */; };
 		0F6F077E2284CA0300BAEC3A /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6F077D2284CA0300BAEC3A /* MenuTableViewController.swift */; };
+		E423E82024083DAE000FBC8B /* KeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E423E81F24083DAE000FBC8B /* KeyboardViewController.swift */; };
+		E423E82424083DAE000FBC8B /* keyboard.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = E423E81D24083DAE000FBC8B /* keyboard.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		E423E82A24083E7E000FBC8B /* keyboard.xib in Resources */ = {isa = PBXBuildFile; fileRef = E423E82924083E7E000FBC8B /* keyboard.xib */; };
 		E45C6CC2228B273500DA5E6E /* PartyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45C6CC1228B273500DA5E6E /* PartyTableViewController.swift */; };
 		E45C6CC4228B34AF00DA5E6E /* ChecklistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45C6CC3228B34AF00DA5E6E /* ChecklistViewController.swift */; };
 		E4AC2BD0228B9A570099F0F8 /* PartyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AC2BCF228B9A570099F0F8 /* PartyTableViewCell.swift */; };
@@ -45,7 +48,28 @@
 			remoteGlobalIDString = 0F450AB6228349A500FE038F;
 			remoteInfo = PlanejadorDeFesta;
 		};
+		E423E82224083DAE000FBC8B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0F450AAF228349A500FE038F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E423E81C24083DAE000FBC8B;
+			remoteInfo = keyboard;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		E423E82524083DAE000FBC8B /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				E423E82424083DAE000FBC8B /* keyboard.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		0F450AB7228349A500FE038F /* PlanejadorDeFesta.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlanejadorDeFesta.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -66,6 +90,10 @@
 		0F6F07752284B1F400BAEC3A /* TimeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TimeTableViewController.swift; path = ../TimeTableViewController.swift; sourceTree = "<group>"; };
 		0F6F07772284B73700BAEC3A /* TitleTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleTableViewController.swift; sourceTree = "<group>"; };
 		0F6F077D2284CA0300BAEC3A /* MenuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MenuTableViewController.swift; path = ../MenuTableViewController.swift; sourceTree = "<group>"; };
+		E423E81D24083DAE000FBC8B /* keyboard.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = keyboard.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		E423E81F24083DAE000FBC8B /* KeyboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardViewController.swift; sourceTree = "<group>"; };
+		E423E82124083DAE000FBC8B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E423E82924083E7E000FBC8B /* keyboard.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = keyboard.xib; sourceTree = "<group>"; };
 		E45C6CC1228B273500DA5E6E /* PartyTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartyTableViewController.swift; sourceTree = "<group>"; };
 		E45C6CC3228B34AF00DA5E6E /* ChecklistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ChecklistViewController.swift; path = ../ChecklistViewController.swift; sourceTree = "<group>"; };
 		E4AC2BCF228B9A570099F0F8 /* PartyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartyTableViewCell.swift; sourceTree = "<group>"; };
@@ -99,6 +127,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E423E81A24083DAE000FBC8B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -108,6 +143,7 @@
 				0F450AB9228349A500FE038F /* PlanejadorDeFesta */,
 				0F450AD1228349A700FE038F /* PlanejadorDeFestaTests */,
 				0F450ADC228349A700FE038F /* PlanejadorDeFestaUITests */,
+				E423E81E24083DAE000FBC8B /* keyboard */,
 				0F450AB8228349A500FE038F /* Products */,
 			);
 			sourceTree = "<group>";
@@ -118,6 +154,7 @@
 				0F450AB7228349A500FE038F /* PlanejadorDeFesta.app */,
 				0F450ACE228349A700FE038F /* PlanejadorDeFestaTests.xctest */,
 				0F450AD9228349A700FE038F /* PlanejadorDeFestaUITests.xctest */,
+				E423E81D24083DAE000FBC8B /* keyboard.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -154,6 +191,16 @@
 				0F450ADF228349A700FE038F /* Info.plist */,
 			);
 			path = PlanejadorDeFestaUITests;
+			sourceTree = "<group>";
+		};
+		E423E81E24083DAE000FBC8B /* keyboard */ = {
+			isa = PBXGroup;
+			children = (
+				E423E81F24083DAE000FBC8B /* KeyboardViewController.swift */,
+				E423E82124083DAE000FBC8B /* Info.plist */,
+				E423E82924083E7E000FBC8B /* keyboard.xib */,
+			);
+			path = keyboard;
 			sourceTree = "<group>";
 		};
 		E485C9862295AFD100AAD3CD /* Model */ = {
@@ -201,10 +248,12 @@
 				0F450AB3228349A500FE038F /* Sources */,
 				0F450AB4228349A500FE038F /* Frameworks */,
 				0F450AB5228349A500FE038F /* Resources */,
+				E423E82524083DAE000FBC8B /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				E423E82324083DAE000FBC8B /* PBXTargetDependency */,
 			);
 			name = PlanejadorDeFesta;
 			productName = PlanejadorDeFesta;
@@ -247,13 +296,30 @@
 			productReference = 0F450AD9228349A700FE038F /* PlanejadorDeFestaUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		E423E81C24083DAE000FBC8B /* keyboard */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E423E82824083DAE000FBC8B /* Build configuration list for PBXNativeTarget "keyboard" */;
+			buildPhases = (
+				E423E81924083DAE000FBC8B /* Sources */,
+				E423E81A24083DAE000FBC8B /* Frameworks */,
+				E423E81B24083DAE000FBC8B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = keyboard;
+			productName = keyboard;
+			productReference = E423E81D24083DAE000FBC8B /* keyboard.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		0F450AAF228349A500FE038F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1020;
+				LastSwiftUpdateCheck = 1130;
 				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = "Lia Kassardjian";
 				TargetAttributes = {
@@ -267,6 +333,9 @@
 					0F450AD8228349A700FE038F = {
 						CreatedOnToolsVersion = 10.2.1;
 						TestTargetID = 0F450AB6228349A500FE038F;
+					};
+					E423E81C24083DAE000FBC8B = {
+						CreatedOnToolsVersion = 11.3.1;
 					};
 				};
 			};
@@ -286,6 +355,7 @@
 				0F450AB6228349A500FE038F /* PlanejadorDeFesta */,
 				0F450ACD228349A700FE038F /* PlanejadorDeFestaTests */,
 				0F450AD8228349A700FE038F /* PlanejadorDeFestaUITests */,
+				E423E81C24083DAE000FBC8B /* keyboard */,
 			);
 		};
 /* End PBXProject section */
@@ -312,6 +382,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E423E81B24083DAE000FBC8B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E423E82A24083E7E000FBC8B /* keyboard.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -357,6 +435,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E423E81924083DAE000FBC8B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E423E82024083DAE000FBC8B /* KeyboardViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -369,6 +455,11 @@
 			isa = PBXTargetDependency;
 			target = 0F450AB6228349A500FE038F /* PlanejadorDeFesta */;
 			targetProxy = 0F450ADA228349A700FE038F /* PBXContainerItemProxy */;
+		};
+		E423E82324083DAE000FBC8B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E423E81C24083DAE000FBC8B /* keyboard */;
+			targetProxy = E423E82224083DAE000FBC8B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -511,6 +602,7 @@
 		0F450AE3228349A700FE038F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5HW626WUP4;
@@ -529,6 +621,7 @@
 		0F450AE4228349A700FE038F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5HW626WUP4;
@@ -626,6 +719,46 @@
 			};
 			name = Release;
 		};
+		E423E82624083DAE000FBC8B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5HW626WUP4;
+				INFOPLIST_FILE = keyboard/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = br.lk.PlanejadorDeFesta.keyboard;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E423E82724083DAE000FBC8B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5HW626WUP4;
+				INFOPLIST_FILE = keyboard/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = br.lk.PlanejadorDeFesta.keyboard;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -661,6 +794,15 @@
 			buildConfigurations = (
 				0F450AE9228349A700FE038F /* Debug */,
 				0F450AEA228349A700FE038F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E423E82824083DAE000FBC8B /* Build configuration list for PBXNativeTarget "keyboard" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E423E82624083DAE000FBC8B /* Debug */,
+				E423E82724083DAE000FBC8B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

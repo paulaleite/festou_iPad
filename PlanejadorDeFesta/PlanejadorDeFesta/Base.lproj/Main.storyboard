@@ -157,7 +157,7 @@
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Convidados" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9dz-uq-Chj">
                                                     <rect key="frame" x="12" y="0.0" width="390" height="44"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                    <textInputTraits key="textInputTraits"/>
                                                     <connections>
                                                         <action selector="textFieldDidChange:" destination="ppU-Hm-GqJ" eventType="editingDidEnd" id="PA9-G6-O6M"/>
                                                     </connections>
