@@ -40,6 +40,16 @@
 					<key>UISceneStoryboardFile</key>
 					<string>Main</string>
 				</dict>
+				<dict>
+					<key>UISceneClassName</key>
+					<string></string>
+					<key>UISceneDelegateClassName</key>
+					<string>$(PRODUCT_MODULE_NAME).NewSceneDelegate</string>
+					<key>UISceneConfigurationName</key>
+					<string>NewScene Configuration</string>
+					<key>UISceneStoryboardFile</key>
+					<string></string>
+				</dict>
 			</array>
 		</dict>
 	</dict>

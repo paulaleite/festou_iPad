@@ -20,6 +20,7 @@
 		0F6F07782284B73700BAEC3A /* TitleTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6F07772284B73700BAEC3A /* TitleTableViewController.swift */; };
 		0F6F077E2284CA0300BAEC3A /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6F077D2284CA0300BAEC3A /* MenuTableViewController.swift */; };
 		1EE70FF0242BF997002F5D1A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EE70FEF242BF997002F5D1A /* SceneDelegate.swift */; };
+		1EE70FF2242BFBF6002F5D1A /* NewSceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EE70FF1242BFBF6002F5D1A /* NewSceneDelegate.swift */; };
 		E423E82024083DAE000FBC8B /* KeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E423E81F24083DAE000FBC8B /* KeyboardViewController.swift */; };
 		E423E82424083DAE000FBC8B /* keyboard.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = E423E81D24083DAE000FBC8B /* keyboard.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		E423E82A24083E7E000FBC8B /* keyboard.xib in Resources */ = {isa = PBXBuildFile; fileRef = E423E82924083E7E000FBC8B /* keyboard.xib */; };
@@ -92,6 +93,7 @@
 		0F6F07772284B73700BAEC3A /* TitleTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleTableViewController.swift; sourceTree = "<group>"; };
 		0F6F077D2284CA0300BAEC3A /* MenuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MenuTableViewController.swift; path = ../MenuTableViewController.swift; sourceTree = "<group>"; };
 		1EE70FEF242BF997002F5D1A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		1EE70FF1242BFBF6002F5D1A /* NewSceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSceneDelegate.swift; sourceTree = "<group>"; };
 		E423E81D24083DAE000FBC8B /* keyboard.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = keyboard.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		E423E81F24083DAE000FBC8B /* KeyboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardViewController.swift; sourceTree = "<group>"; };
 		E423E82124083DAE000FBC8B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -167,8 +169,6 @@
 				E485C9862295AFD100AAD3CD /* Model */,
 				E485C9872295AFDF00AAD3CD /* View */,
 				E485C9882295AFEF00AAD3CD /* Controller */,
-				0F450ABA228349A500FE038F /* AppDelegate.swift */,
-				1EE70FEF242BF997002F5D1A /* SceneDelegate.swift */,
 				0F450ABE228349A500FE038F /* Main.storyboard */,
 				0F450AC4228349A700FE038F /* Assets.xcassets */,
 				0F450AC6228349A700FE038F /* LaunchScreen.storyboard */,
@@ -213,6 +213,9 @@
 				E4C24EA62288983B0065C4A4 /* Party+CoreDataProperties.swift */,
 				E4C24EA72288983B0065C4A4 /* Tasks+CoreDataClass.swift */,
 				E4C24EA82288983B0065C4A4 /* Tasks+CoreDataProperties.swift */,
+				0F450ABA228349A500FE038F /* AppDelegate.swift */,
+				1EE70FEF242BF997002F5D1A /* SceneDelegate.swift */,
+				1EE70FF1242BFBF6002F5D1A /* NewSceneDelegate.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -407,6 +410,7 @@
 				0F450AC3228349A500FE038F /* PlanejadorDeFesta.xcdatamodeld in Sources */,
 				0F6F07762284B1F400BAEC3A /* TimeTableViewController.swift in Sources */,
 				E4C24EAC2288983B0065C4A4 /* Tasks+CoreDataProperties.swift in Sources */,
+				1EE70FF2242BFBF6002F5D1A /* NewSceneDelegate.swift in Sources */,
 				0F6F077E2284CA0300BAEC3A /* MenuTableViewController.swift in Sources */,
 				0F450ABB228349A500FE038F /* AppDelegate.swift in Sources */,
 				E4AC2BD0228B9A570099F0F8 /* PartyTableViewCell.swift in Sources */,
