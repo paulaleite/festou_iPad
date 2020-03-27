@@ -9,6 +9,7 @@
 import UIKit
 import CoreData
 
+@available(iOS 13.0, *)
 class ChecklistViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     public var imageName:String!
@@ -39,6 +40,7 @@ class ChecklistViewController: UIViewController, UITableViewDataSource, UITableV
         checklistTV.dataSource = self
         checklistTV.delegate = self
         checklistTV.rowHeight = 65
+
     }
     
     override func viewWillAppear(_ animated: Bool) {

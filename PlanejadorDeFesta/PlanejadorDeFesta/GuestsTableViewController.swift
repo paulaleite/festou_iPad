@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import CoreData
 
+@available(iOS 13.0, *)
 class GuestsTableViewController: UITableViewController, UITextFieldDelegate {
     
     public var party:Party?
@@ -63,6 +64,21 @@ class GuestsTableViewController: UITableViewController, UITextFieldDelegate {
         wrongValuesLabel = setWrongLabel()
         
         nextButton.isEnabled = false
+        
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            let newWindowButton = UIButton(frame: CGRect(x: 20, y: 108, width: 147, height: 40))
+            newWindowButton.backgroundColor = .purple
+            newWindowButton.setTitle("New Window", for: .normal)
+            newWindowButton.layer.cornerRadius = 10
+            newWindowButton.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
+
+            self.view.addSubview(newWindowButton)
+        }
+    }
+    
+    @objc func buttonAction(sender: UIButton!) {
+        let userActivity = NSUserActivity(activityType: ActivityIdentifier.create.rawValue)
+        UIApplication.shared.requestSceneSessionActivation(nil, userActivity: userActivity, options: nil, errorHandler: nil)
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -115,6 +131,21 @@ class GuestsTableViewController: UITableViewController, UITextFieldDelegate {
         }
     }
     
+    func updateListViews() {
+        let scenes = UIApplication.shared.connectedScenes
+        let filteredScenes = scenes.filter { scene in
+            guard let userInfo = scene.session.userInfo, let activityType = userInfo["type"] as? String, activityType == ActivityIdentifier.partiesList.rawValue
+            else {
+                return false
+        }
+
+        return true
+      }
+        filteredScenes.forEach { scene in
+            UIApplication.shared.requestSceneSessionRefresh(scene.session)
+        }
+    }
+    
     @IBAction func next(_ sender: Any) {
     
         goingForwards = true
@@ -157,6 +188,8 @@ class GuestsTableViewController: UITableViewController, UITextFieldDelegate {
                 partyMeal.partyTVC = partyTVC
                 partyMeal.guestsTVC = self
             }
+            NotificationCenter.default.post(name: Notification.Name.partyCreated, object: nil)
+            updateListViews()
             self.navigationController!.pushViewController(controller, animated: true)
         }
         

@@ -14,6 +14,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    @available(iOS 13.0, *)
+    func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
+        var currentActivity: ActivityIdentifier?
+              
+        // Trying to generate an ActivityIdentifier
+        options.userActivities.forEach { activity in
+          currentActivity = ActivityIdentifier(rawValue: activity.activityType)
+        }
+              
+        // Using the activity
+        let activity = currentActivity ?? ActivityIdentifier.partiesList
+          
+        // Creating a new scene
+        let sceneConfig = activity.sceneConfiguration()
+        
+        // Create a user info dictionary from the current activity.
+        let userInfo = [
+          "type": activity.rawValue
+        ]
+
+        // Set the userInfo property on the scene session.
+        connectingSceneSession.userInfo = userInfo
+
+                      
+        // Returning the scene configuration
+        return sceneConfig
+    }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.

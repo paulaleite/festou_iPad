@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import CoreData
 
+@available(iOS 13.0, *)
 class TitleTableViewController: UITableViewController, UITextFieldDelegate {
     
     let colors:[[Int16]] = [[158, 133, 244],    // roxo
@@ -158,6 +159,27 @@ class TitleTableViewController: UITableViewController, UITextFieldDelegate {
             }
         }
         (UIApplication.shared.delegate as! AppDelegate).saveContext()
+        
+    }
+    
+    func updateListViews() {
+      // 1
+        let scenes = UIApplication.shared.connectedScenes
+      
+      // 2
+        let filteredScenes = scenes.filter { scene in
+            guard let userInfo = scene.session.userInfo, let activityType = userInfo["type"] as? String, activityType == ActivityIdentifier.partiesList.rawValue
+            else {
+                return false
+        }
+
+        return true
+      }
+      
+      // 3
+        filteredScenes.forEach { scene in
+            UIApplication.shared.requestSceneSessionRefresh(scene.session)
+        }
     }
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
@@ -195,6 +217,8 @@ class TitleTableViewController: UITableViewController, UITextFieldDelegate {
                 }
             }
             addTasks()
+            NotificationCenter.default.post(name: Notification.Name.partyCreated, object: nil)
+            updateListViews()
             return true
         }
         return false
