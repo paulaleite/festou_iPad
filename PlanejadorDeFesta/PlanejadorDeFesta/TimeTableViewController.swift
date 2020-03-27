@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import CoreData
 
+@available(iOS 13.0, *)
 class TimeTableViewController: UITableViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
     @IBOutlet weak var amountOfHoursPicker: UIPickerView!
@@ -62,9 +63,13 @@ class TimeTableViewController: UITableViewController, UIPickerViewDelegate, UIPi
     
         let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier: "partyName")
-        if let partyTitle = controller as? TitleTableViewController {
-            partyTitle.party = party
-            partyTitle.partyTVC = partyTVC
+        if #available(iOS 13.0, *) {
+            if let partyTitle = controller as? TitleTableViewController {
+                partyTitle.party = party
+                partyTitle.partyTVC = partyTVC
+            }
+        } else {
+            // Fallback on earlier versions
         }
         self.navigationController!.pushViewController(controller, animated: true)
     }

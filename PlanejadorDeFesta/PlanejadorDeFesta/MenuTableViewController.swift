@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import CoreData
 
+@available(iOS 13.0, *)
 class MenuTableViewController: UITableViewController {
     
     var parties:[Party] =  []
@@ -26,10 +27,11 @@ class MenuTableViewController: UITableViewController {
         navigationItem.title = "Festas"
         navigationItem.leftBarButtonItem = editButtonItem
         tableView.rowHeight = 178
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        do{
+        do {
             parties = try context!.fetch(Party.fetchRequest())
         } catch {
             print("Erro ao carregar festa")
@@ -103,23 +105,31 @@ class MenuTableViewController: UITableViewController {
     
     // Method that allows the Exit action
     @IBAction func addParty(_ sender: UIStoryboardSegue){
-        if sender.source is TitleTableViewController{
-            if let senderAdd = sender.source as? TitleTableViewController{
-                if let party = senderAdd.newParty{
-                    parties.append(party)
-                    noPartyImage.removeFromSuperview()
+        if #available(iOS 13.0, *) {
+            if sender.source is TitleTableViewController{
+                if let senderAdd = sender.source as? TitleTableViewController{
+                    if let party = senderAdd.newParty{
+                        parties.append(party)
+                        noPartyImage.removeFromSuperview()
+                    }
                 }
             }
+        } else {
+            // Fallback on earlier versions
         }
     }
     
     // Prepare for segue from table view cells
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let partyGuest = segue.destination as? GuestsTableViewController {
-            partyGuest.partyTVC = self
-            if let _ = context{
-                partyGuest.party = Party(context: context!)
+        if #available(iOS 13.0, *) {
+            if let partyGuest = segue.destination as? GuestsTableViewController {
+                partyGuest.partyTVC = self
+                if let _ = context{
+                    partyGuest.party = Party(context: context!)
+                }
             }
+        } else {
+            // Fallback on earlier versions
         }
         if let partyTVC = segue.destination as? PartyTableViewController {
             partyTVC.party = parties[tableView.indexPathForSelectedRow!.row]

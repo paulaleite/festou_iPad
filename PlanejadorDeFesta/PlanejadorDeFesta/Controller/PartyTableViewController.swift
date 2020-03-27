@@ -9,8 +9,9 @@
 import UIKit
 import CoreData
 
+@available(iOS 13.0, *)
 class PartyTableViewController: UITableViewController {
-
+    
     public var party:Party?
     
     public var menuTVC:MenuTableViewController?
@@ -92,29 +93,33 @@ class PartyTableViewController: UITableViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let tasks = segue.destination as? ChecklistViewController {
-            var name:String?
-            var title:String?
-            var section:Int?
-            if segue.identifier == "food"{
-                name = "Plate"
-                title = "Comida"
-                section = 1
-            } else if segue.identifier == "drinks" {
-                name = "Drink"
-                title = "Bebida"
-                section = 2
-            } else if segue.identifier == "utensils" {
-                name = "Utensils"
-                title = "Utensílios"
-                section = 3
+        if #available(iOS 13.0, *) {
+            if let tasks = segue.destination as? ChecklistViewController {
+                var name:String?
+                var title:String?
+                var section:Int?
+                if segue.identifier == "food"{
+                    name = "Plate"
+                    title = "Comida"
+                    section = 1
+                } else if segue.identifier == "drinks" {
+                    name = "Drink"
+                    title = "Bebida"
+                    section = 2
+                } else if segue.identifier == "utensils" {
+                    name = "Utensils"
+                    title = "Utensílios"
+                    section = 3
+                }
+                if let n = name, let t = title, let s = section {
+                    tasks.imageName = n
+                    tasks.navigationItem.title = t
+                    tasks.section = s
+                }
+                tasks.party = party
             }
-            if let n = name, let t = title, let s = section {
-                tasks.imageName = n
-                tasks.navigationItem.title = t
-                tasks.section = s
-            }
-            tasks.party = party
+        } else {
+            // Fallback on earlier versions
         }
     }
 

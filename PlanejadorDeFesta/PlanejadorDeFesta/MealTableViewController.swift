@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import CoreData
 
+@available(iOS 13.0, *)
 class MealTableViewController: UITableViewController {
     
     var selectedRow:Int = 1
