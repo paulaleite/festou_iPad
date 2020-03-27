@@ -35,10 +35,6 @@ class GuestsTableViewController: UITableViewController, UITextFieldDelegate {
     
     var wrongValuesLabel:UILabel?
     
-//    var wrongAmountGuestsLabel:UILabel?
-//
-//    var wrongAmountDrunkGuestsLabel:UILabel?
-    
     @IBOutlet weak var nextButton: UIBarButtonItem!
     
     let red = UIColor(red: 214/255, green: 59/255, blue: 87/255, alpha: 1)

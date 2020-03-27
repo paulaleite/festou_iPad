@@ -163,20 +163,17 @@ class TitleTableViewController: UITableViewController, UITextFieldDelegate {
     }
     
     func updateListViews() {
-      // 1
         let scenes = UIApplication.shared.connectedScenes
       
-      // 2
         let filteredScenes = scenes.filter { scene in
             guard let userInfo = scene.session.userInfo, let activityType = userInfo["type"] as? String, activityType == ActivityIdentifier.partiesList.rawValue
             else {
                 return false
         }
 
-        return true
-      }
-      
-      // 3
+            return true
+        }
+        
         filteredScenes.forEach { scene in
             UIApplication.shared.requestSceneSessionRefresh(scene.session)
         }

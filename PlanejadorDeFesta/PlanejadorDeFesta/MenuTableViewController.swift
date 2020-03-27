@@ -43,24 +43,7 @@ class MenuTableViewController: UITableViewController {
             noPartyImage.center.x = self.view.center.x
             noPartyImage.center.y = self.view.center.y - 80
         }
-//        NotificationCenter.default.post(name: Notification.Name.partyCreated, object: nil)
-//        updateListViews()
         tableView.reloadData()
-    }
-    
-    func updateListViews() {
-        let scenes = UIApplication.shared.connectedScenes
-        let filteredScenes = scenes.filter { scene in
-            guard let userInfo = scene.session.userInfo, let activityType = userInfo["type"] as? String, activityType == ActivityIdentifier.partiesList.rawValue
-            else {
-                return false
-        }
-
-        return true
-      }
-        filteredScenes.forEach { scene in
-            UIApplication.shared.requestSceneSessionRefresh(scene.session)
-        }
     }
     
     // Number of rows
